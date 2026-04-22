@@ -13,26 +13,60 @@
       body {
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background: #1a1a2e;
-        color: #e0e0e0;
+        background: #e8ecf4;
+        color: #1a1a2e;
         line-height: 1.7;
-        padding: 40px 24px;
-        max-width: 640px;
+      }
+      a {
+        color: #4338ca;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 24px;
+        max-width: 720px;
         margin: 0 auto;
       }
+      .nav-back {
+        font-size: 14px;
+        font-weight: 600;
+        color: #555;
+      }
+      .nav-back:hover {
+        color: #4338ca;
+      }
+      .lang-toggle {
+        font-size: 13px;
+        font-weight: 600;
+        color: #888;
+      }
+      .lang-toggle a {
+        color: #4338ca;
+      }
+      .content {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 8px 24px 40px;
+      }
       h1 {
-        color: #5b8def;
+        color: #4338ca;
         font-size: 28px;
         margin-bottom: 24px;
       }
       h2 {
-        color: #5b8def;
+        color: #4338ca;
         font-size: 20px;
         margin-top: 32px;
         margin-bottom: 12px;
       }
       p {
         margin-bottom: 16px;
+        color: #333;
       }
       ul {
         margin-bottom: 16px;
@@ -40,18 +74,19 @@
       }
       li {
         margin-bottom: 8px;
+        color: #333;
       }
       hr {
         border: none;
-        border-top: 1px solid #2a2a4e;
+        border-top: 1px solid #d0d5e0;
         margin: 24px 0;
       }
       em {
-        color: #aaa;
+        color: #666;
         font-style: italic;
       }
-      a {
-        color: #5b8def;
+      strong {
+        color: #1a1a2e;
       }
       .subtitle {
         color: #888;
@@ -61,7 +96,12 @@
     </style>
   </head>
   <body>
-    <p class="subtitle">Cipher Academy · Dernière mise à jour: 22 avril 2026</p>
+    <nav class="nav">
+      <a class="nav-back" href="cipher-academy.fr.html">← Cipher Academy</a>
+      <span class="lang-toggle"><a href="cipher-academy-credits.html">EN</a> · FR</span>
+    </nav>
+    <div class="content">
+      <p class="subtitle">Cipher Academy · Dernière mise à jour: 22 avril 2026</p>
     <h1>Crédits</h1>
     <h2>Contributeurs</h2>
     <ul>
@@ -78,5 +118,6 @@
     </li>
     </ul>
 
+    </div>
   </body>
 </html>
