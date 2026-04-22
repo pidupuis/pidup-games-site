@@ -109,8 +109,7 @@
       /* --- Screenshot galleries --- */
       .gallery-section {
         padding: 24px 0;
-        max-width: 960px;
-        margin: 0 auto;
+        overflow: hidden;
       }
       .gallery-section h3 {
         font-size: 14px;
@@ -120,19 +119,23 @@
         color: #5e5e5e;
         padding: 0 24px;
         margin-bottom: 12px;
+        max-width: 960px;
+        margin-left: auto;
+        margin-right: auto;
       }
       .gallery {
         display: flex;
+        justify-content: center;
         gap: 16px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        padding: 8px 0 24px 24px;
+        padding: 8px 24px 24px;
         -webkit-overflow-scrolling: touch;
       }
       .gallery::after {
         content: "";
         flex-shrink: 0;
-        width: 24px;
+        width: 1px;
       }
       .gallery::-webkit-scrollbar {
         display: none;
