@@ -17,12 +17,12 @@
       body {
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background: #e8ecf4;
-        color: #1a1a2e;
+        background: #e6eaf5;
+        color: #343434;
         line-height: 1.7;
       }
       a {
-        color: #4338ca;
+        color: #3228d0;
         text-decoration: none;
       }
       a:hover {
@@ -41,10 +41,10 @@
       .nav-back {
         font-size: 14px;
         font-weight: 600;
-        color: #555;
+        color: #5e5e5e;
       }
       .nav-back:hover {
-        color: #4338ca;
+        color: #3228d0;
       }
       .lang-toggle {
         font-size: 13px;
@@ -52,7 +52,7 @@
         color: #888;
       }
       .lang-toggle a {
-        color: #4338ca;
+        color: #3228d0;
       }
 
       /* --- Hero --- */
@@ -67,20 +67,20 @@
         height: 120px;
         border-radius: 28px;
         box-shadow:
-          6px 6px 16px rgba(163, 177, 198, 0.6),
-          -6px -6px 16px rgba(255, 255, 255, 0.8);
+          4px 4px 8px rgba(163, 170, 190, 0.45),
+          -4px -4px 8px rgba(255, 255, 255, 0.85);
         margin-bottom: 24px;
       }
       .hero h1 {
         font-size: 40px;
         font-weight: 800;
         letter-spacing: 2px;
-        color: #1a1a2e;
+        color: #343434;
         margin-bottom: 4px;
       }
       .hero h1 span {
         display: block;
-        background: linear-gradient(135deg, #4338ca, #0ea5e9);
+        background: linear-gradient(135deg, #3228d0, #27e29e);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -88,7 +88,7 @@
       .hero .tagline {
         font-size: 18px;
         font-weight: 600;
-        background: linear-gradient(135deg, #4338ca, #0ea5e9);
+        background: linear-gradient(135deg, #3228d0, #27e29e);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -105,16 +105,27 @@
         border-radius: 50px;
         font-size: 14px;
         font-weight: 600;
-        color: #4338ca;
-        background: #e8ecf4;
+        color: #3228d0;
+        background: #e6eaf5;
         box-shadow:
-          4px 4px 10px rgba(163, 177, 198, 0.5),
-          -4px -4px 10px rgba(255, 255, 255, 0.7);
+          4px 4px 8px rgba(163, 170, 190, 0.45),
+          -4px -4px 8px rgba(255, 255, 255, 0.85);
       }
 
-      /* --- Screenshot gallery --- */
+      /* --- Screenshot galleries --- */
       .gallery-section {
-        padding: 32px 0;
+        padding: 24px 0;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      .gallery-section h3 {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #5e5e5e;
+        padding: 0 24px;
+        margin-bottom: 12px;
       }
       .gallery {
         display: flex;
@@ -129,12 +140,12 @@
       }
       .gallery img {
         flex-shrink: 0;
-        width: 220px;
+        width: 200px;
         height: auto;
         border-radius: 20px;
         box-shadow:
-          4px 4px 12px rgba(163, 177, 198, 0.5),
-          -4px -4px 12px rgba(255, 255, 255, 0.7);
+          4px 4px 8px rgba(163, 170, 190, 0.45),
+          -4px -4px 8px rgba(255, 255, 255, 0.85);
         scroll-snap-align: center;
       }
 
@@ -150,12 +161,12 @@
       .section h2 {
         font-size: 24px;
         font-weight: 700;
-        color: #4338ca;
+        color: #3228d0;
         margin-bottom: 16px;
       }
       .section p {
         margin-bottom: 16px;
-        color: #333;
+        color: #343434;
       }
 
       /* --- Feature cards --- */
@@ -167,21 +178,21 @@
       }
       @media (min-width: 640px) {
         .features {
-          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr;
         }
       }
       .feature-card {
         padding: 24px;
         border-radius: 20px;
-        background: #e8ecf4;
+        background: #e6eaf5;
         box-shadow:
-          6px 6px 16px rgba(163, 177, 198, 0.5),
-          -6px -6px 16px rgba(255, 255, 255, 0.7);
+          4px 4px 8px rgba(163, 170, 190, 0.45),
+          -4px -4px 8px rgba(255, 255, 255, 0.85);
       }
       .feature-card h3 {
         font-size: 16px;
         font-weight: 700;
-        color: #4338ca;
+        color: #3228d0;
         margin-bottom: 12px;
       }
       .feature-card ul {
@@ -199,7 +210,7 @@
         content: "•";
         position: absolute;
         left: 0;
-        color: #4338ca;
+        color: #3228d0;
       }
       .feature-card p {
         font-size: 14px;
@@ -223,10 +234,10 @@
       .path-card {
         padding: 20px;
         border-radius: 16px;
-        background: #e8ecf4;
+        background: #e6eaf5;
         box-shadow:
-          4px 4px 12px rgba(163, 177, 198, 0.5),
-          -4px -4px 12px rgba(255, 255, 255, 0.7);
+          4px 4px 8px rgba(163, 170, 190, 0.45),
+          -4px -4px 8px rgba(255, 255, 255, 0.85);
         text-align: center;
       }
       .path-card .emoji {
@@ -236,7 +247,7 @@
       .path-card h3 {
         font-size: 16px;
         font-weight: 700;
-        color: #1a1a2e;
+        color: #343434;
         margin-bottom: 4px;
       }
       .path-card p {
@@ -258,7 +269,7 @@
         padding: 40px 24px;
         max-width: 720px;
         margin: 0 auto;
-        border-top: 1px solid #d0d5e0;
+        border-top: 1px solid #d0d4e3;
       }
       .footer-links {
         margin-bottom: 16px;
@@ -266,7 +277,7 @@
       .footer-links a {
         font-size: 14px;
         margin: 0 8px;
-        color: #4338ca;
+        color: #3228d0;
       }
       .footer .contact {
         font-size: 13px;
@@ -304,8 +315,9 @@
       <span class="badge">Available soon on Google Play</span>
     </section>
 
-    <!-- Screenshots -->
+    <!-- Screenshots: Learn -->
     <section class="gallery-section">
+      <h3>Learn</h3>
       <div class="gallery">
         <img
           src="images/cipher-academy/home.jpeg"
@@ -332,6 +344,13 @@
           alt="Learning Pigpen cipher"
           loading="lazy"
         />
+      </div>
+    </section>
+
+    <!-- Screenshots: Play -->
+    <section class="gallery-section">
+      <h3>Play</h3>
+      <div class="gallery">
         <img
           src="images/cipher-academy/play-modes.jpeg"
           alt="Play game modes"
@@ -365,19 +384,13 @@
       <!-- Intro -->
       <section class="section">
         <p>
-          Every escape room has a cipher puzzle. Most teams guess. You won't
-          have to.
+          You've seen cipher puzzles in escape rooms, spy movies, and puzzle
+          hunts. Cipher Academy is how you actually learn to read them — fast.
         </p>
         <p>
-          Cipher Academy teaches you to read 12+ code systems — Morse, Braille,
-          Pigpen, Semaphore, and more — through fast-paced puzzles designed to
-          build real fluency, not just recognition.
-        </p>
-        <p>
-          Start with single letters. Progress to full words. Tap out Morse
-          rhythms. Feel Braille patterns under your fingers. Spot encoded
-          symbols in a grid against the clock. Every cipher has its own way to
-          play.
+          Pick a cipher. Start with single letters. Build up to full words. Each
+          one has its own progression, its own challenges, and its own way to
+          test you.
         </p>
       </section>
 
@@ -385,43 +398,41 @@
       <section class="section">
         <h2>How it works</h2>
         <p>
-          Each cipher follows a carefully ordered progression — Morse starts
-          with E and T, Braille follows its historical "decades," Pigpen traces
-          the geometry of its grid. A built-in spaced repetition system
-          schedules your reviews so each symbol moves to long-term memory.
+          Every cipher follows a carefully designed learning path. Morse starts
+          with E and T. Braille follows its historical decades. Pigpen traces
+          the geometry of its grid. A spaced repetition engine schedules your
+          reviews so symbols stick in long-term memory.
         </p>
       </section>
 
-      <!-- Feature cards -->
+      <!-- Two modes -->
       <section class="section">
-        <h2>Five ways to play</h2>
+        <h2>Two modes</h2>
         <div class="features">
           <div class="feature-card">
             <h3>Learn</h3>
-            <p>New symbols introduced one at a time with immediate recall</p>
+            <p>
+              New symbols introduced one at a time with immediate recall. A
+              spaced repetition engine schedules your reviews so they stick.
+            </p>
           </div>
           <div class="feature-card">
-            <h3>Decode Words</h3>
-            <p>Decipher real words from 2 to 8 letters</p>
-          </div>
-          <div class="feature-card">
-            <h3>Find the Symbol</h3>
-            <p>Spot the match in a visual grid challenge</p>
-          </div>
-          <div class="feature-card">
-            <h3>Morse Tap</h3>
-            <p>Tap dots and dashes with the right rhythm</p>
-          </div>
-          <div class="feature-card">
-            <h3>Braille Touch</h3>
-            <p>Place your fingers on a virtual 6-dot cell</p>
+            <h3>Play</h3>
+            <ul>
+              <li>Decode Words — decipher real words from 2 to 8 letters</li>
+              <li>Find the Symbol — spot the match in a visual grid</li>
+              <li>Morse Tap — tap dots and dashes with the right rhythm</li>
+              <li>
+                Braille Touch — place your fingers on a virtual 6-dot cell
+              </li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <!-- Three paths -->
+      <!-- Three cipher sets -->
       <section class="section">
-        <h2>Three paths</h2>
+        <h2>Three cipher sets</h2>
         <div class="paths">
           <div class="path-card">
             <div class="emoji">🔓</div>
@@ -455,15 +466,12 @@
       <section class="section">
         <h2>Built with respect</h2>
         <p>
-          No ads. No subscriptions. No tracking. No internet required. No dark
-          patterns. One optional purchase unlocks everything — that's it.
+          No ads. No subscriptions. No tracking. No internet required. One
+          optional purchase unlocks everything — forever.
         </p>
         <p>
-          Cipher Academy is 100% offline, collects zero data, and will never
-          send you a notification. Your attention is not the product.
-        </p>
-        <p>
-          Try the free ciphers. If you want more, unlock once and keep forever.
+          Cipher Academy runs entirely on your device, collects zero data, and
+          will never send you a notification.
         </p>
       </section>
     </div>
