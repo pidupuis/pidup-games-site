@@ -80,18 +80,12 @@
       }
       .hero h1 span {
         display: block;
-        background: linear-gradient(135deg, #3228d0, #27e29e);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #3228d0;
       }
       .hero .tagline {
         font-size: 18px;
         font-weight: 600;
-        background: linear-gradient(135deg, #3228d0, #27e29e);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #3228d0;
         margin-bottom: 16px;
       }
       .hero .subtitle {
@@ -132,8 +126,13 @@
         gap: 16px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        padding: 8px 24px 24px;
+        padding: 8px 0 24px 24px;
         -webkit-overflow-scrolling: touch;
+      }
+      .gallery::after {
+        content: "";
+        flex-shrink: 0;
+        width: 24px;
       }
       .gallery::-webkit-scrollbar {
         display: none;
@@ -218,49 +217,43 @@
         margin: 0;
       }
 
-      /* --- Path cards --- */
-      .paths {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 16px;
+      /* --- Cipher table --- */
+      .cipher-table {
+        width: 100%;
+        border-collapse: collapse;
         margin-top: 16px;
-        margin-bottom: 48px;
+        margin-bottom: 12px;
+        font-size: 14px;
       }
-      @media (min-width: 640px) {
-        .paths {
-          grid-template-columns: 1fr 1fr 1fr;
-        }
-      }
-      .path-card {
-        padding: 20px;
-        border-radius: 16px;
-        background: #e6eaf5;
-        box-shadow:
-          4px 4px 8px rgba(163, 170, 190, 0.45),
-          -4px -4px 8px rgba(255, 255, 255, 0.85);
+      .cipher-table th,
+      .cipher-table td {
+        padding: 10px 14px;
         text-align: center;
+        border-bottom: 1px solid #d0d4e3;
       }
-      .path-card .emoji {
-        font-size: 32px;
-        margin-bottom: 8px;
-      }
-      .path-card h3 {
-        font-size: 16px;
+      .cipher-table th {
+        font-size: 13px;
         font-weight: 700;
-        color: #343434;
-        margin-bottom: 4px;
+        color: #5e5e5e;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
       }
-      .path-card p {
+      .cipher-table td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: #343434;
+      }
+      .cipher-table .check {
+        color: #3228d0;
+        font-size: 16px;
+      }
+      .cipher-table .dash {
+        color: #bbb;
+      }
+      .cipher-note {
         font-size: 13px;
         color: #666;
-        margin: 0;
-      }
-
-      /* --- Cipher list --- */
-      .cipher-list {
-        font-size: 15px;
-        color: #444;
-        line-height: 2;
+        margin-top: 8px;
       }
 
       /* --- Footer --- */
@@ -430,35 +423,96 @@
         </div>
       </section>
 
-      <!-- Three cipher sets -->
+      <!-- Ciphers & presets -->
       <section class="section">
-        <h2>Three cipher sets</h2>
-        <div class="paths">
-          <div class="path-card">
-            <div class="emoji">🔓</div>
-            <h3>Escaper</h3>
-            <p>The ciphers you'll actually find in escape rooms</p>
-          </div>
-          <div class="path-card">
-            <div class="emoji">🕵️</div>
-            <h3>Spy</h3>
-            <p>A broader set for aspiring secret agents</p>
-          </div>
-          <div class="path-card">
-            <div class="emoji">🧠</div>
-            <h3>Cryptologist</h3>
-            <p>Everything unlocked, no shortcuts</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Ciphers -->
-      <section class="section">
-        <h2>12+ ciphers</h2>
-        <p class="cipher-list">
-          Morse Code · Braille · Pigpen · Semaphore · Maritime Signal Flags ·
-          Binary · ASCII · ROT13 · Atbash · Polybius Square · Bacon's Cipher ·
-          A1Z26 — and more coming.
+        <h2>12+ ciphers, three paths</h2>
+        <table class="cipher-table">
+          <thead>
+            <tr>
+              <th>Cipher</th>
+              <th>Escaper</th>
+              <th>Spy</th>
+              <th>Cryptologist</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A1Z26</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Morse Code</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Pigpen</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Braille</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>ROT13</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Polybius Square</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Binary</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>ASCII</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Atbash</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Semaphore</td>
+              <td class="dash">&mdash;</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Maritime Signal Flags</td>
+              <td class="dash">&mdash;</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Bacon's Cipher</td>
+              <td class="dash">&mdash;</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="cipher-note">
+          Escaper is free. Spy and Cryptologist require a one-time unlock
+          &mdash; lifetime access, no subscriptions.
         </p>
       </section>
 
