@@ -6,7 +6,7 @@
     <title>Cipher Academy — Apprenez à décoder les chiffres</title>
     <meta
       name="description"
-      content="Apprenez à décoder le Morse, le Braille, le Pigpen et 12+ chiffres grâce à des puzzles rapides — conçu pour les fans d'escape game."
+      content="Apprenez à décoder le Morse, le Braille, le Pigpen et 12+ chiffres grâce à des puzzles rapides — conçu pour les fans d&#39;escape game."
     />
     <style>
       * {
@@ -28,6 +28,8 @@
       a:hover {
         text-decoration: underline;
       }
+
+      /* --- Nav --- */
       .nav {
         display: flex;
         justify-content: space-between;
@@ -52,6 +54,8 @@
       .lang-toggle a {
         color: #3228d0;
       }
+
+      /* --- Hero --- */
       .hero {
         text-align: center;
         padding: 40px 24px 32px;
@@ -63,8 +67,8 @@
         height: 120px;
         border-radius: 28px;
         box-shadow:
-          6px 6px 16px rgba(163, 170, 190, 0.6),
-          -6px -6px 16px rgba(255, 255, 255, 0.8);
+          4px 4px 8px rgba(163, 170, 190, 0.45),
+          -4px -4px 8px rgba(255, 255, 255, 0.85);
         margin-bottom: 24px;
       }
       .hero h1 {
@@ -98,15 +102,17 @@
         color: #3228d0;
         background: #e6eaf5;
         box-shadow:
-          4px 4px 10px rgba(163, 170, 190, 0.5),
-          -4px -4px 10px rgba(255, 255, 255, 0.7);
+          4px 4px 8px rgba(163, 170, 190, 0.45),
+          -4px -4px 8px rgba(255, 255, 255, 0.85);
       }
-      /* --- Screenshot galleries --- */
-      .gallery-section {
+
+      /* --- Screenshot carousels --- */
+      .carousel-section {
         padding: 24px 0;
-        overflow: hidden;
+        max-width: 960px;
+        margin: 0 auto;
       }
-      .gallery-section h3 {
+      .carousel-section h3 {
         font-size: 14px;
         font-weight: 700;
         text-transform: uppercase;
@@ -114,37 +120,80 @@
         color: #5e5e5e;
         padding: 0 24px;
         margin-bottom: 12px;
-        max-width: 960px;
-        margin-left: auto;
-        margin-right: auto;
       }
-      .gallery {
+      .carousel {
+        position: relative;
+        padding: 0 24px;
+      }
+      .carousel-track {
         display: flex;
-        justify-content: center;
         gap: 16px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        padding: 8px 24px 24px;
+        scroll-behavior: smooth;
+        padding: 8px 0 16px;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
       }
-      .gallery::after {
-        content: "";
-        flex-shrink: 0;
-        width: 1px;
-      }
-      .gallery::-webkit-scrollbar {
+      .carousel-track::-webkit-scrollbar {
         display: none;
       }
-      .gallery img {
+      .carousel-track img {
         flex-shrink: 0;
-        width: 200px;
+        width: calc((100% - 16px) / 2);
         height: auto;
         border-radius: 20px;
         box-shadow:
           4px 4px 8px rgba(163, 170, 190, 0.45),
           -4px -4px 8px rgba(255, 255, 255, 0.85);
-        scroll-snap-align: center;
+        scroll-snap-align: start;
       }
+      @media (min-width: 640px) {
+        .carousel-track img {
+          width: calc((100% - 48px) / 4);
+        }
+      }
+      @media (min-width: 960px) {
+        .carousel-track img {
+          width: calc((100% - 64px) / 5);
+        }
+      }
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: none;
+        background: #e6eaf5;
+        box-shadow:
+          3px 3px 6px rgba(163, 170, 190, 0.5),
+          -3px -3px 6px rgba(255, 255, 255, 0.7);
+        font-size: 18px;
+        color: #5e5e5e;
+        cursor: pointer;
+        z-index: 2;
+        display: none;
+      }
+      .carousel-btn:hover {
+        color: #3228d0;
+      }
+      .carousel-btn.prev {
+        left: 4px;
+      }
+      .carousel-btn.next {
+        right: 4px;
+      }
+      @media (min-width: 640px) {
+        .carousel-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      /* --- Content sections --- */
       .content {
         max-width: 720px;
         margin: 0 auto;
@@ -163,6 +212,8 @@
         margin-bottom: 16px;
         color: #343434;
       }
+
+      /* --- Feature cards --- */
       .features {
         display: grid;
         grid-template-columns: 1fr;
@@ -179,8 +230,8 @@
         border-radius: 20px;
         background: #e6eaf5;
         box-shadow:
-          6px 6px 16px rgba(163, 170, 190, 0.5),
-          -6px -6px 16px rgba(255, 255, 255, 0.7);
+          4px 4px 8px rgba(163, 170, 190, 0.45),
+          -4px -4px 8px rgba(255, 255, 255, 0.85);
       }
       .feature-card h3 {
         font-size: 16px;
@@ -210,6 +261,7 @@
         color: #444;
         margin: 0;
       }
+
       /* --- Cipher table --- */
       .cipher-table {
         width: 100%;
@@ -248,6 +300,8 @@
         color: #666;
         margin-top: 8px;
       }
+
+      /* --- Footer --- */
       .footer {
         text-align: center;
         padding: 40px 24px;
@@ -284,80 +338,86 @@
       <img
         class="hero-icon"
         src="images/cipher-academy/icon.png"
-        alt="Icône Cipher Academy"
+        alt="Cipher Academy icon"
         width="120"
         height="120"
       />
       <h1>CIPHER<span>ACADEMY</span></h1>
       <p class="tagline">Pour les Escapers, Espions et Cryptologues</p>
-      <p class="subtitle">
-        Pas de pub · Pas d'abonnement · Achat unique<br />
-        100% Hors-ligne · Pas de tracking · Aucune collecte de données
-      </p>
+      <p class="subtitle">Pas de pub · Pas d&#39;abonnement · Achat unique<br />
+        100% Hors-ligne · Pas de tracking · Aucune collecte de données</p>
       <span class="badge">Bientôt disponible sur Google Play</span>
     </section>
 
-    <!-- Captures : Apprendre -->
-    <section class="gallery-section">
+    <!-- Screenshots: Learn -->
+    <section class="carousel-section">
       <h3>Apprendre</h3>
-      <div class="gallery">
-        <img
-          src="images/cipher-academy/home.jpeg"
-          alt="Écran d'accueil"
-          loading="lazy"
-        />
-        <img
-          src="images/cipher-academy/levels-morse.jpeg"
-          alt="Niveaux Code Morse"
-          loading="lazy"
-        />
-        <img
-          src="images/cipher-academy/learn-morse.jpeg"
-          alt="Apprentissage du Morse"
-          loading="lazy"
-        />
-        <img
-          src="images/cipher-academy/learn-braille.jpeg"
-          alt="Apprentissage du Braille"
-          loading="lazy"
-        />
-        <img
-          src="images/cipher-academy/learn-pigpen.jpeg"
-          alt="Apprentissage du Pigpen"
-          loading="lazy"
-        />
+      <div class="carousel">
+        <button class="carousel-btn prev" aria-label="Previous">&#8249;</button>
+        <div class="carousel-track">
+          <img
+            src="images/cipher-academy/home.jpeg"
+            alt="Home screen"
+            loading="lazy"
+          />
+          <img
+            src="images/cipher-academy/levels-morse.jpeg"
+            alt="Morse Code levels"
+            loading="lazy"
+          />
+          <img
+            src="images/cipher-academy/learn-morse.jpeg"
+            alt="Learning Morse Code"
+            loading="lazy"
+          />
+          <img
+            src="images/cipher-academy/learn-braille.jpeg"
+            alt="Learning Braille"
+            loading="lazy"
+          />
+          <img
+            src="images/cipher-academy/learn-pigpen.jpeg"
+            alt="Learning Pigpen cipher"
+            loading="lazy"
+          />
+        </div>
+        <button class="carousel-btn next" aria-label="Next">&#8250;</button>
       </div>
     </section>
 
-    <!-- Captures : Jouer -->
-    <section class="gallery-section">
+    <!-- Screenshots: Play -->
+    <section class="carousel-section">
       <h3>Jouer</h3>
-      <div class="gallery">
-        <img
-          src="images/cipher-academy/play-modes.jpeg"
-          alt="Modes de jeu"
-          loading="lazy"
-        />
-        <img
-          src="images/cipher-academy/decode-words.jpeg"
-          alt="Décoder des mots"
-          loading="lazy"
-        />
-        <img
-          src="images/cipher-academy/find-the-symbol.jpeg"
-          alt="Trouver le symbole"
-          loading="lazy"
-        />
-        <img
-          src="images/cipher-academy/morse-tap.jpeg"
-          alt="Morse Tap"
-          loading="lazy"
-        />
-        <img
-          src="images/cipher-academy/braille-touch.jpeg"
-          alt="Braille Touch"
-          loading="lazy"
-        />
+      <div class="carousel">
+        <button class="carousel-btn prev" aria-label="Previous">&#8249;</button>
+        <div class="carousel-track">
+          <img
+            src="images/cipher-academy/play-modes.jpeg"
+            alt="Play game modes"
+            loading="lazy"
+          />
+          <img
+            src="images/cipher-academy/decode-words.jpeg"
+            alt="Decode Words game"
+            loading="lazy"
+          />
+          <img
+            src="images/cipher-academy/find-the-symbol.jpeg"
+            alt="Find the Symbol game"
+            loading="lazy"
+          />
+          <img
+            src="images/cipher-academy/morse-tap.jpeg"
+            alt="Morse Tap game"
+            loading="lazy"
+          />
+          <img
+            src="images/cipher-academy/braille-touch.jpeg"
+            alt="Braille Touch game"
+            loading="lazy"
+          />
+        </div>
+        <button class="carousel-btn next" aria-label="Next">&#8250;</button>
       </div>
     </section>
 
@@ -365,61 +425,37 @@
     <div class="content">
       <!-- Intro -->
       <section class="section">
-        <p>
-          Vous avez déjà vu des chiffres en escape room, dans un film
-          d'espionnage, ou lors d'une chasse au trésor. Cipher Academy, c'est
-          comme ça qu'on apprend vraiment à les lire — vite.
-        </p>
-        <p>
-          Choisissez un chiffre. Commencez par des lettres isolées. Progressez
-          vers des mots entiers. Chacun a sa propre progression, ses propres
-          défis, et sa propre façon de vous tester.
-        </p>
+        <p>Vous avez déjà vu des chiffres en escape room, dans un film d&#39;espionnage, ou lors d&#39;une chasse au trésor. Cipher Academy, c&#39;est comme ça qu&#39;on apprend vraiment à les lire — vite.</p>
+        <p>Choisissez un chiffre. Commencez par des lettres isolées. Progressez vers des mots entiers. Chacun a sa propre progression, ses propres défis, et sa propre façon de vous tester.</p>
       </section>
 
       <!-- How it works -->
       <section class="section">
         <h2>Comment ça marche</h2>
-        <p>
-          Chaque chiffre suit un parcours d'apprentissage soigneusement conçu.
-          Le Morse commence par E et T. Le Braille suit ses décades historiques.
-          Le Pigpen trace la géométrie de sa grille. Un moteur de répétition
-          espacée planifie vos révisions pour que les symboles s'ancrent dans la
-          mémoire à long terme.
-        </p>
+        <p>Chaque chiffre suit un parcours d&#39;apprentissage soigneusement conçu. Le Morse commence par E et T. Le Braille suit ses décades historiques. Le Pigpen trace la géométrie de sa grille. Un moteur de répétition espacée planifie vos révisions pour que les symboles s&#39;ancrent dans la mémoire à long terme.</p>
       </section>
 
-      <!-- Deux modes -->
+      <!-- Two modes -->
       <section class="section">
         <h2>Deux modes</h2>
         <div class="features">
           <div class="feature-card">
             <h3>Apprendre</h3>
-            <p>
-              De nouveaux symboles introduits un par un avec rappel immédiat. Un
-              moteur de répétition espacée planifie vos révisions pour qu'ils
-              s'ancrent.
-            </p>
+            <p>De nouveaux symboles introduits un par un avec rappel immédiat. Un moteur de répétition espacée planifie vos révisions pour qu&#39;ils s&#39;ancrent.</p>
           </div>
           <div class="feature-card">
             <h3>Jouer</h3>
             <ul>
-              <li>
-                Décoder des mots — déchiffrez de vrais mots de 2 à 8 lettres
-              </li>
-              <li>
-                Trouver le symbole — repérez la correspondance dans une grille
-              </li>
+              <li>Décoder des mots — déchiffrez de vrais mots de 2 à 8 lettres</li>
+              <li>Trouver le symbole — repérez la correspondance dans une grille</li>
               <li>Morse Tap — tapez points et traits avec le bon rythme</li>
-              <li>
-                Braille Touch — placez vos doigts sur une cellule à 6 points
-              </li>
+              <li>Braille Touch — placez vos doigts sur une cellule à 6 points</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- Chiffres & parcours -->
+      <!-- Ciphers & presets (table is hardcoded) -->
       <section class="section">
         <h2>12+ chiffres, trois parcours</h2>
         <table class="cipher-table">
@@ -432,106 +468,35 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>A1Z26</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>Code Morse</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>Pigpen</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>Braille</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>ROT13</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>Carré de Polybe</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>Binaire</td>
-              <td class="dash">&mdash;</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>ASCII</td>
-              <td class="dash">&mdash;</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>Atbash</td>
-              <td class="dash">&mdash;</td>
-              <td class="check">&#10003;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>Sémaphore</td>
-              <td class="dash">&mdash;</td>
-              <td class="dash">&mdash;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>Pavillons maritimes</td>
-              <td class="dash">&mdash;</td>
-              <td class="dash">&mdash;</td>
-              <td class="check">&#10003;</td>
-            </tr>
-            <tr>
-              <td>Chiffre de Bacon</td>
-              <td class="dash">&mdash;</td>
-              <td class="dash">&mdash;</td>
-              <td class="check">&#10003;</td>
-            </tr>
+            <tr><td>A1Z26</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Code Morse</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Pigpen</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Braille</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>ROT13</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Carré de Polybe</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Binaire</td><td class="dash">&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>ASCII</td><td class="dash">&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Atbash</td><td class="dash">&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Sémaphore</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Pavillons maritimes</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check">&#10003;</td></tr>
+            <tr><td>Chiffre de Bacon</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check">&#10003;</td></tr>
           </tbody>
         </table>
-        <p class="cipher-note">
-          Escaper est gratuit. Espion et Cryptologue nécessitent un achat unique
-          &mdash; accès à vie, pas d'abonnement.
-        </p>
+        <p class="cipher-note">Escaper est gratuit. Espion et Cryptologue nécessitent un achat unique — accès à vie, pas d&#39;abonnement.</p>
       </section>
 
       <!-- Built with respect -->
       <section class="section">
         <h2>Conçu avec respect</h2>
-        <p>
-          Pas de pub. Pas d'abonnement. Pas de tracking. Pas d'internet requis.
-          Un achat optionnel débloque tout — pour toujours.
-        </p>
-        <p>
-          Cipher Academy tourne entièrement sur votre appareil, ne collecte
-          aucune donnée, et ne vous enverra jamais de notification.
-        </p>
+        <p>Pas de pub. Pas d&#39;abonnement. Pas de tracking. Pas d&#39;internet requis. Un achat optionnel débloque tout — pour toujours.</p>
+        <p>Cipher Academy tourne entièrement sur votre appareil, ne collecte aucune donnée, et ne vous enverra jamais de notification.</p>
       </section>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-links">
-        <a href="cipher-academy-privacy-policy.fr.html"
-          >Politique de confidentialité</a
-        >
+        <a href="cipher-academy-privacy-policy.fr.html">Politique de confidentialité</a>
         <a href="cipher-academy-ethical-design.fr.html">Design éthique</a>
         <a href="cipher-academy-credits.fr.html">Crédits</a>
       </div>
@@ -540,5 +505,23 @@
         <a href="mailto:pidup-games@proton.me">pidup-games@proton.me</a>
       </p>
     </footer>
+
+    <script>
+      document.querySelectorAll(".carousel").forEach(function (carousel) {
+        var track = carousel.querySelector(".carousel-track");
+        var prev = carousel.querySelector(".carousel-btn.prev");
+        var next = carousel.querySelector(".carousel-btn.next");
+        var scrollAmount = function () {
+          var img = track.querySelector("img");
+          return img ? img.offsetWidth + 16 : 200;
+        };
+        prev.addEventListener("click", function () {
+          track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
+        });
+        next.addEventListener("click", function () {
+          track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
+        });
+      });
+    </script>
   </body>
 </html>

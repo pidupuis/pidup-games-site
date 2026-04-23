@@ -1,13 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{lang}}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Goose Academy — Coming Soon</title>
-    <meta
-      name="description"
-      content="Your training app for general knowledge quizzes. Master capitals, flags, chemical elements, Nobel winners, historical rulers, and hundreds of lists."
-    />
+    <title>{{title}}</title>
+    <meta name="description" content="{{i18n:appDescription.short}}" />
     <style>
       * {
         margin: 0;
@@ -137,26 +134,22 @@
   </head>
   <body>
     <nav class="nav">
-      <a class="nav-back" href="index.html">← pidup games</a>
-      <span class="lang-toggle">EN · <a href="goose-academy.fr.html">FR</a></span>
+      <a class="nav-back" href="{{navBackHref}}">← pidup games</a>
+      <span class="lang-toggle">{{langToggle}}</span>
     </nav>
 
     <main class="main">
       <div class="emoji-icon">🪿</div>
       <h1>Goose Academy</h1>
-      <p class="tagline">For Trivia Nerds, Quiz Champions and Curious Minds</p>
-      <span class="coming-soon">Coming soon</span>
-      <p class="description">Your training app for general knowledge quizzes. Master capitals, flags, chemical elements, Nobel winners, historical rulers, and hundreds of lists — at your own pace.</p>
+      <p class="tagline">{{i18n:appDescription.tagline}}</p>
+      <span class="coming-soon">{{i18n:appDescription.badge}}</span>
+      <p class="description">{{i18n:appDescription.description}}</p>
     </main>
 
     <footer class="footer">
-      <div class="footer-links">
-        <a href="goose-academy-privacy-policy.html">Privacy Policy</a>
-        <a href="goose-academy-ethical-design.html">Ethical Design</a>
-        <a href="goose-academy-credits.html">Credits</a>
-      </div>
+      <div class="footer-links">{{footerLinks}}</div>
       <p class="contact">
-        Contact:
+        {{contactLabel}}
         <a href="mailto:pidup-games@proton.me">pidup-games@proton.me</a>
       </p>
     </footer>
