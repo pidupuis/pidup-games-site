@@ -111,6 +111,7 @@
         padding: 24px 0;
         max-width: 960px;
         margin: 0 auto;
+        overflow: hidden;
       }
       .carousel-section h3 {
         font-size: 14px;
@@ -123,7 +124,6 @@
       }
       .carousel {
         position: relative;
-        padding: 0 24px;
       }
       .carousel-track {
         display: flex;
@@ -131,16 +131,17 @@
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
-        padding: 8px 0 16px;
+        padding: 8px 24px 16px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+        overscroll-behavior-x: contain;
       }
       .carousel-track::-webkit-scrollbar {
         display: none;
       }
       .carousel-track img {
         flex-shrink: 0;
-        width: calc((100% - 16px) / 2);
+        width: calc((100% - 16px - 48px) / 2);
         height: auto;
         border-radius: 20px;
         box-shadow:
@@ -150,12 +151,12 @@
       }
       @media (min-width: 640px) {
         .carousel-track img {
-          width: calc((100% - 48px) / 4);
+          width: calc((100% - 48px - 48px) / 4);
         }
       }
       @media (min-width: 960px) {
         .carousel-track img {
-          width: calc((100% - 64px) / 5);
+          width: calc((100% - 64px - 48px) / 5);
         }
       }
       .carousel-btn {
@@ -175,6 +176,8 @@
         cursor: pointer;
         z-index: 2;
         display: none;
+        align-items: center;
+        justify-content: center;
       }
       .carousel-btn:hover {
         color: #3228d0;
@@ -184,13 +187,6 @@
       }
       .carousel-btn.next {
         right: 4px;
-      }
-      @media (min-width: 640px) {
-        .carousel-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
       }
 
       /* --- Content sections --- */
@@ -330,7 +326,9 @@
     <!-- Nav -->
     <nav class="nav">
       <a class="nav-back" href="index.html">← pidup games</a>
-      <span class="lang-toggle">EN · <a href="cipher-academy.fr.html">FR</a></span>
+      <span class="lang-toggle"
+        >EN · <a href="cipher-academy.fr.html">FR</a></span
+      >
     </nav>
 
     <!-- Hero -->
@@ -344,8 +342,10 @@
       />
       <h1>CIPHER<span>ACADEMY</span></h1>
       <p class="tagline">For Escapers, Spies and Cryptologists</p>
-      <p class="subtitle">No Ads · No Subscriptions · One-Time Unlock<br />
-        100% Offline · No Tracking · No Data Collection</p>
+      <p class="subtitle">
+        No Ads · No Subscriptions · One-Time Unlock<br />
+        100% Offline · No Tracking · No Data Collection
+      </p>
       <span class="badge">Available soon on Google Play</span>
     </section>
 
@@ -425,14 +425,26 @@
     <div class="content">
       <!-- Intro -->
       <section class="section">
-        <p>You&#39;ve seen cipher puzzles in escape rooms, spy movies, and puzzle hunts. Cipher Academy is how you actually learn to read them — fast.</p>
-        <p>Pick a cipher. Start with single letters. Build up to full words. Each one has its own progression, its own challenges, and its own way to test you.</p>
+        <p>
+          You&#39;ve seen cipher puzzles in escape rooms, spy movies, and puzzle
+          hunts. Cipher Academy is how you actually learn to read them — fast.
+        </p>
+        <p>
+          Pick a cipher. Start with single letters. Build up to full words. Each
+          one has its own progression, its own challenges, and its own way to
+          test you.
+        </p>
       </section>
 
       <!-- How it works -->
       <section class="section">
         <h2>How it works</h2>
-        <p>Every cipher follows a carefully designed learning path. Morse starts with E and T. Braille follows its historical decades. Pigpen traces the geometry of its grid. A spaced repetition engine schedules your reviews so symbols stick in long-term memory.</p>
+        <p>
+          Every cipher follows a carefully designed learning path. Morse starts
+          with E and T. Braille follows its historical decades. Pigpen traces
+          the geometry of its grid. A spaced repetition engine schedules your
+          reviews so symbols stick in long-term memory.
+        </p>
       </section>
 
       <!-- Two modes -->
@@ -441,7 +453,10 @@
         <div class="features">
           <div class="feature-card">
             <h3>Learn</h3>
-            <p>New symbols introduced one at a time with immediate recall. A spaced repetition engine schedules your reviews so they stick.</p>
+            <p>
+              New symbols introduced one at a time with immediate recall. A
+              spaced repetition engine schedules your reviews so they stick.
+            </p>
           </div>
           <div class="feature-card">
             <h3>Play</h3>
@@ -449,7 +464,9 @@
               <li>Decode Words — decipher real words from 2 to 8 letters</li>
               <li>Find the Symbol — spot the match in a visual grid</li>
               <li>Morse Tap — tap dots and dashes with the right rhythm</li>
-              <li>Braille Touch — place your fingers on a virtual 6-dot cell</li>
+              <li>
+                Braille Touch — place your fingers on a virtual 6-dot cell
+              </li>
             </ul>
           </div>
         </div>
@@ -468,28 +485,97 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>A1Z26</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-            <tr><td>Morse Code</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-            <tr><td>Pigpen</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-            <tr><td>Braille</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-            <tr><td>ROT13</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-            <tr><td>Polybius Square</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-            <tr><td>Binary</td><td class="dash">&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-            <tr><td>ASCII</td><td class="dash">&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-            <tr><td>Atbash</td><td class="dash">&mdash;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-            <tr><td>Semaphore</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check">&#10003;</td></tr>
-            <tr><td>Maritime Signal Flags</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check">&#10003;</td></tr>
-            <tr><td>Bacon's Cipher</td><td class="dash">&mdash;</td><td class="dash">&mdash;</td><td class="check">&#10003;</td></tr>
+            <tr>
+              <td>A1Z26</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Morse Code</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Pigpen</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Braille</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>ROT13</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Polybius Square</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Binary</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>ASCII</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Atbash</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Semaphore</td>
+              <td class="dash">&mdash;</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Maritime Signal Flags</td>
+              <td class="dash">&mdash;</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
+            <tr>
+              <td>Bacon's Cipher</td>
+              <td class="dash">&mdash;</td>
+              <td class="dash">&mdash;</td>
+              <td class="check">&#10003;</td>
+            </tr>
           </tbody>
         </table>
-        <p class="cipher-note">Escaper is free. Spy and Cryptologist require a one-time unlock — lifetime access, no subscriptions.</p>
+        <p class="cipher-note">
+          Escaper is free. Spy and Cryptologist require a one-time unlock —
+          lifetime access, no subscriptions.
+        </p>
       </section>
 
       <!-- Built with respect -->
       <section class="section">
         <h2>Built with respect</h2>
-        <p>No ads. No subscriptions. No tracking. No internet required. One optional purchase unlocks everything — forever.</p>
-        <p>Cipher Academy runs entirely on your device, collects zero data, and will never send you a notification.</p>
+        <p>
+          No ads. No subscriptions. No tracking. No internet required. One
+          optional purchase unlocks everything — forever.
+        </p>
+        <p>
+          Cipher Academy runs entirely on your device, collects zero data, and
+          will never send you a notification.
+        </p>
       </section>
     </div>
 
@@ -515,12 +601,23 @@
           var img = track.querySelector("img");
           return img ? img.offsetWidth + 16 : 200;
         };
+        function updateButtons() {
+          var isOverflowing = track.scrollWidth > track.clientWidth + 1;
+          var atStart = track.scrollLeft <= 1;
+          var atEnd =
+            track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+          prev.style.display = isOverflowing && !atStart ? "flex" : "none";
+          next.style.display = isOverflowing && !atEnd ? "flex" : "none";
+        }
         prev.addEventListener("click", function () {
           track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
         });
         next.addEventListener("click", function () {
           track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
         });
+        track.addEventListener("scroll", updateButtons);
+        window.addEventListener("resize", updateButtons);
+        updateButtons();
       });
     </script>
   </body>
