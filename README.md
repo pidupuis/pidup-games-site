@@ -59,17 +59,17 @@ Every page has a FR/EN language toggle and back navigation.
 
 **Marketing pages** (`index`, `cipher-academy`, `goose-academy`) are hand-crafted HTML with a light neumorphic theme.
 
-**Legal pages** (privacy policy, ethical design, credits) are auto-generated from markdown source files:
+**Legal pages** (privacy policy, ethical design, credits) are auto-generated from `lib/i18n.ts` in each app:
 
 ```
-apps/<app>/docs/en/<doc>.md  →  <app>-<doc>.html
-apps/<app>/docs/fr/<doc>.md  →  <app>-<doc>.fr.html
+apps/<app>/lib/i18n.ts  →  apps/<app>/docs/  (markdown)
+                        →  apps/site/        (HTML)
 ```
 
 To regenerate legal pages, run from the pidup-games root:
 
 ```bash
-node scripts/generate-public-pages.mjs
+node scripts/generate-docs-from-i18n.mjs
 ```
 
 ## Images
