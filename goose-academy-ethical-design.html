@@ -116,6 +116,66 @@
         padding: 2px 6px;
         border-radius: 4px;
       }
+      pre {
+        background: #F0F1F7;
+        padding: 16px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin-bottom: 16px;
+      }
+      pre code {
+        background: none;
+        padding: 0;
+        font-size: 14px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+        font-size: 14px;
+      }
+      table th {
+        background: #F0F1F7;
+        text-align: left;
+        padding: 10px 12px;
+        font-weight: 600;
+        border-bottom: 2px solid #D0D4E3;
+      }
+      table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #E6EAF5;
+        vertical-align: top;
+      }
+      .callout {
+        font-style: normal;
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+      .callout-warning {
+        background: #FFF8E1;
+        border-left-color: #F0A500;
+      }
+      .callout-info {
+        background: #E8F4FD;
+        border-left-color: #0288D1;
+      }
+      .callout p {
+        margin-bottom: 4px;
+      }
+      ol {
+        margin-bottom: 16px;
+        padding-left: 24px;
+      }
+      ol li {
+        margin-bottom: 8px;
+      }
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        padding-left: 4px;
+      }
       .footer {
         text-align: center;
         padding: 40px 24px;
@@ -212,14 +272,43 @@
     <p>Generative AI is used as a code and documentation assistant throughout development, but every gameplay and design decision is made intentionally by its creators.</p>
     <h2>Research-Informed Design</h2>
     <p>Goose Academy&#39;s learning systems are based on established educational methods and cognitive research.</p>
-    <ul>
-    <li>Teaching-then-guessing phases scaffold learning, showing the answer before requiring recall</li>
-    <li>Weighted repetition ensures unmastered items appear more frequently, adapting to individual progress</li>
-    <li>Bidirectional quizzes (country→capital and capital→country) strengthen associations from both directions</li>
-    <li>Learning designed for understanding, not compulsion</li>
-    </ul>
-    <p>Research shows that retrieval practice — actively recalling information rather than passively reviewing it — produces stronger and more durable learning (Roediger &amp; Karpicke, 2006). The introduction of desirable difficulties (Bjork, 1994) through adaptive weighting and interleaved continent mixing further supports long-term retention.</p>
     <p>The goal is to support meaningful learning through evidence-informed design.</p>
+    <h3>Adaptive item selection</h3>
+    <p>Each item you see is chosen dynamically based on your recent answers.</p>
+    <p>The system prioritizes:</p>
+    <ul>
+    <li>items you haven&#39;t mastered yet</li>
+    <li>items you recently struggled with</li>
+    <li>items that are often confused with others, so you can better distinguish similar content</li>
+    <li>items that haven&#39;t been seen for a while</li>
+    </ul>
+    <p>This approach is inspired by research on:</p>
+    <ul>
+    <li>adaptive learning systems</li>
+    <li>interleaving (mixing similar items)</li>
+    <li>learning from errors</li>
+    <li>memory retention over time</li>
+    </ul>
+    <p>The exact formula is documented in the scientific references. It is inspired by research, but simplified for a real-world learning experience.</p>
+    <h3>Level progression</h3>
+    <p>Levels introduce items gradually and build on what you&#39;ve already learned.</p>
+    <p>Across all topics:</p>
+    <ul>
+    <li>new items are introduced in small groups</li>
+    <li>previously learned items remain in the pool</li>
+    <li>practice is naturally interleaved</li>
+    </ul>
+    <p>This helps balance learning speed, retention, and clarity.</p>
+    <h3>Our approach</h3>
+    <p>Goose Academy is <strong>research-informed, not research-prescriptive</strong>.</p>
+    <p>The design is inspired by scientific findings, but adapted for:</p>
+    <ul>
+    <li>short, self-paced sessions</li>
+    <li>a fully offline experience</li>
+    <li>clarity and usability over experimental complexity</li>
+    </ul>
+    <p>The goal is not to replicate laboratory conditions, but to apply what works in a simple and effective way.</p>
+    <p><em>For more detail, see our {{link}}.</em></p>
     <hr>
     <p><em>This game does not track you, influence you, or observe you. It simply runs on your device, on your terms.</em></p>
     <hr>
@@ -229,7 +318,8 @@
 
     <footer class="footer">
       <div class="footer-links"><a href="goose-academy-privacy-policy.html">Privacy Policy</a>
-        <a href="goose-academy-credits.html">Credits</a></div>
+        <a href="goose-academy-credits.html">Credits</a>
+        <a href="goose-academy-scientific-references.html">Scientific References</a></div>
       <p class="contact">
         Contact:
         <a href="mailto:pidup-games@proton.me">pidup-games@proton.me</a>

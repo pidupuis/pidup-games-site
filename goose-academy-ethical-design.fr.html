@@ -116,6 +116,66 @@
         padding: 2px 6px;
         border-radius: 4px;
       }
+      pre {
+        background: #F0F1F7;
+        padding: 16px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin-bottom: 16px;
+      }
+      pre code {
+        background: none;
+        padding: 0;
+        font-size: 14px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+        font-size: 14px;
+      }
+      table th {
+        background: #F0F1F7;
+        text-align: left;
+        padding: 10px 12px;
+        font-weight: 600;
+        border-bottom: 2px solid #D0D4E3;
+      }
+      table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #E6EAF5;
+        vertical-align: top;
+      }
+      .callout {
+        font-style: normal;
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+      .callout-warning {
+        background: #FFF8E1;
+        border-left-color: #F0A500;
+      }
+      .callout-info {
+        background: #E8F4FD;
+        border-left-color: #0288D1;
+      }
+      .callout p {
+        margin-bottom: 4px;
+      }
+      ol {
+        margin-bottom: 16px;
+        padding-left: 24px;
+      }
+      ol li {
+        margin-bottom: 8px;
+      }
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        padding-left: 4px;
+      }
       .footer {
         text-align: center;
         padding: 40px 24px;
@@ -212,14 +272,43 @@
     <p>L&#39;IA générative est utilisée comme assistant de code et de documentation tout au long du développement, mais chaque décision de gameplay et de design est prise intentionnellement par ses créateurs.</p>
     <h2>Design fondé sur la recherche</h2>
     <p>Les systèmes d&#39;apprentissage de Goose Academy s&#39;appuient sur des méthodes éducatives établies et la recherche cognitive.</p>
-    <ul>
-    <li>Les phases d&#39;enseignement puis de devinette structurent l&#39;apprentissage, montrant la réponse avant d&#39;exiger le rappel</li>
-    <li>La répétition pondérée assure que les éléments non maîtrisés apparaissent plus fréquemment, s&#39;adaptant à la progression individuelle</li>
-    <li>Les quiz bidirectionnels (pays→capitale et capitale→pays) renforcent les associations dans les deux sens</li>
-    <li>Apprentissage conçu pour la compréhension, pas la compulsion</li>
-    </ul>
-    <p>La recherche montre que la pratique de récupération — rappeler activement l&#39;information plutôt que la réviser passivement — produit un apprentissage plus solide et plus durable (Roediger &amp; Karpicke, 2006). L&#39;introduction de difficultés désirables (Bjork, 1994) par la pondération adaptative et le mélange intercalé des continents favorise davantage la rétention à long terme.</p>
     <p>L&#39;objectif est de favoriser un apprentissage significatif grâce à un design fondé sur les preuves.</p>
+    <h3>Sélection adaptative des éléments</h3>
+    <p>Chaque élément que vous voyez est choisi dynamiquement en fonction de vos réponses récentes.</p>
+    <p>Le système privilégie :</p>
+    <ul>
+    <li>les éléments que vous n&#39;avez pas encore maîtrisés</li>
+    <li>les éléments sur lesquels vous avez récemment buté</li>
+    <li>les éléments souvent confondus avec d&#39;autres, pour mieux distinguer les contenus similaires</li>
+    <li>les éléments non vus depuis un moment</li>
+    </ul>
+    <p>Cette approche s&#39;inspire de la recherche sur :</p>
+    <ul>
+    <li>les systèmes d&#39;apprentissage adaptatif</li>
+    <li>l&#39;entrelacement (mélange d&#39;éléments similaires)</li>
+    <li>l&#39;apprentissage par l&#39;erreur</li>
+    <li>la rétention en mémoire à long terme</li>
+    </ul>
+    <p>La formule exacte est documentée dans les références scientifiques. Elle est inspirée par la recherche, mais simplifiée pour une expérience d&#39;apprentissage réelle.</p>
+    <h3>Progression des niveaux</h3>
+    <p>Les niveaux introduisent les éléments progressivement et s&#39;appuient sur ce que vous avez déjà appris.</p>
+    <p>Dans tous les thèmes :</p>
+    <ul>
+    <li>les nouveaux éléments sont introduits par petits groupes</li>
+    <li>les éléments déjà appris restent dans le lot</li>
+    <li>la pratique est naturellement entrelacée</li>
+    </ul>
+    <p>Cela aide à équilibrer vitesse d&#39;apprentissage, rétention et clarté.</p>
+    <h3>Notre approche</h3>
+    <p>Goose Academy est <strong>fondé sur la recherche, pas prescrit par la recherche</strong>.</p>
+    <p>Le design s&#39;inspire de résultats scientifiques, mais est adapté pour :</p>
+    <ul>
+    <li>des sessions courtes, à son propre rythme</li>
+    <li>une expérience entièrement hors-ligne</li>
+    <li>la clarté et l&#39;utilisabilité plutôt que la complexité expérimentale</li>
+    </ul>
+    <p>L&#39;objectif n&#39;est pas de reproduire des conditions de laboratoire, mais d&#39;appliquer ce qui fonctionne de manière simple et efficace.</p>
+    <p><em>Pour plus de détails, consultez nos {{link}}.</em></p>
     <hr>
     <p><em>Ce jeu ne vous suit pas, ne vous influence pas et ne vous observe pas. Il fonctionne simplement sur votre appareil, selon vos règles.</em></p>
     <hr>
@@ -229,7 +318,8 @@
 
     <footer class="footer">
       <div class="footer-links"><a href="goose-academy-privacy-policy.fr.html">Politique de confidentialité</a>
-        <a href="goose-academy-credits.fr.html">Crédits</a></div>
+        <a href="goose-academy-credits.fr.html">Crédits</a>
+        <a href="goose-academy-scientific-references.fr.html">Références scientifiques</a></div>
       <p class="contact">
         Contact :
         <a href="mailto:pidup-games@proton.me">pidup-games@proton.me</a>
