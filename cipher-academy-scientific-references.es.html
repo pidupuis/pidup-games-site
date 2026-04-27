@@ -109,6 +109,13 @@
         font-size: 13px;
         margin-bottom: 32px;
       }
+      code {
+        font-family: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
+        font-size: 14px;
+        background: #F0F1F7;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
     </style>
   </head>
   <body>
@@ -131,9 +138,9 @@
     <li><strong>Junker et al. (2023):</strong> mostraron que la decodificación del Morse activa la memoria de trabajo, la recuperación de la memoria a largo plazo y las regiones cerebrales relacionadas con el lenguaje.</li>
     <li><strong>Siuda-Krzywicka et al. (2016):</strong> demostraron una reorganización cortical a gran escala en adultos videntes que aprenden Braille.</li>
     </ul>
-    <p>Estos hallazgos sugieren que decodificar sistemas simbólicos no es solo una actividad de puzzle, sino una forma de entrenamiento cognitivo que involucra reconocimiento de patrones, memoria y procesamiento similar al lenguaje.</p>
+    <p>Estos hallazgos sugieren que decodificar sistemas simbólicos no es solo una actividad de puzzle, sino que puede considerarse una forma de entrenamiento cognitivo que involucra reconocimiento de patrones, memoria y procesamiento similar al lenguaje.</p>
     <h3>Interpretación para el diseño</h3>
-    <p>Cipher Academy se inspira en esta investigación combinando múltiples formas de entrada:</p>
+    <p>Cipher Academy se inspira en esta investigación combinando deliberadamente múltiples formas de entrada dentro del mismo sistema de aprendizaje:</p>
     <ul>
     <li><strong>Decodificación visual:</strong> símbolos como Pigpen o Braille</li>
     <li><strong>Decodificación auditiva:</strong> código Morse</li>
@@ -162,7 +169,7 @@
     </ul>
     <h3>Resumen de la fórmula</h3>
     <p>A cada letra se le asigna un peso:</p>
-    <p>Wᵢ = Eᵢ · Mᵢ · Bᵢ · Sᵢ · Rᵢ · (1 + α Ĉᵢ) · (1 + β K̂ᵢ Rᵢ)</p>
+    <p><code>Wᵢ = Eᵢ · Mᵢ · Bᵢ · Sᵢ · Rᵢ · (1 + α Ĉᵢ) · (1 + β K̂ᵢ Rᵢ)</code></p>
     <p>Donde:</p>
     <ul>
     <li>Bᵢ: dominio a largo plazo (caja SRS)</li>
@@ -181,10 +188,10 @@
     <li><strong>Errores:</strong> revelan lo que necesita refuerzo</li>
     <li><strong>Contraste entre elementos similares:</strong> acelera el aprendizaje perceptivo</li>
     </ul>
-    <p>El resultado es un sistema simple y determinista que se adapta en tiempo real sin requerir datos externos ni aprendizaje automático.</p>
+    <p>El resultado es un sistema simple y determinista, calculado localmente en el dispositivo, que se adapta en tiempo real sin requerir datos externos ni aprendizaje automático.</p>
     <hr>
     <h2>Parte 3 — Diseño de niveles y progresión</h2>
-    <p>El sistema de progresión de Cipher Academy está parcialmente inspirado en métodos de aprendizaje establecidos, particularmente para el código Morse.</p>
+    <p>El sistema de progresión de Cipher Academy está parcialmente inspirado en métodos de aprendizaje establecidos, pero adaptado para la claridad perceptiva y la usabilidad, particularmente para el código Morse.</p>
     <ul>
     <li><strong>Koch (1936):</strong> introdujo un método donde los aprendices comienzan con un pequeño conjunto de caracteres y solo añaden nuevos después de alcanzar una precisión alta.</li>
     <li>La aplicación sigue este principio introduciendo letras en pequeños grupos y requiriendo dominio antes de progresar.</li>
@@ -204,16 +211,18 @@
     </ul>
     <hr>
     <h2>Referencias</h2>
-    <p>Carvalho, P. F., &amp; Goldstone, R. L. (2015). What you learn is more than what you see. _Frontiers in Psychology_, 6, 505.</p>
-    <p>Junker, F. B., Schlaffke, L., Bents, L., Axmacher, N., &amp; Schmidt-Wilcke, T. (2023). Temporal dynamics of oscillatory activity during nonlexical language decoding. _Human Brain Mapping_, 44(17), 6185–6197.</p>
-    <p>Koch, H. (1936). _Arbeitspsychologische Untersuchung der Tätigkeit bei der Aufnahme von Morsezeichen_.</p>
-    <p>Kornell, N., &amp; Bjork, R. A. (2008). Learning concepts and categories: Is spacing the enemy of induction? _Psychological Science_, 19(6), 585–592.</p>
-    <p>Metcalfe, J. (2017). Learning from errors. _Annual Review of Psychology_, 68, 465–489.</p>
-    <p>Mettler, E., Massey, C. M., &amp; Kellman, P. J. (2016). A comparison of adaptive and fixed schedules of practice. _Journal of Experimental Psychology: General_, 145(7), 897–917.</p>
-    <p>Pyc, M. A., &amp; Rawson, K. A. (2009). Testing the retrieval effort hypothesis. _Journal of Memory and Language_, 60, 437–447.</p>
-    <p>Schlaffke, L., et al. (2017). Learning Morse Code Alters Microstructural Properties. _Frontiers in Human Neuroscience_, 11, 383.</p>
-    <p>Settles, B., &amp; Meeder, B. (2016). A trainable spaced repetition model for language learning. _ACL 2016_.</p>
-    <p>Siuda-Krzywicka, K., et al. (2016). Massive cortical reorganization in sighted Braille readers. _eLife_, 5, e10762.</p>
+    <ul>
+    <li>Carvalho, P. F., &amp; Goldstone, R. L. (2015). What you learn is more than what you see. _Frontiers in Psychology_, 6, 505.</li>
+    <li>Junker, F. B., Schlaffke, L., Bents, L., Axmacher, N., &amp; Schmidt-Wilcke, T. (2023). Temporal dynamics of oscillatory activity during nonlexical language decoding. _Human Brain Mapping_, 44(17), 6185–6197.</li>
+    <li>Koch, H. (1936). _Arbeitspsychologische Untersuchung der Tätigkeit bei der Aufnahme von Morsezeichen_.</li>
+    <li>Kornell, N., &amp; Bjork, R. A. (2008). Learning concepts and categories: Is spacing the enemy of induction? _Psychological Science_, 19(6), 585–592.</li>
+    <li>Metcalfe, J. (2017). Learning from errors. _Annual Review of Psychology_, 68, 465–489.</li>
+    <li>Mettler, E., Massey, C. M., &amp; Kellman, P. J. (2016). A comparison of adaptive and fixed schedules of practice. _Journal of Experimental Psychology: General_, 145(7), 897–917.</li>
+    <li>Pyc, M. A., &amp; Rawson, K. A. (2009). Testing the retrieval effort hypothesis. _Journal of Memory and Language_, 60, 437–447.</li>
+    <li>Schlaffke, L., et al. (2017). Learning Morse Code Alters Microstructural Properties. _Frontiers in Human Neuroscience_, 11, 383.</li>
+    <li>Settles, B., &amp; Meeder, B. (2016). A trainable spaced repetition model for language learning. _ACL 2016_.</li>
+    <li>Siuda-Krzywicka, K., et al. (2016). Massive cortical reorganization in sighted Braille readers. _eLife_, 5, e10762.</li>
+    </ul>
 
     </div>
   </body>

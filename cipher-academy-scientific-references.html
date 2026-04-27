@@ -109,6 +109,13 @@
         font-size: 13px;
         margin-bottom: 32px;
       }
+      code {
+        font-family: "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
+        font-size: 14px;
+        background: #F0F1F7;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
     </style>
   </head>
   <body>
@@ -131,9 +138,9 @@
     <li><strong>Junker et al. (2023):</strong> showed that Morse decoding activates working memory, long-term memory retrieval, and language-related brain regions.</li>
     <li><strong>Siuda-Krzywicka et al. (2016):</strong> demonstrated large-scale cortical reorganization in sighted adults learning Braille.</li>
     </ul>
-    <p>These findings suggest that decoding symbolic systems is not just a puzzle activity, but a form of cognitive training involving pattern recognition, memory, and language-like processing.</p>
+    <p>These findings suggest that decoding symbolic systems is not just a puzzle activity, but can be considered a form of cognitive training involving pattern recognition, memory, and language-like processing.</p>
     <h3>Design interpretation</h3>
-    <p>Cipher Academy draws inspiration from this research by combining multiple forms of input:</p>
+    <p>Cipher Academy draws inspiration from this research by deliberately combining multiple forms of input within the same learning system:</p>
     <ul>
     <li><strong>Visual decoding:</strong> symbols such as Pigpen or Braille</li>
     <li><strong>Auditory decoding:</strong> Morse code</li>
@@ -162,7 +169,7 @@
     </ul>
     <h3>Formula overview</h3>
     <p>Each letter is assigned a weight:</p>
-    <p>Wᵢ = Eᵢ · Mᵢ · Bᵢ · Sᵢ · Rᵢ · (1 + α Ĉᵢ) · (1 + β K̂ᵢ Rᵢ)</p>
+    <p><code>Wᵢ = Eᵢ · Mᵢ · Bᵢ · Sᵢ · Rᵢ · (1 + α Ĉᵢ) · (1 + β K̂ᵢ Rᵢ)</code></p>
     <p>Where:</p>
     <ul>
     <li>Bᵢ: long-term mastery (SRS box)</li>
@@ -181,10 +188,10 @@
     <li><strong>Errors:</strong> reveal what needs reinforcement</li>
     <li><strong>Contrast between similar items:</strong> accelerates perceptual learning</li>
     </ul>
-    <p>The result is a simple, deterministic system that adapts in real time without requiring external data or machine learning.</p>
+    <p>The result is a simple, deterministic system, computed locally on-device, that adapts in real time without requiring external data or machine learning.</p>
     <hr>
     <h2>Part 3 — Level Design &amp; Progression</h2>
-    <p>Cipher Academy&#39;s progression system is partially inspired by established learning methods, particularly for Morse code.</p>
+    <p>Cipher Academy&#39;s progression system is partially inspired by established learning methods, but adapted for perceptual clarity and usability, particularly for Morse code.</p>
     <ul>
     <li><strong>Koch (1936):</strong> introduced a method where learners start with a small set of characters and only add new ones after reaching high accuracy.</li>
     <li>The app follows this principle by introducing letters in small batches and requiring mastery before progressing.</li>
@@ -204,16 +211,18 @@
     </ul>
     <hr>
     <h2>References</h2>
-    <p>Carvalho, P. F., &amp; Goldstone, R. L. (2015). What you learn is more than what you see. _Frontiers in Psychology_, 6, 505.</p>
-    <p>Junker, F. B., Schlaffke, L., Bents, L., Axmacher, N., &amp; Schmidt-Wilcke, T. (2023). Temporal dynamics of oscillatory activity during nonlexical language decoding. _Human Brain Mapping_, 44(17), 6185–6197.</p>
-    <p>Koch, H. (1936). _Arbeitspsychologische Untersuchung der Tätigkeit bei der Aufnahme von Morsezeichen_.</p>
-    <p>Kornell, N., &amp; Bjork, R. A. (2008). Learning concepts and categories: Is spacing the enemy of induction? _Psychological Science_, 19(6), 585–592.</p>
-    <p>Metcalfe, J. (2017). Learning from errors. _Annual Review of Psychology_, 68, 465–489.</p>
-    <p>Mettler, E., Massey, C. M., &amp; Kellman, P. J. (2016). A comparison of adaptive and fixed schedules of practice. _Journal of Experimental Psychology: General_, 145(7), 897–917.</p>
-    <p>Pyc, M. A., &amp; Rawson, K. A. (2009). Testing the retrieval effort hypothesis. _Journal of Memory and Language_, 60, 437–447.</p>
-    <p>Schlaffke, L., et al. (2017). Learning Morse Code Alters Microstructural Properties. _Frontiers in Human Neuroscience_, 11, 383.</p>
-    <p>Settles, B., &amp; Meeder, B. (2016). A trainable spaced repetition model for language learning. _ACL 2016_.</p>
-    <p>Siuda-Krzywicka, K., et al. (2016). Massive cortical reorganization in sighted Braille readers. _eLife_, 5, e10762.</p>
+    <ul>
+    <li>Carvalho, P. F., &amp; Goldstone, R. L. (2015). What you learn is more than what you see. _Frontiers in Psychology_, 6, 505.</li>
+    <li>Junker, F. B., Schlaffke, L., Bents, L., Axmacher, N., &amp; Schmidt-Wilcke, T. (2023). Temporal dynamics of oscillatory activity during nonlexical language decoding. _Human Brain Mapping_, 44(17), 6185–6197.</li>
+    <li>Koch, H. (1936). _Arbeitspsychologische Untersuchung der Tätigkeit bei der Aufnahme von Morsezeichen_.</li>
+    <li>Kornell, N., &amp; Bjork, R. A. (2008). Learning concepts and categories: Is spacing the enemy of induction? _Psychological Science_, 19(6), 585–592.</li>
+    <li>Metcalfe, J. (2017). Learning from errors. _Annual Review of Psychology_, 68, 465–489.</li>
+    <li>Mettler, E., Massey, C. M., &amp; Kellman, P. J. (2016). A comparison of adaptive and fixed schedules of practice. _Journal of Experimental Psychology: General_, 145(7), 897–917.</li>
+    <li>Pyc, M. A., &amp; Rawson, K. A. (2009). Testing the retrieval effort hypothesis. _Journal of Memory and Language_, 60, 437–447.</li>
+    <li>Schlaffke, L., et al. (2017). Learning Morse Code Alters Microstructural Properties. _Frontiers in Human Neuroscience_, 11, 383.</li>
+    <li>Settles, B., &amp; Meeder, B. (2016). A trainable spaced repetition model for language learning. _ACL 2016_.</li>
+    <li>Siuda-Krzywicka, K., et al. (2016). Massive cortical reorganization in sighted Braille readers. _eLife_, 5, e10762.</li>
+    </ul>
 
     </div>
   </body>
