@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cipher Academy – Scientific References</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #E6EAF5;
+        color: #343434;
+        line-height: 1.7;
+      }
+      a {
+        color: #3228D0;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 24px;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .nav-back {
+        font-size: 14px;
+        font-weight: 600;
+        color: #5E5E5E;
+      }
+      .nav-back:hover {
+        color: #3228D0;
+      }
+      .lang-toggle {
+        font-size: 13px;
+        font-weight: 600;
+        color: #888;
+      }
+      .lang-toggle a {
+        color: #3228D0;
+      }
+      .content {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 8px 24px 40px;
+      }
+      h1 {
+        color: #3228D0;
+        font-size: 28px;
+        margin-bottom: 24px;
+      }
+      h2 {
+        color: #3228D0;
+        font-size: 20px;
+        margin-top: 32px;
+        margin-bottom: 12px;
+      }
+      h3 {
+        color: #3228D0;
+        font-size: 17px;
+        margin-top: 24px;
+        margin-bottom: 8px;
+      }
+      blockquote {
+        border-left: 3px solid #3228D0;
+        padding: 12px 16px;
+        margin-bottom: 16px;
+        color: #555;
+        font-style: italic;
+      }
+      blockquote p {
+        margin-bottom: 0;
+      }
+      p {
+        margin-bottom: 16px;
+        color: #343434;
+      }
+      ul {
+        margin-bottom: 16px;
+        padding-left: 24px;
+      }
+      li {
+        margin-bottom: 8px;
+        color: #343434;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #D0D4E3;
+        margin: 24px 0;
+      }
+      em {
+        color: #666;
+        font-style: italic;
+      }
+      strong {
+        color: #343434;
+      }
+      .subtitle {
+        color: #888;
+        font-size: 13px;
+        margin-bottom: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="nav-back" href="cipher-academy.html">← Cipher Academy</a>
+      <span class="lang-toggle">EN · <a href="cipher-academy-scientific-references.fr.html">FR</a> · <a href="cipher-academy-scientific-references.es.html">ES</a></span>
+    </nav>
+    <div class="content">
+      <p class="subtitle">Cipher Academy · Last updated: April 27, 2026</p>
+    <h1>Scientific References</h1>
+    <p>This document summarizes the research that informs Cipher Academy&#39;s design. The goal is not to replicate academic protocols exactly, but to draw from established findings in cognitive science and apply them to a simple, offline learning experience.</p>
+    <blockquote><p>Cipher Academy is <strong>research-informed, not research-prescriptive</strong>.
+    The systems described below are inspired by scientific work, but adapted for usability, short sessions, and self-paced learning.</p></blockquote>
+    <hr>
+    <h2>Part 1 — Brain &amp; Learning Benefits</h2>
+    <p>Learning encoding systems such as Morse code or Braille engages multiple cognitive systems, including language processing, working memory, and perceptual recognition.</p>
+    <p>Neuroimaging studies show that even short training periods can produce measurable changes in the adult brain:</p>
+    <ul>
+    <li><strong>Schlaffke et al. (2017):</strong> found structural changes in white matter after Morse learning, correlated with decoding performance.</li>
+    <li><strong>Junker et al. (2023):</strong> showed that Morse decoding activates working memory, long-term memory retrieval, and language-related brain regions.</li>
+    <li><strong>Siuda-Krzywicka et al. (2016):</strong> demonstrated large-scale cortical reorganization in sighted adults learning Braille.</li>
+    </ul>
+    <p>These findings suggest that decoding symbolic systems is not just a puzzle activity, but a form of cognitive training involving pattern recognition, memory, and language-like processing.</p>
+    <h3>Design interpretation</h3>
+    <p>Cipher Academy draws inspiration from this research by combining multiple forms of input:</p>
+    <ul>
+    <li><strong>Visual decoding:</strong> symbols such as Pigpen or Braille</li>
+    <li><strong>Auditory decoding:</strong> Morse code</li>
+    <li><strong>Interactive/tactile-like input:</strong> Braille Touch mode</li>
+    </ul>
+    <p>This <strong>multimodal approach</strong> is intended to reinforce learning across different sensory channels.</p>
+    <p>However, the app is not a controlled training protocol, and these design choices are adaptations rather than direct implementations of experimental methods.</p>
+    <hr>
+    <h2>Part 2 — Adaptive Letter Selection</h2>
+    <p>During a session, Cipher Academy selects which letter to show next using a dynamic weighting formula based on:</p>
+    <ul>
+    <li>current mastery within the session</li>
+    <li>long-term retention (spaced repetition)</li>
+    <li>recency (spacing)</li>
+    <li>past errors (confusion tracking)</li>
+    <li>similarity between symbols (pairing)</li>
+    </ul>
+    <p>This approach is inspired by several lines of research:</p>
+    <ul>
+    <li><strong>Mettler, Massey &amp; Kellman (2016):</strong> adaptive sequencing in perceptual learning</li>
+    <li><strong>Kornell &amp; Bjork (2008):</strong> interleaving vs. blocking</li>
+    <li><strong>Carvalho &amp; Goldstone (2015):</strong> discriminative contrast through sequencing</li>
+    <li><strong>Settles &amp; Meeder (2016):</strong> modeling long-term memory (half-life regression)</li>
+    <li><strong>Metcalfe (2017):</strong> learning from errors</li>
+    <li><strong>Pyc &amp; Rawson (2009):</strong> strengthening through successful retrieval</li>
+    </ul>
+    <h3>Formula overview</h3>
+    <p>Each letter is assigned a weight:</p>
+    <p>Wᵢ = Eᵢ · Mᵢ · Bᵢ · Sᵢ · Rᵢ · (1 + α Ĉᵢ) · (1 + β K̂ᵢ Rᵢ)</p>
+    <p>Where:</p>
+    <ul>
+    <li>Bᵢ: long-term mastery (SRS box)</li>
+    <li>Sᵢ: session progress (how close the letter is to being mastered)</li>
+    <li>Rᵢ: recency (time since last seen)</li>
+    <li>Cᵢ: accumulated confusion involving this letter</li>
+    <li>Kᵢ: confusion with the previously shown letter (contrast effect)</li>
+    <li>Mᵢ: reduces weight of already-mastered letters</li>
+    <li>Eᵢ: prevents immediate repetition of the same letter (UX rule)</li>
+    </ul>
+    <h3>Design interpretation</h3>
+    <p>This formula is not taken from a single paper. Instead, it combines several well-supported principles:</p>
+    <ul>
+    <li><strong>Spacing:</strong> improves retention</li>
+    <li><strong>Interleaving:</strong> improves discrimination between similar items</li>
+    <li><strong>Errors:</strong> reveal what needs reinforcement</li>
+    <li><strong>Contrast between similar items:</strong> accelerates perceptual learning</li>
+    </ul>
+    <p>The result is a simple, deterministic system that adapts in real time without requiring external data or machine learning.</p>
+    <hr>
+    <h2>Part 3 — Level Design &amp; Progression</h2>
+    <p>Cipher Academy&#39;s progression system is partially inspired by established learning methods, particularly for Morse code.</p>
+    <ul>
+    <li><strong>Koch (1936):</strong> introduced a method where learners start with a small set of characters and only add new ones after reaching high accuracy.</li>
+    <li>The app follows this principle by introducing letters in small batches and requiring mastery before progressing.</li>
+    </ul>
+    <p>However, the implementation is adapted:</p>
+    <ul>
+    <li>Letter order is chosen for **perceptual contrast**, not historical sequence</li>
+    <li>Multiple ciphers are used to engage different cognitive processes</li>
+    <li>Previously learned letters remain in the pool, creating **interleaved practice**</li>
+    </ul>
+    <h3>Design interpretation</h3>
+    <p>The progression system is <strong>inspired by research</strong>, but not a strict reproduction of any single method. It is designed to balance:</p>
+    <ul>
+    <li>learnability (small steps)</li>
+    <li>retention (repetition over time)</li>
+    <li>usability (short, self-contained sessions)</li>
+    </ul>
+    <hr>
+    <h2>References</h2>
+    <p>Carvalho, P. F., &amp; Goldstone, R. L. (2015). What you learn is more than what you see. _Frontiers in Psychology_, 6, 505.</p>
+    <p>Junker, F. B., Schlaffke, L., Bents, L., Axmacher, N., &amp; Schmidt-Wilcke, T. (2023). Temporal dynamics of oscillatory activity during nonlexical language decoding. _Human Brain Mapping_, 44(17), 6185–6197.</p>
+    <p>Koch, H. (1936). _Arbeitspsychologische Untersuchung der Tätigkeit bei der Aufnahme von Morsezeichen_.</p>
+    <p>Kornell, N., &amp; Bjork, R. A. (2008). Learning concepts and categories: Is spacing the enemy of induction? _Psychological Science_, 19(6), 585–592.</p>
+    <p>Metcalfe, J. (2017). Learning from errors. _Annual Review of Psychology_, 68, 465–489.</p>
+    <p>Mettler, E., Massey, C. M., &amp; Kellman, P. J. (2016). A comparison of adaptive and fixed schedules of practice. _Journal of Experimental Psychology: General_, 145(7), 897–917.</p>
+    <p>Pyc, M. A., &amp; Rawson, K. A. (2009). Testing the retrieval effort hypothesis. _Journal of Memory and Language_, 60, 437–447.</p>
+    <p>Schlaffke, L., et al. (2017). Learning Morse Code Alters Microstructural Properties. _Frontiers in Human Neuroscience_, 11, 383.</p>
+    <p>Settles, B., &amp; Meeder, B. (2016). A trainable spaced repetition model for language learning. _ACL 2016_.</p>
+    <p>Siuda-Krzywicka, K., et al. (2016). Massive cortical reorganization in sighted Braille readers. _eLife_, 5, e10762.</p>
+
+    </div>
+  </body>
+</html>

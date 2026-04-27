@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cipher Academy – Referencias científicas</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #E6EAF5;
+        color: #343434;
+        line-height: 1.7;
+      }
+      a {
+        color: #3228D0;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 24px;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .nav-back {
+        font-size: 14px;
+        font-weight: 600;
+        color: #5E5E5E;
+      }
+      .nav-back:hover {
+        color: #3228D0;
+      }
+      .lang-toggle {
+        font-size: 13px;
+        font-weight: 600;
+        color: #888;
+      }
+      .lang-toggle a {
+        color: #3228D0;
+      }
+      .content {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 8px 24px 40px;
+      }
+      h1 {
+        color: #3228D0;
+        font-size: 28px;
+        margin-bottom: 24px;
+      }
+      h2 {
+        color: #3228D0;
+        font-size: 20px;
+        margin-top: 32px;
+        margin-bottom: 12px;
+      }
+      h3 {
+        color: #3228D0;
+        font-size: 17px;
+        margin-top: 24px;
+        margin-bottom: 8px;
+      }
+      blockquote {
+        border-left: 3px solid #3228D0;
+        padding: 12px 16px;
+        margin-bottom: 16px;
+        color: #555;
+        font-style: italic;
+      }
+      blockquote p {
+        margin-bottom: 0;
+      }
+      p {
+        margin-bottom: 16px;
+        color: #343434;
+      }
+      ul {
+        margin-bottom: 16px;
+        padding-left: 24px;
+      }
+      li {
+        margin-bottom: 8px;
+        color: #343434;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid #D0D4E3;
+        margin: 24px 0;
+      }
+      em {
+        color: #666;
+        font-style: italic;
+      }
+      strong {
+        color: #343434;
+      }
+      .subtitle {
+        color: #888;
+        font-size: 13px;
+        margin-bottom: 32px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="nav-back" href="cipher-academy.es.html">← Cipher Academy</a>
+      <span class="lang-toggle"><a href="cipher-academy-scientific-references.html">EN</a> · <a href="cipher-academy-scientific-references.fr.html">FR</a> · ES</span>
+    </nav>
+    <div class="content">
+      <p class="subtitle">Cipher Academy · Última actualización: 27 de abril de 2026</p>
+    <h1>Referencias científicas</h1>
+    <p>Este documento resume la investigación que informa el diseño de Cipher Academy. El objetivo no es replicar protocolos académicos exactamente, sino basarse en hallazgos establecidos en ciencia cognitiva y aplicarlos a una experiencia de aprendizaje simple y sin conexión.</p>
+    <blockquote><p>Cipher Academy está <strong>basado en la investigación, no es prescriptivo</strong>.
+    Los sistemas descritos a continuación están inspirados en trabajo científico, pero adaptados para la usabilidad, sesiones cortas y aprendizaje autodirigido.</p></blockquote>
+    <hr>
+    <h2>Parte 1 — Cerebro y beneficios del aprendizaje</h2>
+    <p>El aprendizaje de sistemas de codificación como el código Morse o el Braille involucra múltiples sistemas cognitivos, incluyendo el procesamiento del lenguaje, la memoria de trabajo y el reconocimiento perceptivo.</p>
+    <p>Los estudios de neuroimagen muestran que incluso períodos cortos de entrenamiento pueden producir cambios medibles en el cerebro adulto:</p>
+    <ul>
+    <li><strong>Schlaffke et al. (2017):</strong> encontraron cambios estructurales en la sustancia blanca después del aprendizaje del Morse, correlacionados con el rendimiento de decodificación.</li>
+    <li><strong>Junker et al. (2023):</strong> mostraron que la decodificación del Morse activa la memoria de trabajo, la recuperación de la memoria a largo plazo y las regiones cerebrales relacionadas con el lenguaje.</li>
+    <li><strong>Siuda-Krzywicka et al. (2016):</strong> demostraron una reorganización cortical a gran escala en adultos videntes que aprenden Braille.</li>
+    </ul>
+    <p>Estos hallazgos sugieren que decodificar sistemas simbólicos no es solo una actividad de puzzle, sino una forma de entrenamiento cognitivo que involucra reconocimiento de patrones, memoria y procesamiento similar al lenguaje.</p>
+    <h3>Interpretación para el diseño</h3>
+    <p>Cipher Academy se inspira en esta investigación combinando múltiples formas de entrada:</p>
+    <ul>
+    <li><strong>Decodificación visual:</strong> símbolos como Pigpen o Braille</li>
+    <li><strong>Decodificación auditiva:</strong> código Morse</li>
+    <li><strong>Entrada interactiva/táctil:</strong> modo Braille Touch</li>
+    </ul>
+    <p>Este <strong>enfoque multimodal</strong> está diseñado para reforzar el aprendizaje a través de diferentes canales sensoriales.</p>
+    <p>Sin embargo, la aplicación no es un protocolo de entrenamiento controlado, y estas decisiones de diseño son adaptaciones en lugar de implementaciones directas de métodos experimentales.</p>
+    <hr>
+    <h2>Parte 2 — Selección adaptativa de letras</h2>
+    <p>Durante una sesión, Cipher Academy selecciona qué letra mostrar a continuación utilizando una fórmula de ponderación dinámica basada en:</p>
+    <ul>
+    <li>el dominio actual dentro de la sesión</li>
+    <li>la retención a largo plazo (repetición espaciada)</li>
+    <li>la recencia (espaciado)</li>
+    <li>los errores pasados (seguimiento de confusiones)</li>
+    <li>la similitud entre símbolos (emparejamiento)</li>
+    </ul>
+    <p>Este enfoque está inspirado en varias líneas de investigación:</p>
+    <ul>
+    <li><strong>Mettler, Massey &amp; Kellman (2016):</strong> secuenciación adaptativa en aprendizaje perceptivo</li>
+    <li><strong>Kornell &amp; Bjork (2008):</strong> entrelazado vs. agrupamiento</li>
+    <li><strong>Carvalho &amp; Goldstone (2015):</strong> contraste discriminativo mediante secuenciación</li>
+    <li><strong>Settles &amp; Meeder (2016):</strong> modelado de la memoria a largo plazo (regresión de vida media)</li>
+    <li><strong>Metcalfe (2017):</strong> aprender de los errores</li>
+    <li><strong>Pyc &amp; Rawson (2009):</strong> fortalecimiento mediante la recuperación exitosa</li>
+    </ul>
+    <h3>Resumen de la fórmula</h3>
+    <p>A cada letra se le asigna un peso:</p>
+    <p>Wᵢ = Eᵢ · Mᵢ · Bᵢ · Sᵢ · Rᵢ · (1 + α Ĉᵢ) · (1 + β K̂ᵢ Rᵢ)</p>
+    <p>Donde:</p>
+    <ul>
+    <li>Bᵢ: dominio a largo plazo (caja SRS)</li>
+    <li>Sᵢ: progreso en la sesión (proximidad al dominio)</li>
+    <li>Rᵢ: recencia (tiempo desde la última aparición)</li>
+    <li>Cᵢ: confusión acumulada que involucra esta letra</li>
+    <li>Kᵢ: confusión con la letra mostrada anteriormente (efecto de contraste)</li>
+    <li>Mᵢ: reduce el peso de las letras ya dominadas</li>
+    <li>Eᵢ: evita la repetición inmediata de la misma letra (regla UX)</li>
+    </ul>
+    <h3>Interpretación para el diseño</h3>
+    <p>Esta fórmula no proviene de un solo artículo. Combina varios principios bien establecidos:</p>
+    <ul>
+    <li><strong>Espaciado:</strong> mejora la retención</li>
+    <li><strong>Entrelazado:</strong> mejora la discriminación entre elementos similares</li>
+    <li><strong>Errores:</strong> revelan lo que necesita refuerzo</li>
+    <li><strong>Contraste entre elementos similares:</strong> acelera el aprendizaje perceptivo</li>
+    </ul>
+    <p>El resultado es un sistema simple y determinista que se adapta en tiempo real sin requerir datos externos ni aprendizaje automático.</p>
+    <hr>
+    <h2>Parte 3 — Diseño de niveles y progresión</h2>
+    <p>El sistema de progresión de Cipher Academy está parcialmente inspirado en métodos de aprendizaje establecidos, particularmente para el código Morse.</p>
+    <ul>
+    <li><strong>Koch (1936):</strong> introdujo un método donde los aprendices comienzan con un pequeño conjunto de caracteres y solo añaden nuevos después de alcanzar una precisión alta.</li>
+    <li>La aplicación sigue este principio introduciendo letras en pequeños grupos y requiriendo dominio antes de progresar.</li>
+    </ul>
+    <p>Sin embargo, la implementación está adaptada:</p>
+    <ul>
+    <li>El orden de las letras se elige por **contraste perceptivo**, no por secuencia histórica</li>
+    <li>Se usan múltiples cifrados para involucrar diferentes procesos cognitivos</li>
+    <li>Las letras ya aprendidas permanecen en el pool, creando una **práctica entrelazada**</li>
+    </ul>
+    <h3>Interpretación para el diseño</h3>
+    <p>El sistema de progresión está <strong>inspirado en la investigación</strong>, pero no es una reproducción estricta de ningún método individual. Está diseñado para equilibrar:</p>
+    <ul>
+    <li>aprendibilidad (pasos pequeños)</li>
+    <li>retención (repetición a lo largo del tiempo)</li>
+    <li>usabilidad (sesiones cortas y autónomas)</li>
+    </ul>
+    <hr>
+    <h2>Referencias</h2>
+    <p>Carvalho, P. F., &amp; Goldstone, R. L. (2015). What you learn is more than what you see. _Frontiers in Psychology_, 6, 505.</p>
+    <p>Junker, F. B., Schlaffke, L., Bents, L., Axmacher, N., &amp; Schmidt-Wilcke, T. (2023). Temporal dynamics of oscillatory activity during nonlexical language decoding. _Human Brain Mapping_, 44(17), 6185–6197.</p>
+    <p>Koch, H. (1936). _Arbeitspsychologische Untersuchung der Tätigkeit bei der Aufnahme von Morsezeichen_.</p>
+    <p>Kornell, N., &amp; Bjork, R. A. (2008). Learning concepts and categories: Is spacing the enemy of induction? _Psychological Science_, 19(6), 585–592.</p>
+    <p>Metcalfe, J. (2017). Learning from errors. _Annual Review of Psychology_, 68, 465–489.</p>
+    <p>Mettler, E., Massey, C. M., &amp; Kellman, P. J. (2016). A comparison of adaptive and fixed schedules of practice. _Journal of Experimental Psychology: General_, 145(7), 897–917.</p>
+    <p>Pyc, M. A., &amp; Rawson, K. A. (2009). Testing the retrieval effort hypothesis. _Journal of Memory and Language_, 60, 437–447.</p>
+    <p>Schlaffke, L., et al. (2017). Learning Morse Code Alters Microstructural Properties. _Frontiers in Human Neuroscience_, 11, 383.</p>
+    <p>Settles, B., &amp; Meeder, B. (2016). A trainable spaced repetition model for language learning. _ACL 2016_.</p>
+    <p>Siuda-Krzywicka, K., et al. (2016). Massive cortical reorganization in sighted Braille readers. _eLife_, 5, e10762.</p>
+
+    </div>
+  </body>
+</html>
