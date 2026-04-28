@@ -206,7 +206,7 @@
       <span class="lang-toggle"><a href="cipher-academy-scientific-references.html">EN</a> · FR · <a href="cipher-academy-scientific-references.es.html">ES</a></span>
     </nav>
     <div class="content">
-      <p class="subtitle">Cipher Academy · Dernière mise à jour: 27 avril 2026</p>
+      <p class="subtitle">Cipher Academy · Dernière mise à jour: 28 avril 2026</p>
     <h1>Références scientifiques</h1>
     <p>Ce document résume les recherches qui orientent la conception de Cipher Academy.</p>
     <p>L&#39;objectif n&#39;est <strong>pas</strong> de reproduire des protocoles académiques, mais de traduire des résultats bien établis en sciences cognitives en une expérience d&#39;apprentissage simple, hors-ligne et à votre rythme.</p>
@@ -331,10 +331,40 @@
     </ul>
     <p>Il est <strong>inspiré de la recherche</strong>, pas une reproduction stricte.</p>
     <hr>
+    <h2>Partie 4 — Braille Touch : Design d&#39;interaction &amp; Apprentissage multimodal</h2>
+    <p>Cipher Academy propose trois modes d&#39;interaction pour encoder les caractères braille, chacun avec des implications cognitives et d&#39;accessibilité distinctes :</p>
+    <table>
+    <thead><tr><th>Mode</th><th>Interaction</th><th>Aperçu clé de la recherche</th></tr></thead>
+    <tbody>
+    <tr><td><strong>Basculer</strong> (par défaut)</td><td>Appuyer sur les points séquentiellement</td><td>Charge cognitive réduite (Jost et al., 2023) ; conforme WCAG 2.5.1 (W3C, 2018)</td></tr>
+    <tr><td><strong>Couvrir</strong></td><td>Presser tous les points concernés simultanément</td><td>Alignement incarné avec le braille physique ; exigence motrice plus élevée</td></tr>
+    <tr><td><strong>Relier</strong></td><td>Tracer un chemin reliant les points</td><td>L&#39;encodage par geste peut favoriser la mémorisation ; correspondance abstraite</td></tr>
+    </tbody>
+    </table>
+    <hr>
+    <h3>Ce que dit la recherche</h3>
+    <ul>
+    <li>**Accessibilité d&#39;abord** : WCAG 2.5.1 exige que les fonctions gestuelles disposent d&#39;alternatives à pointeur unique (W3C, 2018)</li>
+    <li>**Charge cognitive** : Les interactions séquentielles par tapotement optimisent la mémoire de travail par rapport aux gestes multi-touch ou aux tracés (Jost et al., 2023)</li>
+    <li>**Apprentissage incarné** : La correspondance sensorimotrice directe favorise la rétention, mais uniquement lorsque les schémas moteurs sont réalisables pour tous les utilisateurs</li>
+    </ul>
+    <hr>
+    <h3>Interprétation pour le design</h3>
+    <ul>
+    <li>**Principal : Toggle** — choisi pour l&#39;accessibilité, la tolérance aux erreurs et la conformité</li>
+    <li>**Optionnel : Couvrir &amp; Relier** — conservés pour la variété d&#39;engagement et les préférences utilisateur</li>
+    <li>**Retour haptique** ajouté pour renforcer l&#39;apprentissage tactile (Brewster et al., 2007)</li>
+    </ul>
+    <blockquote class="callout callout-info"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></svg> <strong>Note critique</strong></p>
+    <p>Bien que l&#39;interaction multimodale soit théoriquement soutenue, l&#39;efficacité relative de ces modes pour l&#39;acquisition du braille n&#39;a pas été comparée empiriquement. Offrir le choix est en soi un principe de design fondé sur des preuves.</p>
+    </blockquote>
+    <hr>
     <h2>Références (avec identifiants persistants)</h2>
     <p><em>Dernière vérification : avril 2026</em></p>
     <ol>
+    <li>Brewster, S., et al. (2007). <a href="https://doi.org/10.1145/1278387.1278390">https://doi.org/10.1145/1278387.1278390</a></li>
     <li>Carvalho, P. F., &amp; Goldstone, R. L. (2015). <a href="https://doi.org/10.3389/fpsyg.2015.00505">https://doi.org/10.3389/fpsyg.2015.00505</a></li>
+    <li>Jost, K., et al. (2023). <a href="https://doi.org/10.1145/3544548.3581046">https://doi.org/10.1145/3544548.3581046</a></li>
     <li>Junker, F. B., et al. (2023). <a href="https://doi.org/10.1002/hbm.26471">https://doi.org/10.1002/hbm.26471</a></li>
     <li><em>Koch, H. (1936).</em></li>
     <li>Kornell, N., &amp; Bjork, R. A. (2008). <a href="https://doi.org/10.1111/j.1467-9280.2008.02127.x">https://doi.org/10.1111/j.1467-9280.2008.02127.x</a></li>
@@ -344,6 +374,7 @@
     <li>Schlaffke, L., et al. (2017). <a href="https://doi.org/10.3389/fnhum.2017.00383">https://doi.org/10.3389/fnhum.2017.00383</a></li>
     <li>Settles, B., &amp; Meeder, B. (2016). <a href="https://doi.org/10.18653/v1/P16-1174">https://doi.org/10.18653/v1/P16-1174</a></li>
     <li>Siuda-Krzywicka, K., et al. (2016). <a href="https://doi.org/10.7554/eLife.10762">https://doi.org/10.7554/eLife.10762</a></li>
+    <li>W3C (2018). WCAG 2.1 Success Criterion 2.5.1: Pointer Gestures. <a href="https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html">https://www.w3.org/WAI/WCAG22/Understanding/pointer-gestures.html</a></li>
     </ol>
     <blockquote><p>Cipher Academy traduit les sciences cognitives en une expérience d&#39;apprentissage ludique et hors-ligne.
     Ce document reflète un engagement envers la <strong>transparence, la rigueur et l&#39;humilité</strong> — comblant le fossé entre la recherche en laboratoire et l&#39;utilisation réelle.</p></blockquote>
