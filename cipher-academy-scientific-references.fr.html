@@ -361,17 +361,62 @@
     <p>Bien que l&#39;interaction multimodale soit théoriquement soutenue, l&#39;efficacité relative de ces modes pour l&#39;acquisition du braille n&#39;a pas été comparée empiriquement. Offrir le choix est en soi un principe de design fondé sur des preuves.</p>
     </blockquote>
     <hr>
+    <h2>Partie 5 — Timing du Morse : Standards &amp; Presets d&#39;apprentissage</h2>
+    <p>Cipher Academy remplace les valeurs de durée arbitraires par des ratios conformes à l&#39;UIT et des presets de vitesse fondés sur la recherche.</p>
+    <h3>Standard normatif (UIT-R M.1677-1)</h3>
+    <p>Tout le timing Morse est dérivé d&#39;une seule unité de référence (durée du point) :</p>
+    <table>
+    <thead><tr><th>Élément</th><th>Ratio</th><th>Base</th></tr></thead>
+    <tbody>
+    <tr><td>Point</td><td>1×</td><td>Unité de référence</td></tr>
+    <tr><td>Tiret</td><td>3×</td><td>Standard UIT</td></tr>
+    <tr><td>Espace intra-lettre</td><td>1×</td><td>Sépare les points/tirets</td></tr>
+    <tr><td>Espace entre lettres</td><td>3×</td><td>Sépare les caractères</td></tr>
+    <tr><td>Espace entre mots</td><td>7×</td><td>Sépare les mots</td></tr>
+    </tbody>
+    </table>
+    <h3>Définition de la vitesse (standard PARIS)</h3>
+    <p>1 WPM = 50 unités point par minute. Donc :</p>
+    <pre><code>dot_duration = 1.2 / WPM (seconds)</code></pre>
+    <h3>Technique d&#39;entraînement (méthode Farnsworth)</h3>
+    <p>Pour empêcher les débutants de compter les éléments, la vitesse des caractères est fixée à ≥18 WPM tandis que les espaces inter-caractères/mots sont élargis pour réduire la vitesse _effective_. Cela s&#39;aligne avec la recherche sur l&#39;apprentissage perceptif auditif qui met l&#39;accent sur la reconnaissance rythmique plutôt que le traitement élément par élément.</p>
+    <p>Formule d&#39;ajustement de l&#39;espacement (approximation ARRL communément adoptée) :</p>
+    <pre><code>gap_multiplier = character_WPM / effective_WPM
+    letter_gap = 3 × dot_duration × gap_multiplier
+    word_gap = 7 × dot_duration × gap_multiplier</code></pre>
+    <h3>Presets &amp; Implémentation</h3>
+    <table>
+    <thead><tr><th>Mode</th><th>Vitesse caractère</th><th>Vitesse effective</th><th>Modèle de timing</th></tr></thead>
+    <tbody>
+    <tr><td><strong>Apprentissage</strong></td><td>18 WPM</td><td>8 WPM</td><td>Farnsworth (espaces élargis)</td></tr>
+    <tr><td><strong>Standard</strong></td><td>15 WPM</td><td>15 WPM</td><td>Ratios UIT (espaces standard)</td></tr>
+    <tr><td><strong>Avancé</strong></td><td>22 WPM</td><td>22 WPM</td><td>Ratios UIT (espaces standard)</td></tr>
+    </tbody>
+    </table>
+    <h3>Interprétation pour le design</h3>
+    <ul>
+    <li>**Moteur basé sur un modèle** : Toutes les durées sont calculées à partir de durée_point, éliminant les valeurs ms arbitraires</li>
+    <li>**Seuils d&#39;entrée relatifs** : seuil_tap ≈ 1,5 × durée_point_effective (min 150 ms) ; soumission_auto ≈ 4 × durée_point_effective (min 400 ms) — les seuils s&#39;échelonnent selon la vitesse effective pour offrir des fenêtres de saisie plus tolérantes pendant l&#39;apprentissage, indépendamment du rythme de transmission des caractères</li>
+    <li>**Espaces contextuels** : L&#39;expansion Farnsworth ne s&#39;applique qu&#39;en mode décodage de mot (séquence) ; la pratique lettre par lettre utilise les espaces UIT standard car l&#39;app contrôle le rythme via l&#39;interface</li>
+    </ul>
+    <blockquote class="callout callout-info"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></svg> <strong>Note critique</strong></p>
+    <p>Le timing Farnsworth est largement adopté dans la formation radioamateur, mais les paramètres d&#39;espacement optimaux et le &quot;plateau à 13 WPM&quot; souvent cité manquent de validation expérimentale contrôlée. Le modèle de timing de Cipher Academy donne la priorité à la conformité UIT et aux principes d&#39;apprentissage perceptif tout en documentant de manière transparente les adaptations heuristiques.</p>
+    </blockquote>
+    <hr>
     <h2>Références (avec identifiants persistants)</h2>
     <p><em>Dernière vérification : avril 2026</em></p>
     <ol>
+    <li><em>Bloom, J. (KE3Z). (1990). A Standard for Morse Timing Using the Farnsworth Technique. ARRL Laboratory.</em></li>
     <li>Brewster, S., et al. (2007). <a href="https://doi.org/10.1145/1278387.1278390">https://doi.org/10.1145/1278387.1278390</a></li>
     <li>Carvalho, P. F., &amp; Goldstone, R. L. (2015). <a href="https://doi.org/10.3389/fpsyg.2015.00505">https://doi.org/10.3389/fpsyg.2015.00505</a></li>
     <li>Jost, K., et al. (2023). <a href="https://doi.org/10.1145/3544548.3581046">https://doi.org/10.1145/3544548.3581046</a></li>
     <li>Junker, F. B., et al. (2023). <a href="https://doi.org/10.1002/hbm.26471">https://doi.org/10.1002/hbm.26471</a></li>
+    <li><em>ITU-R. (2009). Recommendation M.1677-1: International Morse code. International Telecommunication Union.</em></li>
     <li><em>Koch, H. (1936).</em></li>
     <li>Kornell, N., &amp; Bjork, R. A. (2008). <a href="https://doi.org/10.1111/j.1467-9280.2008.02127.x">https://doi.org/10.1111/j.1467-9280.2008.02127.x</a></li>
     <li>Metcalfe, J. (2017). <a href="https://doi.org/10.1146/annurev-psych-010416-044022">https://doi.org/10.1146/annurev-psych-010416-044022</a></li>
     <li>Mettler, E., et al. (2016). <a href="https://doi.org/10.1037/xge0000176">https://doi.org/10.1037/xge0000176</a></li>
+    <li>Morse Code World. (n.d.). Farnsworth Timing &amp; PARIS Standard. <a href="https://morsecode.world/international/timing/farnsworth.html">https://morsecode.world/international/timing/farnsworth.html</a></li>
     <li>Pyc, M. A., &amp; Rawson, K. A. (2009). <a href="https://doi.org/10.1016/j.jml.2009.01.001">https://doi.org/10.1016/j.jml.2009.01.001</a></li>
     <li>Schlaffke, L., et al. (2017). <a href="https://doi.org/10.3389/fnhum.2017.00383">https://doi.org/10.3389/fnhum.2017.00383</a></li>
     <li>Settles, B., &amp; Meeder, B. (2016). <a href="https://doi.org/10.18653/v1/P16-1174">https://doi.org/10.18653/v1/P16-1174</a></li>
