@@ -210,6 +210,35 @@
     <div class="content">
       <p class="subtitle"></p>
     <h1>What&#39;s New</h1>
+    <h2>1.4.0 — May 5, 2026</h2>
+    <h3>Added</h3>
+    <ul>
+    <li>The version number on the home screen is now tappable.</li>
+    <li>New &quot;Website&quot; link in Settings → About that opens the Cipher Academy page on the official website.</li>
+    <li>A subtle phase label (Warmup / Learning) now appears below the progress bar during play so it&#39;s clearer which phase of the level you are in.</li>
+    <li>New Braille tip across levels 7-9: progressive mnemonic showing how the printed shapes of D, F, H and J are hidden in their dot patterns. D &amp; F appear at level 7, H joins at level 8, and J completes the family at level 9.</li>
+    <li>New A1Z26 tip at level 3: anchor letters every five positions — E = 5, O = 15, Y = 25 — to make the rest of the alphabet easier to place.</li>
+    <li>New Morse tip at level 13: the dot and dash ladders — letters made entirely of dots (E, I, S, H) or entirely of dashes (T, M, O), each step adding one symbol.</li>
+    </ul>
+    <h3>Changed</h3>
+    <ul>
+    <li>From level 7 onward, levels now favor 5-letter words for a steadier challenge as your alphabet grows; shorter words still appear when the available pool is small.</li>
+    <li>Challenge levels now show your remaining lives as hearts in the header instead of a progress bar.</li>
+    <li>On Morse levels, the Morse visual hint stays on automatically during the warmup phase; the toggle re-enables once warmup ends.</li>
+    <li>Braille reference pages for the 3rd decade (U/V and U/V/X/Y) now also show the matching 1st- and 2nd-decade letters as context, making the +dot 3 + dot 6 pattern easier to see.</li>
+    <li>Braille tip at level 13 (W) now shows a diagram with U, V, X, Y, Z together with their A–E parents, and W on its own row to highlight that it is an outlier added later.</li>
+    <li>A1Z26 tip at level 2 (J = 10, T = 20) now uses the locale-appropriate mnemonic in French (&quot;JT comme Journal Télévisé&quot;).</li>
+    <li>The level progress bar now caps at 100% and reflects per-letter mastery more accurately.</li>
+    <li>Newly-introduced letters take more correct answers to master, giving you more practice on first exposure.</li>
+    <li>When you confuse two letters, both letters now lose a bit of progress (previously only the letter you tapped did).</li>
+    <li>On Morse levels, using the visual hint or replaying the audio now grants partial progress for that round instead of full progress.</li>
+    </ul>
+    <h3>Fixed</h3>
+    <ul>
+    <li>Reference screen now shows every unlocked info page for ciphers with more than 8 levels (Braille, Morse) — previously these pages were silently hidden once unlocked.</li>
+    <li>Morse audio going silent after extended Learn-mode sessions — a follow-up to the 1.3.0 fix that didn&#39;t fully resolve the issue. Sound now stays available throughout long sessions without needing to restart the app.</li>
+    <li>Avoid long streaks of already-mastered letters when the level still has letters left to master.</li>
+    </ul>
     <h2>1.3.0 — May 3, 2026</h2>
     <h3>Added</h3>
     <ul>
