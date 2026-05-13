@@ -81,5 +81,5 @@ Screenshots and icons are stored in `images/<app>/`. Add new screenshots there w
 These pages serve as:
 
 - The public marketing site for pidup games
-- Privacy policies, ethical design statements, and credits required by app stores (Google Play, Apple App Store)
+- Privacy policies, ethical design statements, and credits required by app stores (Google Play)
 - Pages linked from within each app
