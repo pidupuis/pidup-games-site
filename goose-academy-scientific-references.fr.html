@@ -208,7 +208,7 @@
       <span class="lang-toggle"><a href="goose-academy-scientific-references.html">EN</a> · FR · <a href="goose-academy-scientific-references.es.html">ES</a></span>
     </nav>
     <div class="content">
-      <p class="subtitle">Goose Academy &middot; Dernière révision: 29 avril 2026</p>
+      <p class="subtitle">Goose Academy &middot; Dernière révision: 14 mai 2026</p>
     <h1>Références scientifiques</h1>
     <p>Ce document résume les recherches qui orientent la conception de Goose Academy.</p>
     <p>L&#39;objectif n&#39;est <strong>pas</strong> de reproduire des protocoles académiques, mais de traduire des résultats bien établis en science cognitive en une expérience d&#39;apprentissage simple, hors-ligne et à son propre rythme.</p>
@@ -294,11 +294,28 @@
     </ul>
     <p>Il est <strong>inspiré par la recherche</strong>, pas une reproduction stricte.</p>
     <hr>
+    <h2>Partie 3 — Sélection des distracteurs pour le jeu de drapeaux</h2>
+    <p>Dans le mini-jeu de chasse aux drapeaux, les distracteurs (drapeaux incorrects affichés à côté de la cible) sont sélectionnés en fonction de la <strong>similarité visuelle</strong> plutôt qu&#39;au hasard. L&#39;objectif est de rendre la tâche véritablement stimulante — en forçant l&#39;apprenant à repérer les différences subtiles entre les drapeaux.</p>
+    <h3>Méthodologie</h3>
+    <p>La similarité visuelle est calculée hors-ligne à l&#39;aide de <strong>DenseNet201</strong> (Huang et al., 2017), un réseau de neurones convolutif profond pré-entraîné sur ImageNet (ILSVRC-2012). Chaque image de drapeau est passée dans le réseau et un vecteur de caractéristiques de 1920 dimensions est extrait de la dernière couche de pooling. La similarité cosinus entre ces vecteurs détermine quels drapeaux se ressemblent le plus.</p>
+    <h3>Génération des données</h3>
+    <p>Pour chacun des ~250 drapeaux du jeu, les 35 drapeaux les plus visuellement similaires sont pré-calculés et stockés dans un fichier JSON statique. Pendant le jeu, les distracteurs sont tirés de cette liste classée.</p>
+    <h3>Justification</h3>
+    <ul>
+    <li>Les distracteurs basés sur la similarité mobilisent le **contraste discriminatif** (Carvalho &amp; Goldstone, 2015) — l&#39;apprenant doit prêter attention aux différences fines</li>
+    <li>Des distracteurs aléatoires seraient souvent trivialement distinguables, réduisant la valeur d&#39;apprentissage</li>
+    <li>Les caractéristiques d&#39;un CNN profond capturent à la fois la distribution des couleurs et les motifs structurels, fournissant une approximation raisonnable de la similarité perceptive humaine</li>
+    </ul>
+    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Limites</strong></p>
+    <p>Les classements de similarité <strong>n&#39;ont pas été validés par des jugements humains de similarité</strong>. Les caractéristiques de DenseNet201 capturent des traits visuels de bas à moyen niveau mais peuvent ne pas correspondre parfaitement à la perception humaine de la similarité des drapeaux (les associations culturelles ou sémantiques sont ignorées). L&#39;approche est une heuristique pratique, pas un modèle perceptif.</p>
+    </blockquote>
+    <hr>
     <h2>Références (avec identifiants persistants)</h2>
-    <p><em>Dernière vérification : avril 2026</em></p>
+    <p><em>Dernière vérification : mai 2026</em></p>
     <ol>
     <li><em>Bjork, R. A. (1994).</em></li>
     <li>Carvalho, P. F., &amp; Goldstone, R. L. (2015). <a href="https://doi.org/10.3389/fpsyg.2015.00505">https://doi.org/10.3389/fpsyg.2015.00505</a></li>
+    <li>Huang, G., Liu, Z., van der Maaten, L., &amp; Weinberger, K. Q. (2017). <a href="https://doi.org/10.1109/CVPR.2017.243">https://doi.org/10.1109/CVPR.2017.243</a></li>
     <li>Kornell, N., &amp; Bjork, R. A. (2008). <a href="https://doi.org/10.1111/j.1467-9280.2008.02127.x">https://doi.org/10.1111/j.1467-9280.2008.02127.x</a></li>
     <li>Metcalfe, J. (2017). <a href="https://doi.org/10.1146/annurev-psych-010416-044022">https://doi.org/10.1146/annurev-psych-010416-044022</a></li>
     <li>Mettler, E., et al. (2016). <a href="https://doi.org/10.1037/xge0000176">https://doi.org/10.1037/xge0000176</a></li>

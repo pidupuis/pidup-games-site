@@ -208,7 +208,7 @@
       <span class="lang-toggle">EN · <a href="goose-academy-scientific-references.fr.html">FR</a> · <a href="goose-academy-scientific-references.es.html">ES</a></span>
     </nav>
     <div class="content">
-      <p class="subtitle">Goose Academy &middot; Last revision: April 29, 2026</p>
+      <p class="subtitle">Goose Academy &middot; Last revision: May 14, 2026</p>
     <h1>Scientific References</h1>
     <p>This document summarizes the research that informs Goose Academy&#39;s design.</p>
     <p>The goal is <strong>not</strong> to replicate academic protocols, but to translate well-established findings from cognitive science into a simple, offline, and self-paced learning experience.</p>
@@ -294,11 +294,28 @@
     </ul>
     <p>It is <strong>inspired by research</strong>, not a strict reproduction.</p>
     <hr>
+    <h2>Part 3 — Flag Hunt Distractor Selection</h2>
+    <p>In the flag hunt mini-game, distractors (incorrect flags shown alongside the target) are selected based on <strong>visual similarity</strong> rather than at random. The goal is to make the task genuinely challenging — forcing learners to notice subtle differences between flags.</p>
+    <h3>Methodology</h3>
+    <p>Visual similarity is computed offline using <strong>DenseNet201</strong> (Huang et al., 2017), a deep convolutional neural network pre-trained on ImageNet (ILSVRC-2012). Each flag image is passed through the network and a 1920-dimensional feature vector is extracted from the final pooling layer. Cosine similarity between these vectors determines which flags look most alike.</p>
+    <h3>Data generation</h3>
+    <p>For each of the ~250 flags in the game, the top 35 most visually similar flags are pre-computed and stored in a static JSON file. During gameplay, distractors are drawn from this ranked list.</p>
+    <h3>Rationale</h3>
+    <ul>
+    <li>Similarity-based distractors engage **discriminative contrast** (Carvalho &amp; Goldstone, 2015) — learners must attend to fine-grained differences</li>
+    <li>Random distractors would often be trivially distinguishable, reducing learning value</li>
+    <li>Deep CNN features capture both color distribution and structural patterns, providing a reasonable proxy for human perceptual similarity</li>
+    </ul>
+    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Limitations</strong></p>
+    <p>The similarity rankings have <strong>not been validated against human similarity judgments</strong>. DenseNet201 features capture low-to-mid level visual features but may not perfectly align with how humans perceive flag similarity (e.g. cultural or semantic associations are ignored). The approach is a practical heuristic, not a perceptual model.</p>
+    </blockquote>
+    <hr>
     <h2>References (with persistent identifiers)</h2>
-    <p><em>Last verified: April 2026</em></p>
+    <p><em>Last verified: May 2026</em></p>
     <ol>
     <li><em>Bjork, R. A. (1994).</em></li>
     <li>Carvalho, P. F., &amp; Goldstone, R. L. (2015). <a href="https://doi.org/10.3389/fpsyg.2015.00505">https://doi.org/10.3389/fpsyg.2015.00505</a></li>
+    <li>Huang, G., Liu, Z., van der Maaten, L., &amp; Weinberger, K. Q. (2017). <a href="https://doi.org/10.1109/CVPR.2017.243">https://doi.org/10.1109/CVPR.2017.243</a></li>
     <li>Kornell, N., &amp; Bjork, R. A. (2008). <a href="https://doi.org/10.1111/j.1467-9280.2008.02127.x">https://doi.org/10.1111/j.1467-9280.2008.02127.x</a></li>
     <li>Metcalfe, J. (2017). <a href="https://doi.org/10.1146/annurev-psych-010416-044022">https://doi.org/10.1146/annurev-psych-010416-044022</a></li>
     <li>Mettler, E., et al. (2016). <a href="https://doi.org/10.1037/xge0000176">https://doi.org/10.1037/xge0000176</a></li>

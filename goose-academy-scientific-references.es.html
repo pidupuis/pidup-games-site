@@ -208,7 +208,7 @@
       <span class="lang-toggle"><a href="goose-academy-scientific-references.html">EN</a> · <a href="goose-academy-scientific-references.fr.html">FR</a> · ES</span>
     </nav>
     <div class="content">
-      <p class="subtitle">Goose Academy &middot; Última actualización: 29 de abril de 2026</p>
+      <p class="subtitle">Goose Academy &middot; Última actualización: 14 de mayo de 2026</p>
     <h1>Referencias científicas</h1>
     <p>Este documento resume las investigaciones que orientan el diseño de Goose Academy.</p>
     <p>El objetivo <strong>no</strong> es replicar protocolos académicos, sino trasladar hallazgos bien establecidos de la ciencia cognitiva a una experiencia de aprendizaje simple, sin conexión y a tu propio ritmo.</p>
@@ -294,11 +294,28 @@
     </ul>
     <p>Está <strong>inspirado por la investigación</strong>, no es una reproducción estricta.</p>
     <hr>
+    <h2>Parte 3 — Selección de distractores para el juego de banderas</h2>
+    <p>En el minijuego de búsqueda de banderas, los distractores (banderas incorrectas mostradas junto al objetivo) se seleccionan en función de la <strong>similitud visual</strong> en lugar de al azar. El objetivo es hacer que la tarea sea genuinamente desafiante — obligando al aprendiz a detectar diferencias sutiles entre banderas.</p>
+    <h3>Metodología</h3>
+    <p>La similitud visual se calcula fuera de línea usando <strong>DenseNet201</strong> (Huang et al., 2017), una red neuronal convolucional profunda pre-entrenada en ImageNet (ILSVRC-2012). Cada imagen de bandera se pasa a través de la red y se extrae un vector de características de 1920 dimensiones de la última capa de pooling. La similitud coseno entre estos vectores determina qué banderas se parecen más.</p>
+    <h3>Generación de datos</h3>
+    <p>Para cada una de las ~250 banderas del juego, las 35 banderas más visualmente similares se precalculan y almacenan en un archivo JSON estático. Durante el juego, los distractores se extraen de esta lista clasificada.</p>
+    <h3>Justificación</h3>
+    <ul>
+    <li>Los distractores basados en similitud activan el **contraste discriminativo** (Carvalho &amp; Goldstone, 2015) — el aprendiz debe prestar atención a diferencias sutiles</li>
+    <li>Los distractores aleatorios serían a menudo trivialmente distinguibles, reduciendo el valor de aprendizaje</li>
+    <li>Las características de una CNN profunda capturan tanto la distribución de colores como los patrones estructurales, proporcionando una aproximación razonable de la similitud perceptiva humana</li>
+    </ul>
+    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Limitaciones</strong></p>
+    <p>Los rankings de similitud <strong>no han sido validados contra juicios humanos de similitud</strong>. Las características de DenseNet201 capturan rasgos visuales de nivel bajo a medio pero pueden no alinearse perfectamente con cómo los humanos perciben la similitud de banderas (las asociaciones culturales o semánticas se ignoran). El enfoque es una heurística práctica, no un modelo perceptivo.</p>
+    </blockquote>
+    <hr>
     <h2>Referencias (con identificadores persistentes)</h2>
-    <p><em>Última verificación: abril de 2026</em></p>
+    <p><em>Última verificación: mayo de 2026</em></p>
     <ol>
     <li><em>Bjork, R. A. (1994).</em></li>
     <li>Carvalho, P. F., &amp; Goldstone, R. L. (2015). <a href="https://doi.org/10.3389/fpsyg.2015.00505">https://doi.org/10.3389/fpsyg.2015.00505</a></li>
+    <li>Huang, G., Liu, Z., van der Maaten, L., &amp; Weinberger, K. Q. (2017). <a href="https://doi.org/10.1109/CVPR.2017.243">https://doi.org/10.1109/CVPR.2017.243</a></li>
     <li>Kornell, N., &amp; Bjork, R. A. (2008). <a href="https://doi.org/10.1111/j.1467-9280.2008.02127.x">https://doi.org/10.1111/j.1467-9280.2008.02127.x</a></li>
     <li>Metcalfe, J. (2017). <a href="https://doi.org/10.1146/annurev-psych-010416-044022">https://doi.org/10.1146/annurev-psych-010416-044022</a></li>
     <li>Mettler, E., et al. (2016). <a href="https://doi.org/10.1037/xge0000176">https://doi.org/10.1037/xge0000176</a></li>
