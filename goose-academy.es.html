@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
     <title>Goose Academy — Próximamente</title>
     <meta name="description" content="Tu aplicación de entrenamiento para quizzes de cultura general. Domina capitales, banderas, elementos químicos, premios Nobel, gobernantes históricos y cientos de listas." />
     <style>
@@ -14,15 +15,15 @@
       body {
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background: #e6eaf5;
-        color: #343434;
+        background: #343434;
+        color: #e6eaf5;
         line-height: 1.7;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
       }
       a {
-        color: #0e7490;
+        color: #ff5151;
         text-decoration: none;
       }
       a:hover {
@@ -40,10 +41,10 @@
       .nav-back {
         font-size: 14px;
         font-weight: 600;
-        color: #5e5e5e;
+        color: #a8a8a8;
       }
       .nav-back:hover {
-        color: #0e7490;
+        color: #ff5151;
       }
       .lang-toggle {
         font-size: 13px;
@@ -51,7 +52,7 @@
         color: #888;
       }
       .lang-toggle a {
-        color: #0e7490;
+        color: #ff5151;
       }
       .main {
         flex: 1;
@@ -71,19 +72,20 @@
         height: 140px;
         border-radius: 32px;
         box-shadow:
-          6px 6px 16px rgba(163, 170, 190, 0.6),
-          -6px -6px 16px rgba(255, 255, 255, 0.8);
+          6px 6px 16px rgba(0, 0, 0, 0.55),
+          -6px -6px 16px rgba(110, 110, 110, 0.3);
       }
       h1 {
         font-size: 36px;
         font-weight: 800;
         letter-spacing: 1px;
         margin-bottom: 8px;
+        color: #e6eaf5;
       }
       .tagline {
         font-size: 16px;
         font-weight: 600;
-        color: #0e7490;
+        color: #ff5151;
         margin-bottom: 12px;
       }
       .coming-soon {
@@ -92,16 +94,16 @@
         border-radius: 50px;
         font-size: 14px;
         font-weight: 600;
-        color: #0e7490;
-        background: #e6eaf5;
+        color: #ff5151;
+        background: #343434;
         box-shadow:
-          4px 4px 10px rgba(163, 170, 190, 0.5),
-          -4px -4px 10px rgba(255, 255, 255, 0.7);
+          inset 4px 4px 10px rgba(0, 0, 0, 0.55),
+          inset -4px -4px 10px rgba(110, 110, 110, 0.35);
         margin-bottom: 24px;
       }
       .description {
         font-size: 16px;
-        color: #5e5e5e;
+        color: #cccccc;
         max-width: 400px;
       }
       .footer {
@@ -109,7 +111,7 @@
         padding: 40px 24px;
         max-width: 720px;
         margin: 0 auto;
-        border-top: 1px solid #d0d4e3;
+        border-top: 1px solid #555;
         width: 100%;
       }
       .footer-links {
@@ -118,14 +120,17 @@
       .footer-links a {
         font-size: 14px;
         margin: 0 8px;
-        color: #0e7490;
+        color: #ff5151;
       }
       .footer .contact {
         font-size: 13px;
-        color: #888;
+        color: #a8a8a8;
       }
       .footer .contact a {
-        color: #888;
+        color: #a8a8a8;
+      }
+      .footer .contact a:hover {
+        color: #ff5151;
       }
     </style>
   </head>

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <title>pidup games — Jeux mobiles</title>
     <meta
       name="description"
@@ -14,138 +15,203 @@
         padding: 0;
         box-sizing: border-box;
       }
+      :root {
+        --fantome: #e6eaf5;
+        --graphite: #343434;
+        --indigo: #3228d0;
+        --corail: #ff5151;
+        --fantome-muted: #5e5e5e;
+        --graphite-muted: #cccccc;
+      }
+      html,
+      body {
+        height: 100%;
+      }
       body {
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        background: #e6eaf5;
-        color: #343434;
+        background: var(--fantome);
         line-height: 1.7;
         min-height: 100vh;
         display: flex;
         flex-direction: column;
       }
-      a {
-        color: #3228d0;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      .nav {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 16px 24px;
-        max-width: 960px;
-        margin: 0 auto;
-        width: 100%;
-      }
-      .lang-toggle {
-        font-size: 13px;
-        font-weight: 600;
-        color: #888;
-      }
-      .lang-toggle a {
-        color: #3228d0;
-      }
-      .header {
-        text-align: center;
-        padding: 48px 24px 16px;
-        max-width: 960px;
-        margin: 0 auto;
-      }
-      .header h1 {
-        font-size: 36px;
-        font-weight: 800;
-        letter-spacing: 1px;
-        color: #343434;
-        margin-bottom: 8px;
-      }
-      .header .subtitle {
-        font-size: 16px;
-        color: #666;
-      }
-      .cards {
+
+      /* Gradient wrapper: contains topbar + main split */
+      .split-bg {
         flex: 1;
         display: flex;
         flex-direction: column;
+        background: linear-gradient(
+          to right,
+          var(--fantome) 0%,
+          var(--fantome) 47.5%,
+          var(--graphite) 52.5%,
+          var(--graphite) 100%
+        );
+      }
+
+      /* --- Topbar (over gradient) --- */
+      .topbar {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
         align-items: center;
-        gap: 24px;
-        padding: 40px 24px;
-        max-width: 960px;
-        margin: 0 auto;
-        width: 100%;
+        padding: 20px 28px;
+        gap: 16px;
       }
-      @media (min-width: 640px) {
-        .cards {
-          flex-direction: row;
-          justify-content: center;
-          align-items: flex-start;
-        }
+      .lang-toggle {
+        justify-self: start;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        color: var(--indigo);
       }
+      .lang-toggle a {
+        color: var(--indigo);
+        text-decoration: none;
+      }
+      .lang-toggle a:hover {
+        text-decoration: underline;
+      }
+      .wordmark {
+        display: flex;
+        gap: 6px;
+        font-weight: 800;
+        font-size: 22px;
+        letter-spacing: 1.5px;
+        white-space: nowrap;
+      }
+      .wordmark .left {
+        color: var(--graphite);
+      }
+      .wordmark .right {
+        color: var(--fantome);
+      }
+      .topbar-spacer {
+        /* third grid column, keeps wordmark centered */
+      }
+
+      /* --- Main split: two clickable sides --- */
+      .split {
+        flex: 1;
+        display: flex;
+        align-items: stretch;
+      }
+      .side {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 32px;
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+      }
+      .side:focus-visible {
+        outline-offset: -10px;
+        border-radius: 4px;
+      }
+      .side.cipher:focus-visible {
+        outline: 3px solid var(--corail);
+      }
+      .side.goose:focus-visible {
+        outline: 3px solid var(--indigo);
+      }
+
       .card {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 24px 22px;
-        border-radius: 20px;
-        background: #e6eaf5;
-        box-shadow:
-          6px 6px 16px rgba(163, 170, 190, 0.5),
-          -6px -6px 16px rgba(255, 255, 255, 0.7);
+        padding: 36px 28px;
+        border-radius: 28px;
+        max-width: 340px;
         width: 100%;
-        max-width: 300px;
-        height: 320px;
-        transition: transform 0.2s;
-        color: inherit;
+        transition: transform 0.2s ease;
       }
-      .card:hover {
+      .side:hover .card {
         transform: translateY(-4px);
-        text-decoration: none;
-      }
-      .card-icon {
-        width: 72px;
-        height: 72px;
-        border-radius: 18px;
-        box-shadow:
-          3px 3px 8px rgba(163, 170, 190, 0.5),
-          -3px -3px 8px rgba(255, 255, 255, 0.7);
-        margin-bottom: 16px;
       }
 
+      /* Cipher: convex fantome pillow */
+      .card.cipher-card {
+        background: var(--fantome);
+        color: var(--graphite);
+        box-shadow:
+          8px 8px 22px rgba(163, 170, 190, 0.55),
+          -8px -8px 22px rgba(255, 255, 255, 0.85);
+      }
+      .card.cipher-card .card-icon {
+        box-shadow:
+          4px 4px 10px rgba(163, 170, 190, 0.55),
+          -4px -4px 10px rgba(255, 255, 255, 0.85);
+      }
+      .card.cipher-card .card-badge {
+        color: var(--indigo);
+        background: var(--fantome);
+        box-shadow:
+          3px 3px 8px rgba(163, 170, 190, 0.5),
+          -3px -3px 8px rgba(255, 255, 255, 0.75);
+      }
+      .card.cipher-card .card-desc {
+        color: var(--fantome-muted);
+      }
+
+      /* Goose: concave graphite well */
+      .card.goose-card {
+        background: var(--graphite);
+        color: var(--fantome);
+        box-shadow:
+          inset 6px 6px 18px rgba(0, 0, 0, 0.55),
+          inset -6px -6px 18px rgba(110, 110, 110, 0.4);
+      }
+      .card.goose-card .card-icon {
+        box-shadow:
+          3px 3px 8px rgba(0, 0, 0, 0.55),
+          -3px -3px 8px rgba(110, 110, 110, 0.3);
+      }
+      .card.goose-card .card-badge {
+        color: var(--corail);
+        background: var(--graphite);
+        box-shadow:
+          inset 3px 3px 8px rgba(0, 0, 0, 0.5),
+          inset -3px -3px 8px rgba(110, 110, 110, 0.35);
+      }
+      .card.goose-card .card-desc {
+        color: var(--graphite-muted);
+      }
+
+      .card-icon {
+        width: 96px;
+        height: 96px;
+        border-radius: 22px;
+        margin-bottom: 20px;
+      }
       .card h2 {
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 6px;
-        color: #343434;
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
       }
       .card .card-desc {
-        font-size: 13px;
-        color: #5e5e5e;
-        margin-bottom: 14px;
+        font-size: 14px;
+        line-height: 1.55;
+        margin-bottom: 20px;
       }
-      .card .card-badge {
+      .card-badge {
         display: inline-block;
-        padding: 6px 20px;
+        padding: 8px 22px;
         border-radius: 50px;
         font-size: 13px;
-        font-weight: 600;
-        color: #3228d0;
-        background: #e6eaf5;
-        box-shadow:
-          3px 3px 8px rgba(163, 170, 190, 0.4),
-          -3px -3px 8px rgba(255, 255, 255, 0.6);
+        font-weight: 700;
+        letter-spacing: 0.3px;
       }
-      .card .card-badge.muted {
-        color: #888;
-      }
+
+      /* --- Footer (neutral fantome strip) --- */
       .footer {
+        background: var(--fantome);
         text-align: center;
-        padding: 40px 24px;
-        max-width: 720px;
-        margin: 0 auto;
-        width: 100%;
+        padding: 32px 24px;
         border-top: 1px solid #d0d4e3;
       }
       .footer p {
@@ -155,66 +221,104 @@
       }
       .footer a {
         color: #888;
+        text-decoration: none;
       }
       .footer a:hover {
-        color: #3228d0;
+        color: var(--indigo);
+      }
+
+      /* --- Mobile (stacked) --- */
+      @media (max-width: 700px) {
+        .split-bg {
+          background: linear-gradient(
+            to bottom,
+            var(--fantome) 0%,
+            var(--fantome) 47.5%,
+            var(--graphite) 52.5%,
+            var(--graphite) 100%
+          );
+        }
+        .topbar {
+          padding: 16px 20px;
+        }
+        /* Top of page is solid fantome — neutralise the cross-color trick */
+        .wordmark .right {
+          color: var(--graphite);
+        }
+        .split {
+          flex-direction: column;
+        }
+        .side {
+          padding: 32px 24px;
+        }
+        .card {
+          max-width: 420px;
+        }
       }
     </style>
   </head>
   <body>
-    <nav class="nav">
-      <span class="lang-toggle"
-        ><a href="index.html">EN</a> · FR · <a href="index.es.html">ES</a></span
-      >
-    </nav>
+    <div class="split-bg">
+      <header class="topbar">
+        <nav class="lang-toggle" aria-label="Langue">
+          <a href="index.html">EN</a> · FR · <a href="index.es.html">ES</a>
+        </nav>
+        <div class="wordmark" aria-label="pidup games">
+          <span class="left">pidup</span>
+          <span class="right">games</span>
+        </div>
+        <div class="topbar-spacer"></div>
+      </header>
 
-    <header class="header">
-      <h1>pidup games</h1>
-      <p class="subtitle">
-        Des jeux mobiles qui respectent votre temps, votre attention et votre
-        vie privée.
-      </p>
-    </header>
+      <main class="split">
+        <a
+          class="side cipher"
+          href="cipher-academy.fr.html"
+          aria-label="Cipher Academy — disponible sur Google Play"
+        >
+          <div class="card cipher-card">
+            <img
+              class="card-icon"
+              src="images/cipher-academy/icon.png"
+              alt=""
+              width="96"
+              height="96"
+            />
+            <h2>Cipher Academy</h2>
+            <p class="card-desc">
+              Décodez Morse, Braille, Pigpen et plus ! Conçu pour les fans
+              d'escape game.
+            </p>
+            <span class="card-badge">Disponible sur Google Play</span>
+          </div>
+        </a>
 
-    <main class="cards">
-      <a class="card" href="cipher-academy.fr.html">
-        <img
-          class="card-icon"
-          src="images/cipher-academy/icon.png"
-          alt="Icône Cipher Academy"
-          width="96"
-          height="96"
-        />
-        <h2>Cipher Academy</h2>
-        <p class="card-desc">
-          Décodez Morse, Braille, Pigpen et plus ! Conçu pour les fans d'escape
-          game.
-        </p>
-        <span class="card-badge">Disponible sur Google Play</span>
-      </a>
-
-      <a class="card" href="goose-academy.fr.html">
-        <img
-          class="card-icon"
-          src="images/goose-academy/icon.png"
-          alt="Icône Goose Academy"
-          width="96"
-          height="96"
-        />
-        <h2>Goose Academy</h2>
-        <p class="card-desc">
-          Votre appli d'entraînement pour les quiz de culture générale.
-          Capitales, drapeaux, éléments chimiques, prix Nobel, et plus.
-        </p>
-        <span class="card-badge muted">Bientôt disponible</span>
-      </a>
-    </main>
+        <a
+          class="side goose"
+          href="goose-academy.fr.html"
+          aria-label="Goose Academy — bientôt disponible"
+        >
+          <div class="card goose-card">
+            <img
+              class="card-icon"
+              src="images/goose-academy/icon.png"
+              alt=""
+              width="96"
+              height="96"
+            />
+            <h2>Goose Academy</h2>
+            <p class="card-desc">
+              Votre appli d'entraînement pour les quiz de culture générale.
+              Capitales, drapeaux, éléments chimiques, prix Nobel, et plus.
+            </p>
+            <span class="card-badge">Bientôt disponible</span>
+          </div>
+        </a>
+      </main>
+    </div>
 
     <footer class="footer">
-      <p>
-        Créé par
-        <a href="https://github.com/pidupuis">@pidupuis</a>
-      </p>
+      <p>Créé par <a href="https://github.com/pidupuis">@pidupuis</a></p>
       <p>
         <a href="mailto:pidup-games@proton.me">pidup-games@proton.me</a>
       </p>

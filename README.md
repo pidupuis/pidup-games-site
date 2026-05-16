@@ -57,19 +57,31 @@ Every page has a FR/EN language toggle and back navigation.
 
 ## How pages are generated
 
-**Marketing pages** (`index`, `cipher-academy`, `goose-academy`) are hand-crafted HTML with a light neumorphic theme.
+**Home page** (`index.html`, `index.fr.html`, `index.es.html`) is hand-crafted and uses a **split background**: the left half is **fantome** (`#E6EAF5`) for Cipher Academy, the right half is **graphite** (`#343434`) for Goose Academy, joined by a tight ~5% horizontal `linear-gradient` band centered on the split. On narrow screens (`max-width: 700px`) the layout stacks vertically and the gradient flips to top-to-bottom (Cipher on top).
 
-**Legal pages** (privacy policy, ethical design, credits) are auto-generated from `lib/i18n.ts` in each app:
+The "pidup games" wordmark sits across the gradient with each half rendered in the **opposite** background's color ("pidup" graphite on fantome, "games" fantome on graphite). The lang toggle stays entirely on the Cipher (fantome) side in indigo.
+
+Each side's card matches its app's in-app neuromorphic style:
+
+- **Cipher** card: **convex** fantome pillow (outer light/dark shadows) — indigo accent `#3228D0`.
+- **Goose** card: **concave** graphite well (inset shadows) — corail accent `#FF5151`.
+
+**App hub pages** (`cipher-academy[.locale].html`, `goose-academy[.locale].html`) are generated from templates in `_templates/` by [scripts/generate-docs-from-i18n.mjs](../../scripts/generate-docs-from-i18n.mjs). Cipher uses the fantome/indigo theme; Goose uses the graphite/corail theme.
+
+**Legal & info pages** (privacy policy, ethical design, credits, scientific references, changelog) are auto-generated from `lib/i18n/` in each app:
 
 ```
-apps/<app>/lib/i18n.ts  →  apps/<app>/docs/  (markdown)
-                        →  apps/site/        (HTML)
+apps/<app>/lib/i18n/  →  apps/<app>/docs/  (markdown)
+                      →  apps/site/        (HTML, per-app theme)
 ```
 
-To regenerate legal pages, run from the pidup-games root:
+Per-app sub-page themes are defined by the `APP_THEME` map in [scripts/generate-docs-from-i18n.mjs](../../scripts/generate-docs-from-i18n.mjs) (only tokens that differ between apps are tracked there; everything else is shared template).
+
+To regenerate everything, run from the pidup-games root:
 
 ```bash
 node scripts/generate-docs-from-i18n.mjs
+node scripts/validate-docs-sync.mjs   # check i18n + structure parity
 ```
 
 ## Images
