@@ -83,20 +83,31 @@
           align-items: stretch;
         }
       }
+      .stage {
+        display: flex;
+        padding: 24px;
+        border-radius: 28px;
+        width: 100%;
+        max-width: 280px;
+      }
+      .stage-cipher {
+        background: #e6eaf5;
+      }
+      .stage-goose {
+        background: #343434;
+      }
       .card {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 24px 22px;
-        border-radius: 20px;
+        padding: 20px 18px;
+        border-radius: 18px;
         background: #e6eaf5;
         box-shadow:
-          6px 6px 16px rgba(163, 170, 190, 0.5),
-          -6px -6px 16px rgba(255, 255, 255, 0.7);
+          6px 6px 14px rgba(163, 170, 190, 0.55),
+          -6px -6px 14px rgba(255, 255, 255, 0.9);
         width: 100%;
-        max-width: 300px;
-        min-height: 340px;
         transition: transform 0.2s;
         color: inherit;
       }
@@ -105,13 +116,10 @@
         text-decoration: none;
       }
       .card-icon {
-        width: 72px;
-        height: 72px;
-        border-radius: 18px;
-        box-shadow:
-          3px 3px 8px rgba(163, 170, 190, 0.5),
-          -3px -3px 8px rgba(255, 255, 255, 0.7);
-        margin-bottom: 16px;
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        margin-bottom: 14px;
         display: block;
       }
       .card h2 {
@@ -127,6 +135,10 @@
       }
       .card .card-cta {
         margin-top: auto;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .card .card-badge {
         display: inline-block;
@@ -143,24 +155,18 @@
       .card .card-badge.muted {
         color: #888;
       }
-      /* Goose: concave graphite well */
       .card.goose-card {
         background: #343434;
         color: #e6eaf5;
         box-shadow:
-          inset 6px 6px 18px rgba(0, 0, 0, 0.55),
-          inset -6px -6px 18px rgba(110, 110, 110, 0.4);
+          inset 6px 6px 16px rgba(0, 0, 0, 0.55),
+          inset -6px -6px 16px rgba(110, 110, 110, 0.4);
       }
       .card.goose-card h2 {
         color: #e6eaf5;
       }
       .card.goose-card .card-desc {
         color: #cccccc;
-      }
-      .card.goose-card .card-icon {
-        box-shadow:
-          3px 3px 8px rgba(0, 0, 0, 0.55),
-          -3px -3px 8px rgba(110, 110, 110, 0.3);
       }
       .card.goose-card .card-badge {
         color: #ff5151;
@@ -177,7 +183,7 @@
         line-height: 0;
       }
       .play-badge img {
-        height: 56px;
+        height: 48px;
         width: auto;
       }
       .footer {
@@ -217,72 +223,78 @@
     </header>
 
     <main class="cards">
-      <a class="card" href="cipher-academy.fr.html">
-        <svg
-          class="card-icon"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 328.58 328.58"
-          role="img"
-          aria-label="Icône Cipher Academy"
-        >
-          <defs>
-            <linearGradient
-              id="ca-grad"
-              x1="23.89"
-              y1="304.69"
-              x2="304.69"
-              y2="23.89"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop offset="0" stop-color="#27e29e" />
-              <stop offset=".11" stop-color="#28d9a2" />
-              <stop offset=".29" stop-color="#2bc1ae" />
-              <stop offset=".51" stop-color="#309ac1" />
-              <stop offset=".77" stop-color="#3765dc" />
-              <stop offset="1" stop-color="#3e30f7" />
-            </linearGradient>
-          </defs>
-          <rect
-            width="328.58"
-            height="328.58"
-            rx="81.33"
-            ry="81.33"
-            fill="url(#ca-grad)"
-          />
-          <path
-            fill="#e6eaf5"
-            d="M234.69,90.54c-2.02-1.17-4.51-1.17-6.53,0l-30.3,17.49-63.87,36.87c-2.02,1.17-3.27,3.32-3.27,5.66v62.43c0,5.03-5.44,8.17-9.8,5.66l-20.5-11.84c-2.02-1.17-3.27-3.32-3.27-5.66v-69.97c0-2.33,1.25-4.49,3.27-5.66l30.3-17.49,33.57-19.38,23.77-13.72c4.36-2.51,4.36-8.8,0-11.32l-20.5-11.84c-2.02-1.17-4.51-1.17-6.53,0l-63.87,36.87-30.3,17.49c-2.02,1.17-3.27,3.32-3.27,5.66v108.73c0,2.33,1.25,4.49,3.27,5.66l87.63,50.6c4.36,2.51,9.8-.63,9.8-5.66v-23.67c0-2.33,1.25-4.49,3.27-5.66l30.3-17.49,23.77-13.72c4.36-2.51,9.8.63,9.8,5.66v16.13c0,5.03,5.44,8.17,9.8,5.66l20.5-11.84c2.02-1.17,3.27-3.32,3.27-5.66v-108.73c0-2.33-1.25-4.49-3.27-5.66l-27.03-15.61ZM228.16,168.06l-54.07,31.22c-4.36,2.51-9.8-.63-9.8-5.66v-23.67c0-2.33,1.25-4.49,3.27-5.66l54.07-31.22c4.36-2.51,9.8.63,9.8,5.66v23.67c0,2.33-1.25,4.49-3.27,5.66Z"
-          />
-        </svg>
-        <h2>Cipher Academy</h2>
-        <p class="card-desc">
-          Décodez Morse, Braille, Pigpen et plus ! Conçu pour les fans d'escape
-          game.
-        </p>
-        <span class="card-cta play-badge">
-          <img
-            alt="Disponible sur Google Play"
-            src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
-            height="56"
-          />
-        </span>
-      </a>
+      <div class="stage stage-cipher">
+        <a class="card" href="cipher-academy.fr.html">
+          <svg
+            class="card-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 328.58 328.58"
+            role="img"
+            aria-label="Icône Cipher Academy"
+          >
+            <defs>
+              <linearGradient
+                id="ca-grad"
+                x1="23.89"
+                y1="304.69"
+                x2="304.69"
+                y2="23.89"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop offset="0" stop-color="#27e29e" />
+                <stop offset=".11" stop-color="#28d9a2" />
+                <stop offset=".29" stop-color="#2bc1ae" />
+                <stop offset=".51" stop-color="#309ac1" />
+                <stop offset=".77" stop-color="#3765dc" />
+                <stop offset="1" stop-color="#3e30f7" />
+              </linearGradient>
+            </defs>
+            <rect
+              width="328.58"
+              height="328.58"
+              rx="81.33"
+              ry="81.33"
+              fill="url(#ca-grad)"
+            />
+            <path
+              fill="#e6eaf5"
+              d="M234.69,90.54c-2.02-1.17-4.51-1.17-6.53,0l-30.3,17.49-63.87,36.87c-2.02,1.17-3.27,3.32-3.27,5.66v62.43c0,5.03-5.44,8.17-9.8,5.66l-20.5-11.84c-2.02-1.17-3.27-3.32-3.27-5.66v-69.97c0-2.33,1.25-4.49,3.27-5.66l30.3-17.49,33.57-19.38,23.77-13.72c4.36-2.51,4.36-8.8,0-11.32l-20.5-11.84c-2.02-1.17-4.51-1.17-6.53,0l-63.87,36.87-30.3,17.49c-2.02,1.17-3.27,3.32-3.27,5.66v108.73c0,2.33,1.25,4.49,3.27,5.66l87.63,50.6c4.36,2.51,9.8-.63,9.8-5.66v-23.67c0-2.33,1.25-4.49,3.27-5.66l30.3-17.49,23.77-13.72c4.36-2.51,9.8.63,9.8,5.66v16.13c0,5.03,5.44,8.17,9.8,5.66l20.5-11.84c2.02-1.17,3.27-3.32,3.27-5.66v-108.73c0-2.33-1.25-4.49-3.27-5.66l-27.03-15.61ZM228.16,168.06l-54.07,31.22c-4.36,2.51-9.8-.63-9.8-5.66v-23.67c0-2.33,1.25-4.49,3.27-5.66l54.07-31.22c4.36-2.51,9.8.63,9.8,5.66v23.67c0,2.33-1.25,4.49-3.27,5.66Z"
+            />
+          </svg>
+          <h2>Cipher Academy</h2>
+          <p class="card-desc">
+            Décodez Morse, Braille, Pigpen et plus ! Conçu pour les fans
+            d'escape game.
+          </p>
+          <span class="card-cta play-badge">
+            <img
+              alt="Disponible sur Google Play"
+              src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png"
+              height="48"
+            />
+          </span>
+        </a>
+      </div>
 
-      <a class="card goose-card" href="goose-academy.fr.html">
-        <img
-          class="card-icon"
-          src="images/goose-academy/icon.png"
-          alt="Icône Goose Academy"
-          width="72"
-          height="72"
-        />
-        <h2>Goose Academy</h2>
-        <p class="card-desc">
-          Votre appli d'entraînement pour les quiz de culture générale.
-          Capitales, drapeaux, éléments chimiques, prix Nobel, et plus.
-        </p>
-        <span class="card-cta card-badge muted">Bientôt disponible</span>
-      </a>
+      <div class="stage stage-goose">
+        <a class="card goose-card" href="goose-academy.fr.html">
+          <img
+            class="card-icon"
+            src="images/goose-academy/icon.png"
+            alt="Icône Goose Academy"
+            width="64"
+            height="64"
+          />
+          <h2>Goose Academy</h2>
+          <p class="card-desc">
+            Quiz de culture générale rapides : capitales, drapeaux, éléments
+            chimiques et plus.
+          </p>
+          <span class="card-cta">
+            <span class="card-badge muted">Bientôt disponible</span>
+          </span>
+        </a>
+      </div>
     </main>
 
     <footer class="footer">
