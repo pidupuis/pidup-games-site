@@ -209,13 +209,13 @@
       <span class="lang-toggle">EN · <a href="goose-academy-scientific-references.fr.html">FR</a> · <a href="goose-academy-scientific-references.es.html">ES</a></span>
     </nav>
     <div class="content">
-      <p class="subtitle">Goose Academy &middot; Last revision: May 14, 2026</p>
+      <p class="subtitle">Goose Academy &middot; Last revision: May 28, 2026</p>
     <h1>Scientific References</h1>
     <p>This document summarizes the research that informs Goose Academy&#39;s design.</p>
     <p>The goal is <strong>not</strong> to replicate academic protocols, but to translate well-established findings from cognitive science into a simple, offline, and self-paced learning experience.</p>
     <blockquote><p><strong>Goose Academy is research-informed, not research-prescriptive.</strong></p></blockquote>
     <p>The systems described below are inspired by scientific work, but adapted for usability, short sessions, and accessibility.</p>
-    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Transparency note</strong></p>
+    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Transparency</strong></p>
     <p>While the principles cited are scientifically grounded, their implementation in Goose Academy has <strong>not yet been validated through controlled empirical studies</strong>.</p>
     </blockquote>
     <hr>
@@ -223,8 +223,8 @@
     <p>During a session, Goose Academy selects items using a dynamic weighting system based on:</p>
     <ul>
     <li>session mastery</li>
-    <li>long-term retention (spaced repetition)</li>
-    <li>recency (spacing)</li>
+    <li>estimated retention (spaced re-exposure)</li>
+    <li>recency since last shown</li>
     <li>error history (confusion tracking)</li>
     <li>similarity between items</li>
     </ul>
@@ -233,10 +233,10 @@
     <table>
     <thead><tr><th>Reference</th><th>Principle</th><th>Context</th></tr></thead>
     <tbody>
-    <tr><td><strong>Mettler, E., et al. (2016)</strong></td><td>Adaptive sequencing</td><td>Perceptual learning tasks</td></tr>
-    <tr><td><strong>Kornell, N., &amp; Bjork, R. A. (2008)</strong></td><td>Interleaving vs blocking</td><td>Category learning</td></tr>
-    <tr><td><strong>Carvalho, P. F., &amp; Goldstone, R. L. (2015)</strong></td><td>Discriminative contrast</td><td>Lab experiments</td></tr>
-    <tr><td><strong>Settles, B., &amp; Meeder, B. (2016)</strong></td><td>Memory modeling (HLR)</td><td>Requires large datasets</td></tr>
+    <tr><td><strong>Mettler, E., et al. (2016)</strong></td><td>Adaptive selection based on response-time signals</td><td>Vocabulary learning</td></tr>
+    <tr><td><strong>Kornell, N., &amp; Bjork, R. A. (2008)</strong></td><td>Interleaving vs blocking</td><td>Inductive category learning</td></tr>
+    <tr><td><strong>Carvalho, P. F., &amp; Goldstone, R. L. (2015)</strong></td><td>Discriminative contrast via interleaving</td><td>Visual category learning</td></tr>
+    <tr><td><strong>Settles, B., &amp; Meeder, B. (2016)</strong></td><td>Half-life regression for spacing</td><td>Large-scale language learning data</td></tr>
     <tr><td><strong>Metcalfe, J. (2017)</strong></td><td>Learning from errors</td><td>Review</td></tr>
     <tr><td><strong>Pyc, M. A., &amp; Rawson, K. A. (2009)</strong></td><td>Retrieval strengthening</td><td>Verbal materials</td></tr>
     <tr><td><strong>Roediger, H. L., &amp; Karpicke, J. D. (2006)</strong></td><td>Testing effect</td><td>Prose recall</td></tr>
@@ -244,34 +244,34 @@
     </tbody>
     </table>
     <hr>
-    <h3>Formula overview</h3>
+    <h3>Item weighting formula</h3>
     <p>Each item is assigned a weight:</p>
     <pre><code>Wᵢ = Eᵢ · Mᵢ · Bᵢ · Sᵢ · Rᵢ · (1 + α Ĉᵢ) · (1 + β K̂ᵢ Rᵢ)</code></pre>
     <table>
     <thead><tr><th>Variable</th><th>Meaning</th><th>Basis</th></tr></thead>
     <tbody>
-    <tr><td><strong>Bᵢ</strong></td><td>Long-term mastery</td><td>Strong evidence (spacing)</td></tr>
+    <tr><td><strong>Bᵢ</strong></td><td>Spacing-based boost</td><td>Strong evidence (spacing)</td></tr>
     <tr><td><strong>Sᵢ</strong></td><td>Session progress</td><td>Moderate evidence</td></tr>
-    <tr><td><strong>Rᵢ</strong></td><td>Recency</td><td>Strong evidence</td></tr>
-    <tr><td><strong>Cᵢ</strong></td><td>Accumulated confusion</td><td>Theoretical support</td></tr>
-    <tr><td><strong>Kᵢ</strong></td><td>Contrast with previous item</td><td>Context-dependent</td></tr>
+    <tr><td><strong>Rᵢ</strong></td><td>Time since last seen</td><td>Strong evidence</td></tr>
+    <tr><td><strong>Cᵢ</strong></td><td>Confusion with similar items</td><td>Heuristic (confusion tracking)</td></tr>
+    <tr><td><strong>Kᵢ</strong></td><td>Visual / structural contrast</td><td>Context-dependent</td></tr>
     <tr><td><strong>Mᵢ</strong></td><td>Down-weight mastered items</td><td>Heuristic</td></tr>
     <tr><td><strong>Eᵢ</strong></td><td>Prevent repetition</td><td>UX constraint (avoids short-term priming that could inflate perceived mastery)</td></tr>
     </tbody>
     </table>
-    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Parameters α and β</strong></p>
+    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Coefficient calibration</strong></p>
     <p>These coefficients are <strong>not empirically calibrated</strong>. They are design choices balancing confusion and contrast effects.</p>
     </blockquote>
     <hr>
     <h3>Design interpretation</h3>
-    <p>This system combines several principles:</p>
+    <p>Goose Academy translates these principles into concrete selection behaviors:</p>
     <ul>
     <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Spacing</strong> → strong evidence</li>
-    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Interleaving</strong> → conditional effectiveness</li>
-    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Error-driven learning</strong> → well established</li>
-    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Contrast sequencing</strong> → dependent on item structure</li>
+    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Interleaving</strong> → strong evidence</li>
+    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Error-driven learning</strong> → robust evidence (testing effect)</li>
+    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Discriminative contrast</strong> → dependent on item structure</li>
     </ul>
-    <p>The result is a <strong>deterministic, on-device adaptive system</strong> requiring no external data.</p>
+    <p>These choices are design syntheses informed by the research above, not direct replications of the underlying experiments.</p>
     <blockquote class="callout callout-info"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></svg> <strong>Critical note</strong></p>
     <p>The formula itself is a <strong>design synthesis</strong>, not a validated model.
     Its effectiveness relative to simpler approaches (e.g. pure SRS) is currently unknown.</p>
@@ -287,11 +287,11 @@
     </ul>
     <hr>
     <h3>Design interpretation</h3>
-    <p>The system balances:</p>
+    <p>Goose Academy&#39;s progression design balances three goals:</p>
     <ul>
     <li>**Learnability** → small steps</li>
-    <li>**Retention** → repetition over time</li>
-    <li>**Usability** → short sessions</li>
+    <li>**Retention** → spaced reintroduction of older items</li>
+    <li>**Usability** → predictable session length and clear stopping points</li>
     </ul>
     <p>It is <strong>inspired by research</strong>, not a strict reproduction.</p>
     <hr>
@@ -311,7 +311,7 @@
     <p>The similarity rankings have <strong>not been validated against human similarity judgments</strong>. DenseNet201 features capture low-to-mid level visual features but may not perfectly align with how humans perceive flag similarity (e.g. cultural or semantic associations are ignored). The approach is a practical heuristic, not a perceptual model.</p>
     </blockquote>
     <hr>
-    <h2>References (with persistent identifiers)</h2>
+    <h2>References</h2>
     <p><em>Last verified: May 2026</em></p>
     <ol>
     <li><em>Bjork, R. A. (1994).</em></li>

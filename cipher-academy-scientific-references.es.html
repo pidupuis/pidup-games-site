@@ -215,7 +215,7 @@
     <p>El objetivo <strong>no</strong> es replicar protocolos académicos, sino traducir hallazgos bien establecidos en ciencia cognitiva en una experiencia de aprendizaje simple, sin conexión y a tu propio ritmo.</p>
     <blockquote><p><strong>Cipher Academy se basa en la investigación, sin ser prescriptivo.</strong></p></blockquote>
     <p>Los sistemas descritos a continuación están inspirados en trabajo científico, pero adaptados para la usabilidad, sesiones cortas y accesibilidad.</p>
-    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Nota de transparencia</strong></p>
+    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Transparencia</strong></p>
     <p>Aunque los principios citados están científicamente fundamentados, su implementación en Cipher Academy <strong>aún no ha sido validada mediante estudios empíricos controlados</strong>.</p>
     </blockquote>
     <hr>
@@ -254,8 +254,8 @@
     <p>Durante una sesión, Cipher Academy selecciona letras utilizando un sistema de ponderación dinámica basado en:</p>
     <ul>
     <li>dominio en la sesión</li>
-    <li>retención a largo plazo (repetición espaciada)</li>
-    <li>recencia (espaciado)</li>
+    <li>retención estimada (re-exposición espaciada)</li>
+    <li>recencia (tiempo desde la última aparición)</li>
     <li>historial de errores (seguimiento de confusiones)</li>
     <li>similitud entre símbolos</li>
     </ul>
@@ -264,43 +264,43 @@
     <table>
     <thead><tr><th>Referencia</th><th>Principio</th><th>Contexto</th></tr></thead>
     <tbody>
-    <tr><td><strong>Mettler, E., et al. (2016)</strong></td><td>Secuenciación adaptativa</td><td>Tareas de aprendizaje perceptivo</td></tr>
-    <tr><td><strong>Kornell, N., &amp; Bjork, R. A. (2008)</strong></td><td>Entrelazado vs agrupamiento</td><td>Aprendizaje por categorías</td></tr>
-    <tr><td><strong>Carvalho, P. F., &amp; Goldstone, R. L. (2015)</strong></td><td>Contraste discriminativo</td><td>Experimentos de laboratorio</td></tr>
-    <tr><td><strong>Settles, B., &amp; Meeder, B. (2016)</strong></td><td>Modelado de memoria (HLR)</td><td>Requiere grandes conjuntos de datos</td></tr>
+    <tr><td><strong>Mettler, E., et al. (2016)</strong></td><td>Selección adaptativa basada en tiempos de respuesta</td><td>Aprendizaje de vocabulario</td></tr>
+    <tr><td><strong>Kornell, N., &amp; Bjork, R. A. (2008)</strong></td><td>Entrelazado vs agrupamiento</td><td>Aprendizaje inductivo de categorías</td></tr>
+    <tr><td><strong>Carvalho, P. F., &amp; Goldstone, R. L. (2015)</strong></td><td>Contraste discriminativo mediante entrelazado</td><td>Aprendizaje visual de categorías</td></tr>
+    <tr><td><strong>Settles, B., &amp; Meeder, B. (2016)</strong></td><td>Regresión de vida media para el espaciado</td><td>Datos masivos de aprendizaje de idiomas</td></tr>
     <tr><td><strong>Metcalfe, J. (2017)</strong></td><td>Aprender de los errores</td><td>Revisión</td></tr>
     <tr><td><strong>Pyc, M. A., &amp; Rawson, K. A. (2009)</strong></td><td>Fortalecimiento por recuperación</td><td>Material verbal</td></tr>
     </tbody>
     </table>
     <hr>
-    <h3>Resumen de la fórmula</h3>
+    <h3>Fórmula de ponderación de letras</h3>
     <p>A cada letra se le asigna un peso:</p>
     <pre><code>Wᵢ = Eᵢ · Mᵢ · Bᵢ · Sᵢ · Rᵢ · (1 + α Ĉᵢ) · (1 + β K̂ᵢ Rᵢ)</code></pre>
     <table>
     <thead><tr><th>Variable</th><th>Significado</th><th>Base</th></tr></thead>
     <tbody>
-    <tr><td><strong>Bᵢ</strong></td><td>Dominio a largo plazo</td><td>Evidencia sólida (espaciado)</td></tr>
+    <tr><td><strong>Bᵢ</strong></td><td>Bono basado en espaciado</td><td>Evidencia sólida (espaciado)</td></tr>
     <tr><td><strong>Sᵢ</strong></td><td>Progreso en la sesión</td><td>Evidencia moderada</td></tr>
-    <tr><td><strong>Rᵢ</strong></td><td>Recencia</td><td>Evidencia sólida</td></tr>
-    <tr><td><strong>Cᵢ</strong></td><td>Confusión acumulada</td><td>Soporte teórico</td></tr>
-    <tr><td><strong>Kᵢ</strong></td><td>Contraste con el elemento anterior</td><td>Dependiente del contexto</td></tr>
+    <tr><td><strong>Rᵢ</strong></td><td>Tiempo desde la última aparición</td><td>Evidencia sólida</td></tr>
+    <tr><td><strong>Cᵢ</strong></td><td>Confusión con símbolos similares</td><td>Heurística (seguimiento de confusiones)</td></tr>
+    <tr><td><strong>Kᵢ</strong></td><td>Contraste visual / estructural</td><td>Dependiente del contexto</td></tr>
     <tr><td><strong>Mᵢ</strong></td><td>Reducir peso de elementos dominados</td><td>Heurístico</td></tr>
     <tr><td><strong>Eᵢ</strong></td><td>Evitar repetición</td><td>Restricción UX (evita el priming a corto plazo que podría inflar el dominio percibido)</td></tr>
     </tbody>
     </table>
-    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Parámetros α y β</strong></p>
+    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Calibración de los coeficientes</strong></p>
     <p>Estos coeficientes <strong>no están calibrados empíricamente</strong>. Son decisiones de diseño que equilibran los efectos de confusión y contraste.</p>
     </blockquote>
     <hr>
     <h3>Interpretación para el diseño</h3>
-    <p>Este sistema combina varios principios:</p>
+    <p>Cipher Academy traduce estos principios en comportamientos de selección concretos:</p>
     <ul>
     <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Espaciado</strong> → evidencia sólida</li>
-    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Entrelazado</strong> → efectividad condicional</li>
-    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Aprendizaje por errores</strong> → bien establecido</li>
-    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Secuenciación por contraste</strong> → dependiente de la estructura del elemento</li>
+    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Entrelazado</strong> → evidencia sólida</li>
+    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Aprendizaje por errores</strong> → evidencia robusta (efecto de examen)</li>
+    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Contraste discriminativo</strong> → dependiente de la estructura del elemento</li>
     </ul>
-    <p>El resultado es un <strong>sistema adaptativo determinista, en el dispositivo</strong>, que no requiere datos externos.</p>
+    <p>Estas decisiones son síntesis de diseño inspiradas por la investigación anterior, no replicaciones directas de los experimentos subyacentes.</p>
     <blockquote class="callout callout-info"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></svg> <strong>Nota crítica</strong></p>
     <p>La fórmula en sí es una <strong>síntesis de diseño</strong>, no un modelo validado.
     Su efectividad en comparación con enfoques más simples (ej. SRS puro) es actualmente desconocida.</p>
@@ -326,11 +326,11 @@
     </blockquote>
     <hr>
     <h3>Interpretación para el diseño</h3>
-    <p>El sistema equilibra:</p>
+    <p>El diseño de la progresión de Cipher Academy equilibra tres objetivos:</p>
     <ul>
     <li>**Aprendibilidad** → pasos pequeños</li>
-    <li>**Retención** → repetición a lo largo del tiempo</li>
-    <li>**Usabilidad** → sesiones cortas</li>
+    <li>**Retención** → reintroducción espaciada de letras antiguas</li>
+    <li>**Usabilidad** → duración de sesión predecible y puntos de detención claros</li>
     </ul>
     <p>Está <strong>inspirado en la investigación</strong>, no es una reproducción estricta.</p>
     <hr>
@@ -404,7 +404,7 @@
     <p>El timing Farnsworth es ampliamente adoptado en el entrenamiento radioaficionado, pero los parámetros de espaciado óptimos y la &quot;meseta de 13 WPM&quot; comúnmente citada carecen de validación experimental controlada. El modelo de timing de Cipher Academy prioriza la conformidad con la UIT y los principios de aprendizaje perceptivo mientras documenta de manera transparente las adaptaciones heurísticas.</p>
     </blockquote>
     <hr>
-    <h2>Referencias (con identificadores persistentes)</h2>
+    <h2>Referencias</h2>
     <p><em>Última verificación: abril 2026</em></p>
     <ol>
     <li><em>Bloom, J. (KE3Z). (1990). A Standard for Morse Timing Using the Farnsworth Technique. ARRL Laboratory.</em></li>

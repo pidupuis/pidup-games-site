@@ -209,13 +209,13 @@
       <span class="lang-toggle"><a href="goose-academy-scientific-references.html">EN</a> · FR · <a href="goose-academy-scientific-references.es.html">ES</a></span>
     </nav>
     <div class="content">
-      <p class="subtitle">Goose Academy &middot; Dernière révision: 14 mai 2026</p>
+      <p class="subtitle">Goose Academy &middot; Dernière révision: 28 mai 2026</p>
     <h1>Références scientifiques</h1>
     <p>Ce document résume les recherches qui orientent la conception de Goose Academy.</p>
     <p>L&#39;objectif n&#39;est <strong>pas</strong> de reproduire des protocoles académiques, mais de traduire des résultats bien établis en science cognitive en une expérience d&#39;apprentissage simple, hors-ligne et à son propre rythme.</p>
     <blockquote><p><strong>Goose Academy est fondé sur la recherche, pas prescrit par la recherche.</strong></p></blockquote>
     <p>Les systèmes décrits ci-dessous sont inspirés de travaux scientifiques, mais adaptés pour l&#39;utilisabilité, les sessions courtes et l&#39;accessibilité.</p>
-    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Note de transparence</strong></p>
+    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Transparence</strong></p>
     <p>Bien que les principes cités soient scientifiquement fondés, leur mise en œuvre dans Goose Academy <strong>n&#39;a pas encore été validée par des études empiriques contrôlées</strong>.</p>
     </blockquote>
     <hr>
@@ -223,8 +223,8 @@
     <p>Pendant une session, Goose Academy sélectionne les éléments à l&#39;aide d&#39;un système de pondération dynamique basé sur :</p>
     <ul>
     <li>la maîtrise en session</li>
-    <li>la rétention à long terme (répétition espacée)</li>
-    <li>la récence (espacement)</li>
+    <li>la rétention estimée (ré-exposition espacée)</li>
+    <li>la récence (temps depuis la dernière apparition)</li>
     <li>l&#39;historique d&#39;erreurs (suivi des confusions)</li>
     <li>la similarité entre éléments</li>
     </ul>
@@ -233,10 +233,10 @@
     <table>
     <thead><tr><th>Référence</th><th>Principe</th><th>Contexte</th></tr></thead>
     <tbody>
-    <tr><td><strong>Mettler, E., et al. (2016)</strong></td><td>Séquençage adaptatif</td><td>Tâches d&#39;apprentissage perceptif</td></tr>
-    <tr><td><strong>Kornell, N., &amp; Bjork, R. A. (2008)</strong></td><td>Entrelacement vs blocage</td><td>Apprentissage par catégories</td></tr>
-    <tr><td><strong>Carvalho, P. F., &amp; Goldstone, R. L. (2015)</strong></td><td>Contraste discriminatif</td><td>Expériences en laboratoire</td></tr>
-    <tr><td><strong>Settles, B., &amp; Meeder, B. (2016)</strong></td><td>Modélisation de la mémoire (HLR)</td><td>Nécessite de grands jeux de données</td></tr>
+    <tr><td><strong>Mettler, E., et al. (2016)</strong></td><td>Sélection adaptative basée sur les temps de réponse</td><td>Apprentissage du vocabulaire</td></tr>
+    <tr><td><strong>Kornell, N., &amp; Bjork, R. A. (2008)</strong></td><td>Entrelacement vs blocage</td><td>Apprentissage inductif de catégories</td></tr>
+    <tr><td><strong>Carvalho, P. F., &amp; Goldstone, R. L. (2015)</strong></td><td>Contraste discriminatif via l&#39;entrelacement</td><td>Apprentissage visuel de catégories</td></tr>
+    <tr><td><strong>Settles, B., &amp; Meeder, B. (2016)</strong></td><td>Régression de demi-vie pour l&#39;espacement</td><td>Données massives d&#39;apprentissage des langues</td></tr>
     <tr><td><strong>Metcalfe, J. (2017)</strong></td><td>Apprendre des erreurs</td><td>Revue de littérature</td></tr>
     <tr><td><strong>Pyc, M. A., &amp; Rawson, K. A. (2009)</strong></td><td>Renforcement par récupération</td><td>Matériel verbal</td></tr>
     <tr><td><strong>Roediger, H. L., &amp; Karpicke, J. D. (2006)</strong></td><td>Effet de test</td><td>Rappel de textes</td></tr>
@@ -244,34 +244,34 @@
     </tbody>
     </table>
     <hr>
-    <h3>Aperçu de la formule</h3>
+    <h3>Formule de pondération des éléments</h3>
     <p>Chaque élément reçoit un poids :</p>
     <pre><code>Wᵢ = Eᵢ · Mᵢ · Bᵢ · Sᵢ · Rᵢ · (1 + α Ĉᵢ) · (1 + β K̂ᵢ Rᵢ)</code></pre>
     <table>
     <thead><tr><th>Variable</th><th>Signification</th><th>Fondement</th></tr></thead>
     <tbody>
-    <tr><td><strong>Bᵢ</strong></td><td>Maîtrise à long terme</td><td>Preuve solide (espacement)</td></tr>
+    <tr><td><strong>Bᵢ</strong></td><td>Bonus basé sur l&#39;espacement</td><td>Preuve solide (espacement)</td></tr>
     <tr><td><strong>Sᵢ</strong></td><td>Progrès en session</td><td>Preuve modérée</td></tr>
-    <tr><td><strong>Rᵢ</strong></td><td>Récence</td><td>Preuve solide</td></tr>
-    <tr><td><strong>Cᵢ</strong></td><td>Confusion accumulée</td><td>Support théorique</td></tr>
-    <tr><td><strong>Kᵢ</strong></td><td>Contraste avec l&#39;élément précédent</td><td>Dépendant du contexte</td></tr>
+    <tr><td><strong>Rᵢ</strong></td><td>Temps depuis la dernière apparition</td><td>Preuve solide</td></tr>
+    <tr><td><strong>Cᵢ</strong></td><td>Confusion avec des éléments similaires</td><td>Heuristique (suivi des confusions)</td></tr>
+    <tr><td><strong>Kᵢ</strong></td><td>Contraste visuel / structurel</td><td>Dépendant du contexte</td></tr>
     <tr><td><strong>Mᵢ</strong></td><td>Réduire le poids des éléments maîtrisés</td><td>Heuristique</td></tr>
     <tr><td><strong>Eᵢ</strong></td><td>Empêcher la répétition</td><td>Contrainte UX (évite l&#39;amorçage à court terme qui pourrait gonfler la maîtrise perçue)</td></tr>
     </tbody>
     </table>
-    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Paramètres α et β</strong></p>
+    <blockquote class="callout callout-warning"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Calibration des coefficients</strong></p>
     <p>Ces coefficients ne sont <strong>pas calibrés empiriquement</strong>. Ce sont des choix de conception équilibrant les effets de confusion et de contraste.</p>
     </blockquote>
     <hr>
     <h3>Interprétation pour le design</h3>
-    <p>Ce système combine plusieurs principes :</p>
+    <p>Goose Academy traduit ces principes en comportements de sélection concrets :</p>
     <ul>
     <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Espacement</strong> → preuve solide</li>
-    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Entrelacement</strong> → efficacité conditionnelle</li>
-    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Apprentissage par l&#39;erreur</strong> → bien établi</li>
-    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Séquençage par contraste</strong> → dépendant de la structure des éléments</li>
+    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Entrelacement</strong> → preuve solide</li>
+    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> <strong>Apprentissage par l&#39;erreur</strong> → preuve robuste (effet de test)</li>
+    <li><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M13 14H11V9H13M13 18H11V16H13M1 21H23L12 2L1 21Z"/></svg> <strong>Contraste discriminatif</strong> → dépendant de la structure des éléments</li>
     </ul>
-    <p>Le résultat est un <strong>système adaptatif déterministe, sur l&#39;appareil</strong>, ne nécessitant aucune donnée externe.</p>
+    <p>Ces choix sont des synthèses de design inspirées par la recherche ci-dessus, et non des reproductions directes des expériences sous-jacentes.</p>
     <blockquote class="callout callout-info"><p><svg viewBox="0 0 24 24" width="1em" height="1em" style="vertical-align:-0.125em"><path fill="currentColor" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/></svg> <strong>Note critique</strong></p>
     <p>La formule elle-même est une <strong>synthèse de design</strong>, pas un modèle validé.
     Son efficacité par rapport à des approches plus simples (ex. SRS pur) est actuellement inconnue.</p>
@@ -287,11 +287,11 @@
     </ul>
     <hr>
     <h3>Interprétation pour le design</h3>
-    <p>Le système équilibre :</p>
+    <p>La conception de la progression de Goose Academy équilibre trois objectifs :</p>
     <ul>
     <li>**Apprenabilité** → petites étapes</li>
-    <li>**Rétention** → répétition dans le temps</li>
-    <li>**Utilisabilité** → sessions courtes</li>
+    <li>**Rétention** → réintroduction espacée des éléments anciens</li>
+    <li>**Utilisabilité** → durée de session prévisible et points d&#39;arrêt clairs</li>
     </ul>
     <p>Il est <strong>inspiré par la recherche</strong>, pas une reproduction stricte.</p>
     <hr>
@@ -311,7 +311,7 @@
     <p>Les classements de similarité <strong>n&#39;ont pas été validés par des jugements humains de similarité</strong>. Les caractéristiques de DenseNet201 capturent des traits visuels de bas à moyen niveau mais peuvent ne pas correspondre parfaitement à la perception humaine de la similarité des drapeaux (les associations culturelles ou sémantiques sont ignorées). L&#39;approche est une heuristique pratique, pas un modèle perceptif.</p>
     </blockquote>
     <hr>
-    <h2>Références (avec identifiants persistants)</h2>
+    <h2>Références</h2>
     <p><em>Dernière vérification : mai 2026</em></p>
     <ol>
     <li><em>Bjork, R. A. (1994).</em></li>
