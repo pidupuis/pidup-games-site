@@ -7,24 +7,30 @@ This repository is included as a **git submodule** at `apps/site/` in the main p
 ## Site structure
 
 ```
-index.html / index.fr.html          ← Studio landing page (EN / FR)
-cipher-academy.html / .fr.html      ← Cipher Academy marketing page
-goose-academy.html / .fr.html       ← Goose Academy placeholder
-cipher-academy-*.html                ← Legal pages (privacy, ethics, credits)
-goose-academy-*.html                 ← Legal pages (privacy, ethics, credits)
+index.html / .fr.html / .es.html     ← Studio landing page (EN / FR / ES)
+cipher-academy.html / .fr / .es      ← Cipher Academy marketing page
+goose-academy.html / .fr / .es       ← Goose Academy marketing page
+
+# Legal / info pages — each generated in .html / .fr.html / .es.html:
+cipher-academy-privacy-policy.*
+cipher-academy-ethical-design.*
+cipher-academy-credits.*
+cipher-academy-scientific-references.*
+cipher-academy-changelog.*           ← Cipher only (has released versions)
+goose-academy-privacy-policy.*
+goose-academy-ethical-design.*
+goose-academy-credits.*
+goose-academy-scientific-references.*
+# (no goose-academy-changelog.* — hidden until Goose's first release)
+
 images/
   cipher-academy/
     icon.png                         ← App icon
-    home.jpeg                        ← Screenshot: home screen
-    levels-morse.jpeg                ← Screenshot: level selector
-    learn-morse.jpeg                 ← Screenshot: learning Morse
-    learn-braille.jpeg               ← Screenshot: learning Braille
-    learn-pigpen.jpeg                ← Screenshot: learning Pigpen
-    play-modes.jpeg                  ← Screenshot: play game modes
-    decode-words.jpeg                ← Screenshot: Decode Words game
-    find-the-symbol.jpeg             ← Screenshot: Find the Symbol game
-    morse-tap.jpeg                   ← Screenshot: Morse Tap game
-    braille-touch.jpeg               ← Screenshot: Braille Touch game
+    favicon-16.png / favicon-32.png / apple-touch-icon.png
+    home.jpeg … braille-touch.jpeg   ← In-app screenshots
+  goose-academy/
+    icon.png                         ← App icon
+    favicon-16.png / favicon-32.png / apple-touch-icon.png
 ```
 
 ### Navigation flow
@@ -33,33 +39,44 @@ images/
 index.html → cipher-academy.html → cipher-academy-privacy-policy.html
                                   → cipher-academy-ethical-design.html
                                   → cipher-academy-credits.html
+                                  → cipher-academy-scientific-references.html
+                                  → cipher-academy-changelog.html
            → goose-academy.html  → goose-academy-privacy-policy.html
-                                  → ...
+                                  → goose-academy-ethical-design.html
+                                  → goose-academy-credits.html
+                                  → goose-academy-scientific-references.html
 ```
 
-Every page has a FR/EN language toggle and back navigation.
+Every page has an EN/FR/ES language toggle and back navigation.
 
 ## Pages
 
+Each page is published in three locales: `.html` (EN), `.fr.html` (FR), `.es.html` (ES).
+
 ### Cipher Academy
 
-- [Marketing page](https://pidupuis.github.io/pidup-games-site/cipher-academy.html) · [Page marketing](https://pidupuis.github.io/pidup-games-site/cipher-academy.fr.html)
-- [Privacy Policy](https://pidupuis.github.io/pidup-games-site/cipher-academy-privacy-policy.html) · [Politique de confidentialité](https://pidupuis.github.io/pidup-games-site/cipher-academy-privacy-policy.fr.html)
-- [Ethical Design](https://pidupuis.github.io/pidup-games-site/cipher-academy-ethical-design.html) · [Design éthique](https://pidupuis.github.io/pidup-games-site/cipher-academy-ethical-design.fr.html)
-- [Credits](https://pidupuis.github.io/pidup-games-site/cipher-academy-credits.html) · [Crédits](https://pidupuis.github.io/pidup-games-site/cipher-academy-credits.fr.html)
+- Marketing page — [EN](https://pidupuis.github.io/pidup-games-site/cipher-academy.html) · [FR](https://pidupuis.github.io/pidup-games-site/cipher-academy.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/cipher-academy.es.html)
+- Privacy Policy — [EN](https://pidupuis.github.io/pidup-games-site/cipher-academy-privacy-policy.html) · [FR](https://pidupuis.github.io/pidup-games-site/cipher-academy-privacy-policy.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/cipher-academy-privacy-policy.es.html)
+- Ethical Design — [EN](https://pidupuis.github.io/pidup-games-site/cipher-academy-ethical-design.html) · [FR](https://pidupuis.github.io/pidup-games-site/cipher-academy-ethical-design.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/cipher-academy-ethical-design.es.html)
+- Credits — [EN](https://pidupuis.github.io/pidup-games-site/cipher-academy-credits.html) · [FR](https://pidupuis.github.io/pidup-games-site/cipher-academy-credits.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/cipher-academy-credits.es.html)
+- Scientific References — [EN](https://pidupuis.github.io/pidup-games-site/cipher-academy-scientific-references.html) · [FR](https://pidupuis.github.io/pidup-games-site/cipher-academy-scientific-references.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/cipher-academy-scientific-references.es.html)
+- What's New — [EN](https://pidupuis.github.io/pidup-games-site/cipher-academy-changelog.html) · [FR](https://pidupuis.github.io/pidup-games-site/cipher-academy-changelog.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/cipher-academy-changelog.es.html)
 
 ### Goose Academy
 
-- [Placeholder page](https://pidupuis.github.io/pidup-games-site/goose-academy.html) · [Page provisoire](https://pidupuis.github.io/pidup-games-site/goose-academy.fr.html)
-- [Privacy Policy](https://pidupuis.github.io/pidup-games-site/goose-academy-privacy-policy.html) · [Politique de confidentialité](https://pidupuis.github.io/pidup-games-site/goose-academy-privacy-policy.fr.html)
-- [Ethical Design](https://pidupuis.github.io/pidup-games-site/goose-academy-ethical-design.html) · [Design éthique](https://pidupuis.github.io/pidup-games-site/goose-academy-ethical-design.fr.html)
-- [Credits](https://pidupuis.github.io/pidup-games-site/goose-academy-credits.html) · [Crédits](https://pidupuis.github.io/pidup-games-site/goose-academy-credits.fr.html)
+- Marketing page — [EN](https://pidupuis.github.io/pidup-games-site/goose-academy.html) · [FR](https://pidupuis.github.io/pidup-games-site/goose-academy.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/goose-academy.es.html)
+- Privacy Policy — [EN](https://pidupuis.github.io/pidup-games-site/goose-academy-privacy-policy.html) · [FR](https://pidupuis.github.io/pidup-games-site/goose-academy-privacy-policy.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/goose-academy-privacy-policy.es.html)
+- Ethical Design — [EN](https://pidupuis.github.io/pidup-games-site/goose-academy-ethical-design.html) · [FR](https://pidupuis.github.io/pidup-games-site/goose-academy-ethical-design.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/goose-academy-ethical-design.es.html)
+- Credits — [EN](https://pidupuis.github.io/pidup-games-site/goose-academy-credits.html) · [FR](https://pidupuis.github.io/pidup-games-site/goose-academy-credits.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/goose-academy-credits.es.html)
+- Scientific References — [EN](https://pidupuis.github.io/pidup-games-site/goose-academy-scientific-references.html) · [FR](https://pidupuis.github.io/pidup-games-site/goose-academy-scientific-references.fr.html) · [ES](https://pidupuis.github.io/pidup-games-site/goose-academy-scientific-references.es.html)
+
+_(Goose Academy has no “What's New” page yet — it stays hidden until the first release.)_
 
 ## How pages are generated
 
-**Home page** (`index.html`, `index.fr.html`, `index.es.html`) is hand-crafted and uses a **split background**: the left half is **fantome** (`#E6EAF5`) for Cipher Academy, the right half is **graphite** (`#343434`) for Goose Academy, joined by a tight ~5% horizontal `linear-gradient` band centered on the split. On narrow screens (`max-width: 700px`) the layout stacks vertically and the gradient flips to top-to-bottom (Cipher on top).
+**Home page** (`index.html`, `index.fr.html`, `index.es.html`) is hand-crafted and **not** regenerated by the build. It is a plain white background with a centered `<h1>pidup games</h1>` wordmark and a two-card layout — one card per app. Each card sits inside its app's **stage** panel: `stage-cipher` is **fantôme** (`#E6EAF5`), `stage-goose` is **graphite** (`#343434`). The cards stack in a flex **column** below `640px` and switch to a **row** at `640px` and up. The lang toggle sits top-right. Favicons, social/canonical/hreflang metadata, and a `WebSite` JSON-LD block live in each page's `<head>`.
 
-The "pidup games" wordmark sits across the gradient with each half rendered in the **opposite** background's color ("pidup" graphite on fantome, "games" fantome on graphite). The lang toggle stays entirely on the Cipher (fantome) side in indigo.
+There is no split background, no `linear-gradient` band, and no two-tone wordmark — the `<h1>` is a single graphite wordmark.
 
 Each side's card matches its app's in-app neuromorphic style:
 
