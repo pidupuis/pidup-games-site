@@ -90,15 +90,21 @@
         margin-bottom: 24px;
       }
       .hero h1 {
-        font-size: 40px;
-        font-weight: 800;
-        letter-spacing: 2px;
+        font-size: 38px;
+        font-weight: 300;
+        letter-spacing: 4px;
+        line-height: 1;
+        text-transform: uppercase;
         color: #343434;
         margin-bottom: 4px;
       }
       .hero h1 span {
         display: block;
+        font-size: 44px;
+        font-weight: 800;
+        letter-spacing: 2px;
         color: #3228d0;
+        margin-top: -4px;
       }
       .hero .tagline {
         font-size: 18px;
@@ -246,6 +252,40 @@
         color: #444;
         margin-bottom: 6px;
       }
+      .section .caveat {
+        font-size: 14px;
+        color: #666;
+        font-style: italic;
+      }
+      .trust-link {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      /* --- Topic grid --- */
+      .topic-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 8px;
+      }
+      @media (min-width: 560px) {
+        .topic-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .topic {
+        padding: 16px 14px;
+        border-radius: 16px;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 600;
+        color: #343434;
+        background: #e6eaf5;
+        box-shadow:
+          5px 5px 12px rgba(163, 170, 190, 0.5),
+          -5px -5px 12px rgba(255, 255, 255, 0.9);
+      }
 
       /* --- Cipher table --- */
       .cipher-table {
@@ -341,7 +381,7 @@
         width="120"
         height="120"
       />
-      <h1>CIPHER<span>ACADEMY</span></h1>
+      <h1 aria-label="Cipher Academy">CIPHER<span>ACADEMY</span></h1>
       <p class="tagline">Pour les Escapers, Espions et Cryptologues</p>
       <p class="subtitle">Pas de pub · Pas d&#39;abonnement · Achat unique<br />
         Jeu hors-ligne · Pas de pistage · Aucune collecte de données<br />
@@ -366,6 +406,30 @@
       <section class="section">
         <p>Escape games, films d&#39;espionnage, chasses au trésor — vous avez croisé des messages codés partout. Cipher Academy vous apprend enfin à les déchiffrer.</p>
         <p>Choisissez un chiffrement. Commencez par des lettres isolées. Progressez vers des mots entiers. Chacun a sa propre progression, ses propres défis, et sa propre façon de vous tester.</p>
+      </section>
+
+      <!-- What you'll train -->
+      <section class="section">
+        <h2>Ce que vous allez apprendre</h2>
+        <p>Douze chiffrements et trois presets, chacun avec sa propre progression. Commencez par les quatre gratuits et ajoutez-en quand vous voulez.</p>
+        <div class="topic-grid">
+          <div class="topic">Code Morse</div>
+          <div class="topic">Braille</div>
+          <div class="topic">Pigpen</div>
+          <div class="topic">A1Z26</div>
+          <div class="topic">Binaire &amp; ASCII</div>
+          <div class="topic">Carré de Polybe</div>
+          <div class="topic">ROT13 &amp; Atbash</div>
+          <div class="topic">Sémaphore &amp; pavillons</div>
+          <div class="topic">Chiffre de Bacon</div>
+        </div>
+      </section>
+
+      <!-- Built with respect -->
+      <section class="section">
+        <h2>Conçu avec respect</h2>
+        <p>Pas de pub. Pas d&#39;abonnement. Pas de pistage. Pas d&#39;internet requis pour jouer. Un achat optionnel débloque tout — pour toujours.</p>
+        <p>Cipher Academy tourne entièrement sur votre appareil, ne collecte aucune donnée, et ne vous enverra jamais de notification.</p>
       </section>
 
       <!-- How it works -->
@@ -495,11 +559,16 @@
         <p class="cipher-note">Quatre chiffrements sont entièrement gratuits — Morse, Braille, Pigpen et A1Z26 — avec un accès complet à tous les niveaux et modes de jeu. Un achat unique débloque les 12 chiffrements et tous les presets. Sans abonnement.</p>
       </section>
 
-      <!-- Built with respect -->
+      <!-- Research-informed, transparently -->
       <section class="section">
-        <h2>Conçu avec respect</h2>
-        <p>Pas de pub. Pas d&#39;abonnement. Pas de pistage. Pas d&#39;internet requis pour jouer. Un achat optionnel débloque tout — pour toujours.</p>
-        <p>Cipher Academy tourne entièrement sur votre appareil, ne collecte aucune donnée, et ne vous enverra jamais de notification.</p>
+        <h2>Fondé sur la recherche, en toute transparence</h2>
+        <p>Les parcours d&#39;apprentissage de Cipher Academy s&#39;appuient sur des idées bien établies en sciences cognitives — répétition espacée, méthode Koch et progression basée sur la reconnaissance.</p>
+        <p class="caveat">Ces principes sont solidement étayés, mais leur mise en œuvre précise dans Cipher Academy n&#39;a pas été validée par des études contrôlées — et nous le disons clairement.</p>
+        <p>
+          <a class="trust-link" href="cipher-academy-scientific-references.fr.html"
+            >Découvrir la science derrière Cipher Academy →</a
+          >
+        </p>
       </section>
     </div>
 
