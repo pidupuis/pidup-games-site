@@ -157,6 +157,10 @@
         }
       }
       .topic {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
         padding: 16px 14px;
         border-radius: 16px;
         text-align: center;
@@ -165,8 +169,22 @@
         color: #e6eaf5;
         background: #343434;
         box-shadow:
-          5px 5px 12px rgba(0, 0, 0, 0.5),
-          -5px -5px 12px rgba(110, 110, 110, 0.28);
+          inset 4px 4px 10px rgba(0, 0, 0, 0.55),
+          inset -4px -4px 10px rgba(110, 110, 110, 0.3);
+      }
+      .topic .crown {
+        flex-shrink: 0;
+      }
+      .topic-note {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 16px;
+        font-size: 13px;
+        color: #a8a8a8;
+      }
+      .topic-note .crown {
+        flex-shrink: 0;
       }
 
       /* --- Steps (how it works) --- */
@@ -363,14 +381,18 @@
         <div class="topic-grid">
           <div class="topic">{{i18n:appDescription.topicCapitals}}</div>
           <div class="topic">{{i18n:appDescription.topicFlags}}</div>
-          <div class="topic">{{i18n:appDescription.topicElements}}</div>
-          <div class="topic">{{i18n:appDescription.topicRulers}}</div>
-          <div class="topic">{{i18n:appDescription.topicPresidents}}</div>
-          <div class="topic">{{i18n:appDescription.topicBattles}}</div>
-          <div class="topic">{{i18n:appDescription.topicSpecies}}</div>
-          <div class="topic">{{i18n:appDescription.topicNobel}}</div>
-          <div class="topic">{{i18n:appDescription.topicMemory}}</div>
+          <div class="topic">{{i18n:appDescription.topicElements}}<svg class="crown" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="#6366f1" d="M12 8L15 13.2L18 10.5L17.3 14H6.7L6 10.5L9 13.2L12 8M12 4L8.5 10L3 5L5 16H19L21 5L15.5 10L12 4M19 18H5V19C5 19.6 5.4 20 6 20H18C18.6 20 19 19.6 19 19V18Z"/></svg></div>
+          <div class="topic">{{i18n:appDescription.topicRulers}}<svg class="crown" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="#6366f1" d="M12 8L15 13.2L18 10.5L17.3 14H6.7L6 10.5L9 13.2L12 8M12 4L8.5 10L3 5L5 16H19L21 5L15.5 10L12 4M19 18H5V19C5 19.6 5.4 20 6 20H18C18.6 20 19 19.6 19 19V18Z"/></svg></div>
+          <div class="topic">{{i18n:appDescription.topicPresidents}}<svg class="crown" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="#6366f1" d="M12 8L15 13.2L18 10.5L17.3 14H6.7L6 10.5L9 13.2L12 8M12 4L8.5 10L3 5L5 16H19L21 5L15.5 10L12 4M19 18H5V19C5 19.6 5.4 20 6 20H18C18.6 20 19 19.6 19 19V18Z"/></svg></div>
+          <div class="topic">{{i18n:appDescription.topicBattles}}<svg class="crown" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="#6366f1" d="M12 8L15 13.2L18 10.5L17.3 14H6.7L6 10.5L9 13.2L12 8M12 4L8.5 10L3 5L5 16H19L21 5L15.5 10L12 4M19 18H5V19C5 19.6 5.4 20 6 20H18C18.6 20 19 19.6 19 19V18Z"/></svg></div>
+          <div class="topic">{{i18n:appDescription.topicSpecies}}<svg class="crown" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="#6366f1" d="M12 8L15 13.2L18 10.5L17.3 14H6.7L6 10.5L9 13.2L12 8M12 4L8.5 10L3 5L5 16H19L21 5L15.5 10L12 4M19 18H5V19C5 19.6 5.4 20 6 20H18C18.6 20 19 19.6 19 19V18Z"/></svg></div>
+          <div class="topic">{{i18n:appDescription.topicNobel}}<svg class="crown" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="#6366f1" d="M12 8L15 13.2L18 10.5L17.3 14H6.7L6 10.5L9 13.2L12 8M12 4L8.5 10L3 5L5 16H19L21 5L15.5 10L12 4M19 18H5V19C5 19.6 5.4 20 6 20H18C18.6 20 19 19.6 19 19V18Z"/></svg></div>
+          <div class="topic">{{i18n:appDescription.topicMemory}}<svg class="crown" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="#6366f1" d="M12 8L15 13.2L18 10.5L17.3 14H6.7L6 10.5L9 13.2L12 8M12 4L8.5 10L3 5L5 16H19L21 5L15.5 10L12 4M19 18H5V19C5 19.6 5.4 20 6 20H18C18.6 20 19 19.6 19 19V18Z"/></svg></div>
         </div>
+        <p class="topic-note">
+          <svg class="crown" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="#6366f1" d="M12 8L15 13.2L18 10.5L17.3 14H6.7L6 10.5L9 13.2L12 8M12 4L8.5 10L3 5L5 16H19L21 5L15.5 10L12 4M19 18H5V19C5 19.6 5.4 20 6 20H18C18.6 20 19 19.6 19 19V18Z"/></svg>
+          {{i18n:appDescription.trainPaywallNote}}
+        </p>
       </section>
 
       <!-- Built with respect -->
@@ -393,39 +415,44 @@
       </section>
     </div>
 
-    <!--
-      PLACEHOLDER CAROUSEL: these are Cipher Academy screenshots used as a
-      visual scaffold. Replace with real Goose Academy captures (and add the
-      assets under images/goose-academy/) once they exist.
-    -->
     <section class="carousel-section">
       <h3>{{i18n:appDescription.screensTitle}}</h3>
       <div class="carousel">
         <button class="carousel-btn prev" aria-label="Previous">&#8249;</button>
         <div class="carousel-track">
           <img
-            src="images/cipher-academy/home.jpeg"
-            alt="App screenshot placeholder"
+            src="images/goose-academy/home.jpg"
+            alt="Goose Academy home screen"
             loading="lazy"
           />
           <img
-            src="images/cipher-academy/levels-morse.jpeg"
-            alt="App screenshot placeholder"
+            src="images/goose-academy/learn-capitals.jpg"
+            alt="Practising world capitals"
             loading="lazy"
           />
           <img
-            src="images/cipher-academy/learn-morse.jpeg"
-            alt="App screenshot placeholder"
+            src="images/goose-academy/learn-flags.jpg"
+            alt="Practising flags of the world"
             loading="lazy"
           />
           <img
-            src="images/cipher-academy/play-modes.jpeg"
-            alt="App screenshot placeholder"
+            src="images/goose-academy/flag-hunt.jpg"
+            alt="Flag hunt play mode"
             loading="lazy"
           />
           <img
-            src="images/cipher-academy/educational-tips.jpeg"
-            alt="App screenshot placeholder"
+            src="images/goose-academy/learn-species.jpg"
+            alt="Practising animal species"
+            loading="lazy"
+          />
+          <img
+            src="images/goose-academy/learn-species-2.jpg"
+            alt="Practising animal species"
+            loading="lazy"
+          />
+          <img
+            src="images/goose-academy/symbol-hunt.jpg"
+            alt="Chemical element symbol hunt play mode"
             loading="lazy"
           />
         </div>
