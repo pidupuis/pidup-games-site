@@ -147,25 +147,37 @@
       }
       .carousel {
         position: relative;
-        padding: 0 24px;
       }
       .carousel-track {
         display: flex;
         gap: 16px;
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        padding: 8px 0 16px;
+        overflow-y: hidden;
+        scroll-snap-type: x proximity;
+        scroll-padding-inline: 24px;
+        padding: 20px 24px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        .carousel-track {
+          scroll-behavior: smooth;
+        }
       }
       .carousel-track::-webkit-scrollbar {
         display: none;
       }
-      .carousel-track img {
-        flex-shrink: 0;
-        width: calc((100% - 16px) / 2);
+      /* Trailing flex spacer guarantees the last screenshot can scroll clear
+         of the right gutter even where a flex scroller drops end padding. */
+      .carousel-track::after {
+        content: "";
+        flex: 0 0 8px;
+      }
+      .carousel-track > .shot-tile {
+        flex: 0 0 100%;
+        min-width: 0;
         height: auto;
+        aspect-ratio: 1054 / 2048;
         border-radius: 20px;
         box-shadow:
           4px 4px 8px rgba(163, 170, 190, 0.45),
@@ -173,19 +185,18 @@
         scroll-snap-align: start;
       }
       @media (min-width: 640px) {
-        .carousel-track img {
-          width: calc((100% - 48px) / 4);
+        .carousel-track > .shot-tile {
+          flex-basis: calc((100% - 16px) / 2);
         }
       }
       @media (min-width: 960px) {
-        .carousel-track img {
-          width: calc((100% - 64px) / 5);
+        .carousel-track > .shot-tile {
+          flex-basis: calc((100% - 32px) / 3);
         }
       }
-      .carousel-btn {
+      .carousel-btn,
+      .carousel-toggle {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
         width: 36px;
         height: 36px;
         border-radius: 50%;
@@ -195,12 +206,34 @@
           3px 3px 6px rgba(163, 170, 190, 0.5),
           -3px -3px 6px rgba(255, 255, 255, 0.7);
         font-size: 18px;
+        line-height: 1;
         color: #5e5e5e;
         cursor: pointer;
         z-index: 2;
         display: none;
+        align-items: center;
+        justify-content: center;
       }
-      .carousel-btn:hover {
+      .carousel-btn {
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .carousel-toggle {
+        top: 28px;
+        right: 28px;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        z-index: 3;
+      }
+      .carousel-btn:hover,
+      .carousel-toggle:hover {
+        color: #3228d0;
+      }
+      .carousel-btn:focus-visible,
+      .carousel-toggle:focus-visible {
+        outline: 2px solid #3228d0;
+        outline-offset: 3px;
         color: #3228d0;
       }
       .carousel-btn.prev {
@@ -209,12 +242,13 @@
       .carousel-btn.next {
         right: 4px;
       }
-      @media (min-width: 640px) {
-        .carousel-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
+      .carousel.is-ready .carousel-btn,
+      .carousel.is-ready .carousel-toggle {
+        display: flex;
+      }
+      .carousel .carousel-btn[hidden],
+      .carousel .carousel-toggle[hidden] {
+        display: none !important;
       }
 
       /* --- Content sections --- */
@@ -448,36 +482,68 @@
 
     <!-- Screenshots: Learn -->
     <section class="carousel-section">
-      <div class="carousel">
-        <button class="carousel-btn prev" aria-label="Previous">&#8249;</button>
+      <div
+        class="carousel"
+        role="group"
+        aria-roledescription="carousel"
+        aria-label="Learn-mode screenshots"
+        data-label-play="Start automatic slideshow"
+        data-label-pause="Pause automatic slideshow"
+        data-slide-label="Screenshot {n} of {total}"
+      >
+        <button
+          class="carousel-btn prev"
+          type="button"
+          aria-label="Previous screenshot"
+        >
+          &#8249;
+        </button>
+        <button
+          class="carousel-toggle"
+          type="button"
+          aria-label="Pause automatic slideshow"
+        >
+          &#9208;
+        </button>
         <div class="carousel-track">
           <img
+            class="shot-tile"
             src="images/cipher-academy/home.jpeg"
             alt="Home screen"
             loading="lazy"
           />
           <img
+            class="shot-tile"
             src="images/cipher-academy/levels-morse.jpeg"
             alt="Morse Code levels"
             loading="lazy"
           />
           <img
+            class="shot-tile"
             src="images/cipher-academy/learn-morse.jpeg"
             alt="Learning Morse Code"
             loading="lazy"
           />
           <img
+            class="shot-tile"
             src="images/cipher-academy/learn-braille.jpeg"
             alt="Learning Braille"
             loading="lazy"
           />
           <img
+            class="shot-tile"
             src="images/cipher-academy/learn-pigpen.jpeg"
-            alt="Learning Pigpen cipher"
+            alt="Learning the Pigpen cipher"
             loading="lazy"
           />
         </div>
-        <button class="carousel-btn next" aria-label="Next">&#8250;</button>
+        <button
+          class="carousel-btn next"
+          type="button"
+          aria-label="Next screenshot"
+        >
+          &#8250;
+        </button>
       </div>
     </section>
 
@@ -495,36 +561,68 @@
 
     <!-- Screenshots: Play -->
     <section class="carousel-section">
-      <div class="carousel">
-        <button class="carousel-btn prev" aria-label="Previous">&#8249;</button>
+      <div
+        class="carousel"
+        role="group"
+        aria-roledescription="carousel"
+        aria-label="Play-mode screenshots"
+        data-label-play="Start automatic slideshow"
+        data-label-pause="Pause automatic slideshow"
+        data-slide-label="Screenshot {n} of {total}"
+      >
+        <button
+          class="carousel-btn prev"
+          type="button"
+          aria-label="Previous screenshot"
+        >
+          &#8249;
+        </button>
+        <button
+          class="carousel-toggle"
+          type="button"
+          aria-label="Pause automatic slideshow"
+        >
+          &#9208;
+        </button>
         <div class="carousel-track">
           <img
+            class="shot-tile"
             src="images/cipher-academy/play-modes.jpeg"
             alt="Play game modes"
             loading="lazy"
           />
           <img
+            class="shot-tile"
             src="images/cipher-academy/decode-words.jpeg"
-            alt="Decode Words game"
+            alt="Word Decode game"
             loading="lazy"
           />
           <img
+            class="shot-tile"
             src="images/cipher-academy/find-the-symbol.jpeg"
-            alt="Find the Symbol game"
+            alt="Symbol Hunt game"
             loading="lazy"
           />
           <img
+            class="shot-tile"
             src="images/cipher-academy/morse-tap.jpeg"
             alt="Morse Tap game"
             loading="lazy"
           />
           <img
+            class="shot-tile"
             src="images/cipher-academy/braille-touch.jpeg"
             alt="Braille Touch game"
             loading="lazy"
           />
         </div>
-        <button class="carousel-btn next" aria-label="Next">&#8250;</button>
+        <button
+          class="carousel-btn next"
+          type="button"
+          aria-label="Next screenshot"
+        >
+          &#8250;
+        </button>
       </div>
     </section>
 
@@ -586,21 +684,243 @@
     </footer>
 
     <script>
-      document.querySelectorAll(".carousel").forEach(function (carousel) {
-        var track = carousel.querySelector(".carousel-track");
-        var prev = carousel.querySelector(".carousel-btn.prev");
-        var next = carousel.querySelector(".carousel-btn.next");
-        var scrollAmount = function () {
-          var img = track.querySelector("img");
-          return img ? img.offsetWidth + 16 : 200;
-        };
-        prev.addEventListener("click", function () {
-          track.scrollBy({ left: -scrollAmount(), behavior: "smooth" });
-        });
-        next.addEventListener("click", function () {
-          track.scrollBy({ left: scrollAmount(), behavior: "smooth" });
-        });
-      });
+      (function () {
+        var reduceMotion =
+          window.matchMedia &&
+          window.matchMedia("(prefers-reduced-motion: reduce)");
+        function rm() {
+          return !!(reduceMotion && reduceMotion.matches);
+        }
+        var AUTOPLAY_MS = 4500;
+        var PLAY_GLYPH = "▶";
+        var PAUSE_GLYPH = "⏸";
+
+        Array.prototype.forEach.call(
+          document.querySelectorAll(".carousel"),
+          function (carousel, index) {
+            var track = carousel.querySelector(".carousel-track");
+            if (!track) return;
+            var prev = carousel.querySelector(".carousel-btn.prev");
+            var next = carousel.querySelector(".carousel-btn.next");
+            var toggle = carousel.querySelector(".carousel-toggle");
+            var slides = Array.prototype.slice.call(
+              track.querySelectorAll(".shot-well, .shot-tile")
+            );
+            if (!slides.length) return;
+
+            var d = carousel.dataset || {};
+            var labelPlay = d.labelPlay || "Play";
+            var labelPause = d.labelPause || "Pause";
+            var slideTpl = d.slideLabel || "{n} / {total}";
+
+            // Only the first carousel on the page auto-rotates, so two moving
+            // regions never compete for attention on the same page.
+            var isOwner = index === 0;
+            var timer = null;
+            var userPaused = false;
+            var hovering = false;
+            var focusWithin = false;
+
+            slides.forEach(function (slide, i) {
+              slide.setAttribute("role", "group");
+              slide.setAttribute("aria-roledescription", "slide");
+              slide.setAttribute(
+                "aria-label",
+                slideTpl
+                  .replace("{n}", String(i + 1))
+                  .replace("{total}", String(slides.length))
+              );
+            });
+
+            function num(v) {
+              var n = parseFloat(v);
+              return isNaN(n) ? 0 : n;
+            }
+            function cs() {
+              return window.getComputedStyle(track);
+            }
+            function padStart() {
+              var s = cs();
+              return num(s.scrollPaddingInlineStart) || num(s.scrollPaddingLeft) || 24;
+            }
+            function maxScroll() {
+              return track.scrollWidth - track.clientWidth;
+            }
+            function fits() {
+              return maxScroll() <= 2;
+            }
+            function atStart() {
+              return track.scrollLeft <= padStart() + 1;
+            }
+            function atEnd() {
+              return track.scrollLeft >= maxScroll() - 1;
+            }
+            function behavior() {
+              return rm() ? "auto" : "smooth";
+            }
+            function pageStep() {
+              var s = cs();
+              var gap = num(s.columnGap || s.gap) || 16;
+              var w = slides[0].getBoundingClientRect().width;
+              var step = w + gap;
+              var per = Math.max(
+                1,
+                Math.round((track.clientWidth - 2 * padStart() + gap) / step)
+              );
+              return per * step;
+            }
+            function go(dir) {
+              track.scrollBy({ left: dir * pageStep(), behavior: behavior() });
+            }
+
+            function setHidden(el, hidden) {
+              if (!el) return;
+              if (hidden) {
+                if (document.activeElement === el) {
+                  var sib = el === prev ? next : el === next ? prev : null;
+                  if (sib && !sib.hasAttribute("hidden")) sib.focus();
+                  else if (el.blur) el.blur();
+                }
+                el.setAttribute("hidden", "");
+              } else {
+                el.removeAttribute("hidden");
+              }
+            }
+
+            function eligible() {
+              return isOwner && !rm() && !fits();
+            }
+            function updateToggleFace() {
+              if (!toggle) return;
+              toggle.setAttribute(
+                "aria-label",
+                userPaused ? labelPlay : labelPause
+              );
+              toggle.textContent = userPaused ? PLAY_GLYPH : PAUSE_GLYPH;
+            }
+            function startTimer() {
+              if (timer) return;
+              timer = window.setInterval(function () {
+                if (atEnd()) track.scrollTo({ left: 0, behavior: behavior() });
+                else track.scrollBy({ left: pageStep(), behavior: behavior() });
+              }, AUTOPLAY_MS);
+            }
+            function stopTimer() {
+              if (timer) {
+                window.clearInterval(timer);
+                timer = null;
+              }
+            }
+            function paintArrows() {
+              var f = fits();
+              setHidden(prev, f || atStart());
+              setHidden(next, f || atEnd());
+            }
+            function refresh() {
+              carousel.classList.add("is-ready");
+              paintArrows();
+              setHidden(toggle, !eligible());
+              if (
+                eligible() &&
+                !userPaused &&
+                !hovering &&
+                !focusWithin &&
+                !document.hidden
+              )
+                startTimer();
+              else stopTimer();
+            }
+
+            if (prev)
+              prev.addEventListener("click", function () {
+                go(-1);
+                userPaused = true;
+                updateToggleFace();
+                refresh();
+              });
+            if (next)
+              next.addEventListener("click", function () {
+                go(1);
+                userPaused = true;
+                updateToggleFace();
+                refresh();
+              });
+            if (toggle)
+              toggle.addEventListener("click", function () {
+                userPaused = !userPaused;
+                updateToggleFace();
+                refresh();
+              });
+
+            // Manual navigation (swipe/wheel/tap) sticks the pause — never
+            // inferred from scroll events, which autoplay also emits.
+            ["wheel", "touchstart", "pointerdown"].forEach(function (ev) {
+              track.addEventListener(
+                ev,
+                function () {
+                  if (!userPaused) {
+                    userPaused = true;
+                    updateToggleFace();
+                    refresh();
+                  }
+                },
+                { passive: true }
+              );
+            });
+
+            carousel.addEventListener("mouseenter", function () {
+              hovering = true;
+              refresh();
+            });
+            carousel.addEventListener("mouseleave", function () {
+              hovering = false;
+              refresh();
+            });
+            carousel.addEventListener("focusin", function () {
+              focusWithin = true;
+              refresh();
+            });
+            carousel.addEventListener("focusout", function () {
+              focusWithin = false;
+              refresh();
+            });
+
+            // Scroll only repaints arrow visibility (idempotent).
+            var ticking = false;
+            track.addEventListener(
+              "scroll",
+              function () {
+                if (ticking) return;
+                ticking = true;
+                window.requestAnimationFrame(function () {
+                  ticking = false;
+                  paintArrows();
+                });
+              },
+              { passive: true }
+            );
+
+            document.addEventListener("visibilitychange", refresh);
+            if (reduceMotion && reduceMotion.addEventListener)
+              reduceMotion.addEventListener("change", function () {
+                updateToggleFace();
+                refresh();
+              });
+
+            if (window.ResizeObserver)
+              new window.ResizeObserver(refresh).observe(track);
+            else window.addEventListener("resize", refresh);
+            slides.forEach(function (slide) {
+              var img =
+                slide.tagName === "IMG" ? slide : slide.querySelector("img");
+              if (img && !img.complete) img.addEventListener("load", refresh);
+            });
+
+            updateToggleFace();
+            refresh();
+          }
+        );
+      })();
     </script>
   </body>
 </html>
